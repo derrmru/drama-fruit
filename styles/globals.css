@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'HipHopper';
+  src: url('../public/fonts/hip_hopper/hip_hopper/@font-face/e28d4e9297e3db1aea3d3142a1e9abe3.woff2') format('woff2'),
+      url('../public/fonts/hip_hopper/hip_hopper/@font-face/e28d4e9297e3db1aea3d3142a1e9abe3.woff') format('woff'),
+      url('../public/fonts/hip_hopper/hip_hopper/@font-face/e28d4e9297e3db1aea3d3142a1e9abe3.ttf') format('truetype');
+}
+
 html,
 body {
   padding: 0;
@@ -8,9 +15,14 @@ body {
 
 a {
   color: inherit;
-  text-decoration: none;
+  text-decoration: underline;
+  display: inline;
 }
 
 * {
   box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'HipHopper' !important;
 }
