@@ -1,3 +1,5 @@
-// netlify.toml
 [build]
   command = "yarn build"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
