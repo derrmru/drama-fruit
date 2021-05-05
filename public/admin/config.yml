@@ -1,8 +1,12 @@
 backend:
   name: git-gateway
   branch: master
+
 media_folder: public/images
 public_folder: images
+logo_url: public/images/drama_fruit_logo.png
+display_url: https://dramafruit.netlify.app
+
 collections:
   - name: "home"
     label: "Home"
