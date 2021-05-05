@@ -1,9 +1,13 @@
 import Head from 'next/head'
+import Image from 'next/image'
 import Layout from '../components/templates/Layout'
+import { attributes } from '../content/map-image-images-dramafruit_01-png.md'
 import { useEffect } from 'react'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
+
+  console.log(attributes)
 
   //re route for invited users
   useEffect(() => {
@@ -29,8 +33,23 @@ export default function Home() {
       </Head>
 
       <Layout>
-
-
+        <div className={styles.imageContainer}>
+          {//map images from CMS
+            Object.keys(attributes).map((image, i) => {
+              return <div
+                key={'homeImage' + i}
+                className={styles.homeImages}
+                >
+                <Image
+                  src={'/' + attributes[image]}
+                  alt="Drama Fruit Logo"
+                  width={"100%"}
+                  height={"100%"}
+                />
+              </div>
+            })
+          }
+        </div>
       </Layout>
 
     </div>
