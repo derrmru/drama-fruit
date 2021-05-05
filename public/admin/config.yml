@@ -16,5 +16,5 @@ collections:
           name: items
           widget: object
           fields:
-            - {label: Name, name: name, widget: string, default: "Emmet"}
-            - {label: Avatar, name: avatar, widget: image, default: "/img/emmet.jpg"}
+            - {label: Name, name: name, widget: string, default: "Home"}
+            - {label: Slug, name: slug, widget: string, default: "/"}
