@@ -1,5 +1,4 @@
 import Navigation from '../Navigation'
-import { navigation } from '../../content/navigation.md'
 import style from './Layout.module.css'
 
 const Layout = ({ children }) => {
