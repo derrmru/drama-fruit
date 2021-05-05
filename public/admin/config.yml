@@ -16,3 +16,12 @@ collections:
     fields:
       - {label: "Image", name: "image", widget: "image"}
       - {label: "Alt Text", name: "alt_text", widget: "string"}
+      - {label: "Image2", name: "image2", widget: "image"}
+      - {label: "Alt Text", name: "alt_text", widget: "string"}
+      - {label: "Image3", name: "image3", widget: "image"}
+      - {label: "Alt Text", name: "alt_text", widget: "string"}
+      - {label: "Image4", name: "image4", widget: "image"}
+      - {label: "Alt Text", name: "alt_text", widget: "string"}
+      - {label: "Image5", name: "image5", widget: "image"}
+      - {label: "Alt Text", name: "alt_text", widget: "string"}
+      

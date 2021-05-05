@@ -34,21 +34,21 @@ export default function Home() {
 
       <Layout>
         <div className={styles.imageContainer}>
-          {//map images from CMS
-            Object.keys(attributes).map((image, i) => {
+          {/*//map images from CMS
+            Object.keys(attributes).map((key, i) => {
               return <div
                 key={'homeImage' + i}
                 className={styles.homeImages}
                 >
                 <Image
                   src={'/' + attributes[image]}
-                  alt="Drama Fruit Logo"
+                  alt={attributes[alt_text] || ''}
                   width={"100%"}
                   height={"100%"}
                 />
               </div>
             })
-          }
+          */}
         </div>
       </Layout>
 
