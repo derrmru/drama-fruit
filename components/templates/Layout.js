@@ -1,13 +1,19 @@
 import Navigation from '../Navigation'
-import { attributes } from '../../content/navigation.md'
+import { navigation } from '../../content/navigation.md'
 import style from './Layout.module.css'
 
 const Layout = ({ children }) => {
-    let { navigation } = attributes;
     return (
         <>
             <Navigation 
-                navItems={navigation}
+                navItems={[
+                    ['Home', '/'],
+                    ['News', '/news'],
+                    ['Drama Shop', '/drama-shop'],
+                    ['About', '/about'],
+                    ['FAQ\'s', '/faq'],
+                    ['Contact', '/contact']
+                ]}
                 />
 
             <main className={style.main}>

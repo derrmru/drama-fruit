@@ -4,17 +4,17 @@ backend:
 media_folder: public/images
 public_folder: images
 collections:
-  - name: "navigation"
-    label: "Navigation"
+  - name: "home"
+    label: "Home"
     files:
-    - label: "navigation"
-      name: "navigation"
-      file: "content/navigation.md"
+    - label: "home"
+      name: "Home"
+      file: "content/home.md"
       widget: "list"
       fields: 
-        - label: Items
-          name: items
+        - label: Images
+          name: images
           widget: object
           fields:
-            - {label: Name, name: name, widget: string, default: "Home"}
-            - {label: Slug, name: slug, widget: string, default: "/"}
+            - { label: Image1, name: image1, widget: image }
+            - { label: Image2, name: image2, widget: image }

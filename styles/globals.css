@@ -5,6 +5,11 @@
       url('../public/fonts/hip_hopper/hip_hopper/@font-face/e28d4e9297e3db1aea3d3142a1e9abe3.ttf') format('truetype');
 }
 
+:root {
+  --main-color: black;
+  --drama-pink: #e83e97;
+}
+
 html,
 body {
   padding: 0;

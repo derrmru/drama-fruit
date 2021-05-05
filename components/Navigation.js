@@ -12,12 +12,14 @@ const Navigation = ({ navItems }) => {
                     <a style={{textDecoration: 'none'}}>
                         <span className={style.headerTitle}>
                             <h1>Drama</h1> 
+                            <div className={style.bannerLogo}>
                             <Image
-                                src="/images/drama_fruit_logo.jpeg"
+                                src="/images/drama_fruit_logo.png"
                                 alt="Drama Fruit Logo"
-                                width={144}
-                                height={112}
+                                width={100}
+                                height={96}
                             />
+                            </div>
                             <h1>Fruit</h1>
                         </span>
                     </a>
@@ -54,7 +56,7 @@ const Navigation = ({ navItems }) => {
             </div>
             <hr className={style.navHR} />
                 <nav className={style.desktopNav}>
-                    {/*
+                    {
                         navItems.map((item, i) => {
                             return <Link 
                                 key={'nav-item' + i} 
@@ -67,7 +69,7 @@ const Navigation = ({ navItems }) => {
                                 </a>
                             </Link>
                         })
-                    */}
+                    }
                 </nav>
             <hr className={style.navHR} />
         </>
