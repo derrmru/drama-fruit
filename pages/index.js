@@ -5,6 +5,7 @@ import styles from '../styles/Home.module.css'
 
 export default function Home() {
 
+  //re route for invited users
   useEffect(() => {
     if (window.netlifyIdentity) {
       window.netlifyIdentity.on("init", user => {
@@ -23,6 +24,7 @@ export default function Home() {
         <title>Drama Fruit</title>
         <meta name="description" content="Fresh Fruit by Marek Kalianko" />
         <link rel="icon" href="/favicon.ico" />
+        {/*netlify cms identity script*/}
         <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
       </Head>
 

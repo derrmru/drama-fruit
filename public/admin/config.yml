@@ -4,12 +4,12 @@ backend:
 media_folder: public/images
 public_folder: images
 collections:
-  - name: "pages"
-    label: "Pages"
+  - navigation: "navigation"
+    label: "Navigation"
     files:
-    - label: "Home"
-      name: "home"
-      file: "content/home.md"
-      fields:
-        - { label: "Navigation", name: "navigation", widget: "array"}
+    - label: "navigation"
+      name: "navigation"
+      file: "content/navigation.md"
+      fields: 
+        - { label: "Navigation", name: "navigation", widget: "list"}
         - { label: "Publish Date", name: "date", widget: "datetime" }
