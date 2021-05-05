@@ -10,10 +10,11 @@ collections:
     - label: "navigation"
       name: "navigation"
       file: "content/navigation.md"
-      widget: "object"
+      widget: "list"
       fields: 
-        - { label: "Item", name: "item", widget: "string" }
-        - { label: "Slug", name: "slug", widget: "string" }
-      default:
-        - { item: "Home", slug: "/" }
-        - { item: "About", slug: "/about" }
+        - label: Items
+          name: items
+          widget: object
+          fields:
+            - {label: Name, name: name, widget: string, default: "Emmet"}
+            - {label: Avatar, name: avatar, widget: image, default: "/img/emmet.jpg"}
