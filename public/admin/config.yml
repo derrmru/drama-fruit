@@ -7,13 +7,10 @@ collections:
   - name: "navigation"
     label: "Navigation"
     files:
-    - label: "navigation"
+    - label: "Navigation"
       name: "navigation"
       file: "content/navigation.md"
-      fields: 
-        - label: "Navigation"
-        name: "navigation"
-        widget: "object"
-        collapsed: true
-        fields:
-          - {label: "Home", name: "home", widget: "string"}
+      widget: "object"
+      collapsed: true
+      fields:
+        {label: "Home", name: "home", widget: "string"}
