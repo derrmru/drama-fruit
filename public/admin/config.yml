@@ -10,7 +10,7 @@ collections:
     - label: "navigation"
       name: "navigation"
       file: "content/navigation.md"
-      widget: "list"
+      widget: "object"
       fields: 
         - { label: "Item", name: "item", widget: "string" }
         - { label: "Slug", name: "slug", widget: "string" }
