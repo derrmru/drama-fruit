@@ -54,7 +54,7 @@ const Navigation = ({ navItems }) => {
             </div>
             <hr className={style.navHR} />
                 <nav className={style.desktopNav}>
-                    {
+                    {/*
                         navItems.map((item, i) => {
                             return <Link 
                                 key={'nav-item' + i} 
@@ -67,7 +67,7 @@ const Navigation = ({ navItems }) => {
                                 </a>
                             </Link>
                         })
-                    }
+                    */}
                 </nav>
             <hr className={style.navHR} />
         </>

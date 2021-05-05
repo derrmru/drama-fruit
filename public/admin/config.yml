@@ -10,8 +10,6 @@ collections:
     - label: "navigation"
       name: "navigation"
       file: "content/navigation.md"
-      widget: "object"
-      collapsed: true
       fields: 
-        - { label: "Home", name: "home", widget: "list"}
+        - { label: "Navigation", name: "navigation", widget: "markdown"}
         - { label: "Publish Date", name: "date", widget: "datetime" }
