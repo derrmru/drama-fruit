@@ -10,7 +10,4 @@ collections:
     - label: "Navigation"
       name: "navigation"
       file: "content/navigation.md"
-      widget: "object"
-      collapsed: true
-      fields:
-        {label: "Home", name: "home", widget: "string"}
+      fields: 
