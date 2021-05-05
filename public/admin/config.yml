@@ -10,6 +10,10 @@ collections:
     - label: "navigation"
       name: "navigation"
       file: "content/navigation.md"
+      widget: "list"
       fields: 
-        - { label: "Navigation", name: "navigation", widget: "list", default: ['Home', '/']}
-        - { label: "Publish Date", name: "date", widget: "datetime" }
+        - { label: "Item", name: "item", widget: "string" }
+        - { label: "Slug", name: "slug", widget: "string" }
+      default:
+        - { item: "Home", slug: "/" }
+        - { item: "About", slug: "/about" }
