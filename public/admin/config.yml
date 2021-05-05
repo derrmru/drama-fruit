@@ -13,8 +13,5 @@ collections:
     folder: "content"
     create: true
       fields:
-        - { label: Image1, name: image1, widget: image }
-        - { label: Image2, name: image2, widget: image }
-        - { label: Image3, name: image3, widget: image }
-        - { label: Image4, name: image4, widget: image }
-        - { label: Image5, name: image5, widget: image }
+        - { label: 'Image1', name: 'image1', widget: 'image' }
+        - { label: 'Image2', name: 'image2', widget: 'image' }
