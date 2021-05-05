@@ -4,7 +4,7 @@ backend:
 media_folder: public/images
 public_folder: images
 collections:
-  - navigation: "navigation"
+  - name: "navigation"
     label: "Navigation"
     files:
     - label: "navigation"
