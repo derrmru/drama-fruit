@@ -9,8 +9,26 @@
 
 .homeImages {
     width: 45%;
+    box-sizing: border-box;
+    border: 1px dashed var(--drama-yellow);
     margin: 20px 0;
+    padding: 20px;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
+    cursor: pointer;
+}
+
+.cardHr {
+    text-align: center;
+    width: 70%;
+    margin: inherit auto;
+    height: 1px;
+}
+
+.imageSubtitle {
+    width: 100%;
+    text-align: center;
+    margin: 5px 0 10px;
 }

@@ -38,12 +38,14 @@ export default function Home() {
           {//map images from CMS
             Object.keys(attributes)
               .filter((item) => {
-                return item.indexOf('alt') < 0
+                return item.indexOf('alt') < 0 &&
+                item.indexOf('subtitle') < 0 &&
+                item.indexOf('price') < 0
               })
               .map((image, i) => {
                 return <div
                   key={'homeImage' + i}
-                  className={styles.homeImages}
+                  className={styles.homeImages + ' fade-in'}
                   >
                   <Image
                     src={'/' + attributes[image]}
@@ -51,9 +53,12 @@ export default function Home() {
                     width={"100%"}
                     height={"100%"}
                   />
+                  <p className={styles.imageSubtitle + ' ' + styles.subTop}>
+                    <hr className={styles.cardHr} />
+                    {attributes[image + '_subtitle']}
+                  </p>
                   <p className={styles.imageSubtitle}>
-                      {attributes[image + '_subtitle']} <br />
-                      {attributes[image + '_price']}
+                    €{attributes[image + '_price']}
                   </p>
                 </div>
               })

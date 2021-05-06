@@ -38,3 +38,16 @@ collections:
       - {label: "Alt Text", name: "image6_alt", widget: "string"}
       - {label: "Subtitle", name: "image6_subtitle", widget: "string"}
       - {label: "Price", name: "image6_price", widget: "string"}
+  
+  - name: "products"
+    label: "Products"
+    label_singular: "Product"
+    folder: "content/products"
+    create: true
+    fields:
+      - {label: "Name", name: "product_name", widget: "string"}
+      - {label: "Description", name: "product_description", widget: "markdown"}
+      - {label: "Image", name: "product_image", widget: "image"}
+      - {label: "Image Alt Text", name: "product_image_alt", widget: "string"}
+      - {label: "Price", name: "product_price", widget: "number"}
+      - {label: "URL", name: "product_slug", widget: "string"}
