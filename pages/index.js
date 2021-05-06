@@ -35,7 +35,11 @@ export default function Home() {
       <Layout>
         <div className={styles.imageContainer}>
           {//map images from CMS
-            Object.keys(attributes).filter((item) => item.indexOf('image') > 0).map((image, i) => {
+            Object.keys(attributes).filter((item) => {
+              console.log(item)
+              return item.indexOf('alt') < 0
+            }).map((image, i) => {
+              console.log(image)
               return <div
                 key={'homeImage' + i}
                 className={styles.homeImages}
