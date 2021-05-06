@@ -52,7 +52,8 @@ export default function Home() {
                     height={"100%"}
                   />
                   <p className={styles.imageSubtitle}>
-                      {attributes[image + '_subtitle']}
+                      {attributes[image + '_subtitle']} <br />
+                      {attributes[image + '_price']}
                   </p>
                 </div>
               })
