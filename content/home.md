@@ -1,5 +1,4 @@
 ---
-alt_text: second test
 image: images/drama_fruit_logo.png
 alt_text_1: tirla 1
 image2: images/drama_fruit_logo.jpeg

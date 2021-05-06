@@ -14,8 +14,11 @@ collections:
     folder: "content"
     create: true
     fields:
-      - {label: "Image", name: "image", widget: "image"}
-      - {label: "Alt Text 1", name: "alt_text_1", widget: "string"}
+      - {
+          label: "First Image", name: "first_image", widget: "object", fields:
+            - {label: "Image", name: "image", widget: "image"}
+            - {label: "Alt Text", name: "alt_text", widget: "string"}
+        }
       - {label: "Image2", name: "image2", widget: "image"}
       - {label: "Alt Text 2", name: "alt_text_2", widget: "string"}
       - {label: "Image3", name: "image3", widget: "image"}

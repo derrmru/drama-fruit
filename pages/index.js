@@ -1,12 +1,13 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import { attributes } from '../content/home.md'
 import Layout from '../components/templates/Layout'
 import { useEffect } from 'react'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
 
-  //console.log(attributes)
+  console.log(attributes)
 
   //re route for invited users
   useEffect(() => {
