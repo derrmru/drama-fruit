@@ -33,6 +33,7 @@ export default function Home() {
       </Head>
 
       <Layout>
+        <h2 style={{textAlign: 'center'}}>Fresh Fruit</h2>
         <div className={styles.imageContainer}>
           {//map images from CMS
             Object.keys(attributes)
