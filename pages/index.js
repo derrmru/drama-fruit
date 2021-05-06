@@ -35,23 +35,26 @@ export default function Home() {
       <Layout>
         <div className={styles.imageContainer}>
           {//map images from CMS
-            Object.keys(attributes).filter((item) => {
-              console.log(item)
-              return item.indexOf('alt') < 0
-            }).map((image, i) => {
-              console.log(image)
-              return <div
-                key={'homeImage' + i}
-                className={styles.homeImages}
-                >
-                <Image
-                  src={'/' + attributes[image]}
-                  alt={attributes[image + '_alt'] || ''}
-                  width={"100%"}
-                  height={"100%"}
-                />
-              </div>
-            })
+            Object.keys(attributes)
+              .filter((item) => {
+                return item.indexOf('alt') < 0
+              })
+              .map((image, i) => {
+                return <div
+                  key={'homeImage' + i}
+                  className={styles.homeImages}
+                  >
+                  <Image
+                    src={'/' + attributes[image]}
+                    alt={attributes[image + '_alt'] || ''}
+                    width={"100%"}
+                    height={"100%"}
+                  />
+                  <p className={styles.imageSubtitle}>
+                      {attributes[image + '_subtitle']}
+                  </p>
+                </div>
+              })
           }
         </div>
       </Layout>
