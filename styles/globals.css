@@ -12,6 +12,11 @@
   --drama-yellow: #fabe12;
 }
 
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
 html,
 body {
   padding: 0;

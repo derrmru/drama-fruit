@@ -36,18 +36,26 @@
     cursor: pointer;
 }
 
+@media (hover:hover) {
+    .exitCross:hover {
+        color: var(--drama-green);
+    }
+}
+
 .basket {
     position: fixed;
     top: 0;
     right: 0;
     z-index: 10;
     width: 250px;
-    background-color: #fffffff3;
+    background-color: #fffffff8;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    overflow-y: scroll;
+    max-height: 100vh;
 }
 
 .basketItem {
@@ -90,4 +98,38 @@
     .itemCross:hover {
         color: var(--drama-green);
     }
+}
+
+.incrementContain {
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+.incrementButton {
+    cursor: pointer;
+}
+
+@media (hover:hover) {
+    .incrementButton:hover {
+        color: var(--drama-green);
+    }
+}
+
+.checkContain {
+    margin: 20px 0;
+    width: 100%;
+}
+
+.checkout {
+    width: 100%;
+    margin: 20px auto;
+    border: none;
+    background-color: var(--drama-green);
+    color: var(--drama-yellow);
+    padding: 10px 20px;
+    box-sizing: border-box;
+    text-decoration: none;
 }

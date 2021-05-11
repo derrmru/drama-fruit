@@ -1,6 +1,7 @@
 import { useState, useContext, useEffect } from 'react'
 import { ShoppingContext } from '../src/context/shoppingCart'
 import Image from 'next/image'
+import Link from 'next/link'
 import style from './Cart.module.css'
 
 const Cart = () => {
@@ -19,8 +20,15 @@ const Cart = () => {
         itemsSetter(obj)
     }
 
+    //increment or decrement
+    const inc = (item, direction) => {
+        let obj = {...items};
+        obj[item]['number'] = Number(obj[item]['number']) + direction
+        itemsSetter(obj)
+    }
+
     useEffect(() => {
-        cartLength < 1 && setShow(false)
+        if (show) cartLength < 1 && setShow(false)
     })
 
     return (
@@ -31,7 +39,7 @@ const Cart = () => {
                 </div>
             }
             <svg
-                onClick={() => setShow(!show)}
+                onClick={() => cartLength > 0 && setShow(!show)}
                 className={style.icon}
                 viewBox="0 -2 34 32"
                 width="40"
@@ -68,6 +76,21 @@ const Cart = () => {
                                     <div className={style.basketItemText}>
                                         <div className={style.basketItemTitle}>{item}</div>
                                         <div>€{items[item]['price']}</div>
+                                        <div className={style.incrementContain}> 
+                                            <div 
+                                                className={style.incrementButton}
+                                                onClick={() => items[item]['number'] > 1 && inc(item, -1)}
+                                                >
+                                                    -
+                                            </div>
+                                            <div>{items[item]['number']}</div>
+                                            <div 
+                                                className={style.incrementButton}
+                                                onClick={() => inc(item, 1)}
+                                                >
+                                                    +
+                                            </div>
+                                        </div>
                                     </div>
                                     <div 
                                         className={style.itemCross}
@@ -82,9 +105,16 @@ const Cart = () => {
                         <div 
                             className={style.basketTotal}
                             >
-                            <h4>TOTAL: €{Object.keys(items).reduce((total, item) => total += Number(items[item]['price']), 0)}</h4>
+                            <h4>TOTAL: €{Object.keys(items).reduce((total, item) => total += (Number(items[item]['price']) * Number(items[item]['number'])), 0)}</h4>
                         </div>
                         <hr />
+                        <div className={style.checkContain}>
+                        <Link href="/checkout" width="100%">
+                            <a className={style.checkout} style={{width: '100%'}}>
+                                CHECKOUT
+                            </a>
+                        </Link>
+                        </div>
                     </div>
                 </div>
             }

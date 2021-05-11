@@ -38,6 +38,7 @@ collections:
       - {label: "Alt Text", name: "image6_alt", widget: "string"}
       - {label: "Subtitle", name: "image6_subtitle", widget: "string"}
       - {label: "Price", name: "image6_price", widget: "string"}
+      - {label: "Product", name: "home_product", widget: "relation", collection: "products", search_fields: ["product_name"]}
   
   - name: "products"
     label: "Products"
@@ -51,3 +52,4 @@ collections:
       - {label: "Image Alt Text", name: "product_image_alt", widget: "string"}
       - {label: "Price", name: "product_price", widget: "number"}
       - {label: "URL", name: "product_slug", widget: "string"}
+      - {label: "Stock", name: "product_stock", width: "number"}
