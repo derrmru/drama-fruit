@@ -38,7 +38,7 @@ collections:
       - {label: "Alt Text", name: "image6_alt", widget: "string"}
       - {label: "Subtitle", name: "image6_subtitle", widget: "string"}
       - {label: "Price", name: "image6_price", widget: "string"}
-      - {label: "Product", name: "home_product", widget: "relation", collection: "products", search_fields: ["product_name"], value_field: "products.*", display_fields: ["product_name"]}
+      - {label: "Product", name: "home_product", widget: "relation", collection: "products", search_fields: ["product_name"], value_field: "product_name", display_fields: ["product_name"]}
   
   - name: "products"
     label: "Products"
