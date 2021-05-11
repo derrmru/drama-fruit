@@ -10,6 +10,18 @@ export default function Home() {
   //shopping cart context
   const { items, itemsSetter } = useContext(ShoppingContext)
 
+  //Update shopping cart context
+  function setCart(image) {
+    let obj = {...items};
+    const key = attributes[image + '_subtitle'];
+    const value = {
+      price: attributes[image + '_price'],
+      image: attributes[image]
+    };
+    obj[key] = value
+    itemsSetter(obj)
+  }
+
   //re route for invited users
   useEffect(() => {
     if (window.netlifyIdentity) {
@@ -22,18 +34,6 @@ export default function Home() {
       });
     }
   })
-
-  //setCart
-  function setCart(image) {
-    let obj = {...items};
-    const key = attributes[image + '_subtitle'];
-    const value = {
-      price: attributes[image + '_price'],
-      image: attributes[image]
-    };
-    obj[key] = value
-    itemsSetter(obj)
-  }
 
   return (
     <div className={styles.container}>
@@ -64,8 +64,8 @@ export default function Home() {
                   <Image
                     src={'/' + attributes[image]}
                     alt={attributes[image + '_alt'] || ''}
-                    width={"100%"}
-                    height={"100%"}
+                    width={"200px"}
+                    height={"200px"}
                   />
                   <hr className={styles.cardHr} />
                   <p className={styles.imageSubtitle + ' ' + styles.subTop}>
