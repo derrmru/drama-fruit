@@ -23,4 +23,5 @@ image6: images/dramafruit_05.png
 image6_alt: Alt Text Test
 image6_subtitle: Saucy Neck Decoration
 image6_price: "500"
+home_product: Bangin' Bowtie - Green
 ---
