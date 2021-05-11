@@ -2,12 +2,13 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { attributes } from '../content/home.md'
 import Layout from '../components/templates/Layout'
-import { useEffect } from 'react'
+import { useEffect, useContext } from 'react'
+import { ShoppingContext } from '../src/context/shoppingCart'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
-
-  console.log(attributes)
+  //shopping cart context
+  const { items, itemsSetter } = useContext(ShoppingContext)
 
   //re route for invited users
   useEffect(() => {
@@ -22,6 +23,18 @@ export default function Home() {
     }
   })
 
+  //setCart
+  function setCart(image) {
+    let obj = {...items};
+    const key = attributes[image + '_subtitle'];
+    const value = {
+      price: attributes[image + '_price'],
+      image: attributes[image]
+    };
+    obj[key] = value
+    itemsSetter(obj)
+  }
+
   return (
     <div className={styles.container}>
       <Head>
@@ -33,28 +46,29 @@ export default function Home() {
       </Head>
 
       <Layout>
-        <h2 style={{textAlign: 'center'}}>Fresh Fruit</h2>
+        <h2 style={{ textAlign: 'center' }}>Fresh Fruit</h2>
         <div className={styles.imageContainer}>
           {//map images from CMS
             Object.keys(attributes)
               .filter((item) => {
                 return item.indexOf('alt') < 0 &&
-                item.indexOf('subtitle') < 0 &&
-                item.indexOf('price') < 0
+                  item.indexOf('subtitle') < 0 &&
+                  item.indexOf('price') < 0
               })
               .map((image, i) => {
                 return <div
                   key={'homeImage' + i}
                   className={styles.homeImages + ' fade-in'}
-                  >
+                  onClick={() => setCart(image)}
+                >
                   <Image
                     src={'/' + attributes[image]}
                     alt={attributes[image + '_alt'] || ''}
                     width={"100%"}
                     height={"100%"}
                   />
+                  <hr className={styles.cardHr} />
                   <p className={styles.imageSubtitle + ' ' + styles.subTop}>
-                    <hr className={styles.cardHr} />
                     {attributes[image + '_subtitle']}
                   </p>
                   <p className={styles.imageSubtitle}>

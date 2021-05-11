@@ -21,11 +21,26 @@
 
 .iconsContainer {
     width: 15%;
-    text-align: right;
+    height: 100px;
+    max-width: 90px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.cartOverlay {
+    height: 50%;
+    position: relative;
+    width: 50%;
+    text-align: center;
 }
 
 .icon {
     cursor: pointer;
+    position: absolute;
+    top: 10%;
+    right: 0;
 }
 
 .desktopNav {
@@ -65,4 +80,12 @@
 .desktopNav > a {
     text-decoration: none;
     margin: 0;
+}
+
+@media only screen and (max-width: 600px) {
+    .iconsContainer {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
 }

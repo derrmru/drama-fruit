@@ -1,0 +1,93 @@
+.cartOverlay {
+    height: 50%;
+    position: relative;
+    width: 50%;
+    text-align: center;
+}
+
+.icon {
+    cursor: pointer;
+    position: absolute;
+    top: 10%;
+    right: 0;
+}
+
+.itemNo {
+    position: absolute;
+    border-radius: 50%;
+    top: 0;
+    right: 0;
+    background-color: red;
+    color: white;
+    width: 16px;
+    height: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    font-size: 11px;
+}
+
+.exitCross {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    cursor: pointer;
+}
+
+.basket {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    width: 250px;
+    background-color: #fffffff3;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.basketItem {
+    width: 80%;
+}
+
+.item {
+    position: relative;
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px dashed black;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: left;
+    cursor: pointer;
+}
+
+.basketItemText {
+    margin: 0 0 0 10px;
+    font-size: 14px;
+}
+
+.basketTotal {
+    width: 100%;
+    text-align: center;
+}
+
+.itemCross {
+    position: absolute;
+    top: 2px;
+    right: 4px;
+    font-size: 11px;
+}
+
+@media (hover:hover) {
+    .itemCross:hover {
+        color: var(--drama-green);
+    }
+}
