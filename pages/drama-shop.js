@@ -35,6 +35,18 @@ const DramaShop = ({ allProducts }) => {
     //product pagination
     const [page, setPage] = useState(0);
     const productsPerPage = 6;
+    const incUp = () => {
+        if (page < allProducts.length - productsPerPage) {
+            setPage(page + productsPerPage)
+            window.scrollTo({top: 100, behavior: 'smooth'});
+        }
+    }
+    const incDown = () => {
+        if (page >= productsPerPage) {
+            window.scrollTo({top: 100, behavior: 'smooth'});
+            setPage(page - productsPerPage)
+        }
+    }
 
     return (
         <div className={styles.container}>
@@ -53,12 +65,15 @@ const DramaShop = ({ allProducts }) => {
                                 key={'shopItem' + i}
                                 className={styles.homeImages + ' fade-in'}
                             >
-                                <Image
-                                    src={'/' + item.product_image}
-                                    alt={item.product_image_alt || ''}
-                                    width={"180px"}
-                                    height={"180px"}
-                                />
+                                <div style={{width: '90%'}}>
+                                    <Image
+                                        src={'/' + item.product_image}
+                                        alt={item.product_image_alt || ''}
+                                        layout="responsive"
+                                        width={"260"}
+                                        height={"260"}
+                                    />
+                                </div>
                                 <hr className={styles.cardHr} />
                                 <p className={styles.imageSubtitle + ' ' + styles.subTop}>
                                     {item.product_name}
@@ -81,12 +96,12 @@ const DramaShop = ({ allProducts }) => {
                 {
                     allProducts.length > productsPerPage && <div className={styles.pageButtons}>
                         <button
-                            onClick={() => page >= productsPerPage && setPage(page - productsPerPage)}
+                            onClick={() => incDown()}
                             >
                             Previous
                         </button>
                         <button
-                            onClick={() => page < allProducts.length - productsPerPage && setPage(page + productsPerPage)}
+                            onClick={() => incUp()}
                         >
                             Next
                         </button>

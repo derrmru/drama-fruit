@@ -67,11 +67,14 @@ const Cart = () => {
                                     key={'cartItem' + i}
                                     className={style.item}
                                     >
-                                    <Image
-                                        src={'/' + items[item]['image']}
-                                        width={"50%"}
-                                        height={"50%"}
-                                    />
+                                    <div style={{width: '30%'}}>
+                                        <Image
+                                            src={'/' + items[item]['image']}
+                                            layout="responsive"
+                                            width={"50%"}
+                                            height={"50%"}
+                                        />
+                                    </div>
                                     <div className={style.basketItemText}>
                                         <div className={style.basketItemTitle}>{item}</div>
                                         <div>€{items[item]['price']}</div>

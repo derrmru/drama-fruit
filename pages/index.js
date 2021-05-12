@@ -27,7 +27,7 @@ export default function Home({ allProducts }) {
       </Head>
       <Layout>
         <h2 style={{ textAlign: 'center', margin: '40px 0' }}>Fresh Fruit!</h2>
-        <div className={style.homeProductsContainer}>
+        <div className={style.homeProductsContainer + ' fade-in'}>
           {//fetch the selected products to showcase on the homepage
             allProducts.filter(item => Object.values(attributes).indexOf(item.product_name) >= 0).map((item, i) => {
               return <div
@@ -37,8 +37,8 @@ export default function Home({ allProducts }) {
                 <Image
                   src={'/' + item.product_image}
                   alt={item.product_image_alt || ''}
-                  width={"200px"}
-                  height={"200px"}
+                  width={"300"}
+                  height={"300"}
                 />
                 <div>{item.product_name}</div>
                 <div>€{item.product_price}</div>

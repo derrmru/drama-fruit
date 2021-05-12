@@ -1,5 +1,3 @@
-import { useContext, useEffect } from 'react'
-import { ShoppingContext } from '../src/context/shoppingCart'
 import Cart from './Cart'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -8,20 +6,21 @@ import style from './Navigation.module.css'
 const Navigation = ({ navItems }) => {
     return (
         <>
-            <div className={style.logoTitleIcons}>
+            <div className={style.logoTitleIcons + ' fade-in'}>
                 <div className={style.iconsContainer}></div>
                 
                 <Link href="/">
                     <a style={{textDecoration: 'none'}}>
                         <span className={style.headerTitle}>
                             <h1>Drama</h1> 
-                            <div className={style.bannerLogo}>
-                            <Image
-                                src="/images/drama_fruit_logo.png"
-                                alt="Drama Fruit Logo"
-                                width={100}
-                                height={96}
-                            />
+                            <div style={{width: '100px'}} className={style.bannerLogo}>
+                                <Image
+                                    src="/images/drama_fruit_logo.png"
+                                    alt="Drama Fruit Logo"
+                                    layout="responsive"
+                                    width={"100"}
+                                    height={"96"}
+                                />
                             </div>
                             <h1>Fruit</h1>
                         </span>
