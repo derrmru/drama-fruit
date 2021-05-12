@@ -70,6 +70,7 @@ const DramaShop = ({ allProducts }) => {
                                         src={'/' + item.product_image}
                                         alt={item.product_image_alt || ''}
                                         layout="responsive"
+                                        objectFit="contain"
                                         width={"260"}
                                         height={"260"}
                                     />

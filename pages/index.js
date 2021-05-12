@@ -37,8 +37,10 @@ export default function Home({ allProducts }) {
                 <Image
                   src={'/' + item.product_image}
                   alt={item.product_image_alt || ''}
-                  width={"300"}
-                  height={"300"}
+                  layout="responsive"
+                  objectFit="contain"
+                  width={"200"}
+                  height={"200"}
                 />
                 <div>{item.product_name}</div>
                 <div>€{item.product_price}</div>
