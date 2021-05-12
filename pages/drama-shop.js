@@ -45,14 +45,13 @@ const DramaShop = ({ allProducts }) => {
             </Head>
 
             <Layout>
-                <h2 style={{ textAlign: 'center' }}>Fresh Fruit</h2>
+                <h2 style={{ textAlign: 'center', margin: '40px 0 20px' }}>Drama Shop</h2>
                 <div className={styles.imageContainer}>
                     {//map products from CMS
                         allProducts.slice(page, page + productsPerPage).map((item, i) => {
                             return <div
                                 key={'shopItem' + i}
                                 className={styles.homeImages + ' fade-in'}
-                                onClick={() => setCart(item)}
                             >
                                 <Image
                                     src={'/' + item.product_image}
@@ -67,6 +66,14 @@ const DramaShop = ({ allProducts }) => {
                                 <p className={styles.imageSubtitle}>
                                     €{item.product_price}
                                 </p>
+                                <div className={styles.atcContainer}>
+                                    <button
+                                        onClick={() => setCart(item)}
+                                        className={styles.addToCart}
+                                        >
+                                            Add To Cart
+                                    </button>
+                                </div>
                             </div>
                         })
                     }

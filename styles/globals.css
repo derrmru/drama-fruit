@@ -1,8 +1,11 @@
 @font-face {
-  font-family: 'HipHopper';
-  src: url('../public/fonts/hip_hopper/hip_hopper/@font-face/e28d4e9297e3db1aea3d3142a1e9abe3.woff2') format('woff2'),
-      url('../public/fonts/hip_hopper/hip_hopper/@font-face/e28d4e9297e3db1aea3d3142a1e9abe3.woff') format('woff'),
-      url('../public/fonts/hip_hopper/hip_hopper/@font-face/e28d4e9297e3db1aea3d3142a1e9abe3.ttf') format('truetype');
+  font-family: "HipHopper";
+  src: url("../public/fonts/hip_hopper/hip_hopper/@font-face/e28d4e9297e3db1aea3d3142a1e9abe3.woff2")
+      format("woff2"),
+    url("../public/fonts/hip_hopper/hip_hopper/@font-face/e28d4e9297e3db1aea3d3142a1e9abe3.woff")
+      format("woff"),
+    url("../public/fonts/hip_hopper/hip_hopper/@font-face/e28d4e9297e3db1aea3d3142a1e9abe3.ttf")
+      format("truetype");
 }
 
 :root {
@@ -21,8 +24,14 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: 'HipHopper', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: "HipHopper", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background-image: url("../public/images/background.svg");
+  background-color: rgba(255, 255, 255, 0.9);
+  background-blend-mode: color;
+  background-size: 100%;
+  background-attachment: fixed;
+  background-position: center;
 }
 
 a {
@@ -40,12 +49,13 @@ button {
   border: none;
   background-color: var(--drama-green);
   color: var(--drama-yellow);
-  font-family: 'HipHopper';
+  font-family: "HipHopper";
   font-size: 18px;
-  transition: .4s;
+  transition: 0.4s;
+  padding: 10px 20px;
 }
 
-@media (hover:hover) {
+@media (hover: hover) {
   button:hover {
     background-color: var(--drama-yellow);
     color: var(--drama-pink);

@@ -3,34 +3,48 @@
     margin: auto;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start;
     flex-wrap: wrap;
 }
 
 .homeImages {
-    width: 48%;
+    width: calc(100% / 3 - 2%);
     box-sizing: border-box;
-    border: 1px dashed var(--drama-yellow);
-    margin: 20px 0;
+    border: 1px dashed var(--drama-green);
+    margin: 20px 1%;
     padding: 20px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
-    cursor: pointer;
 }
 
 .cardHr {
     text-align: center;
-    width: 70%;
-    margin: inherit auto;
+    width: 90%;
+    margin: 20px auto 10px auto;
     height: 1px;
 }
 
 .imageSubtitle {
-    width: 100%;
-    text-align: center;
-    margin: 5px 0 10px;
+    width: 90%;
+    text-align: left;
+    margin: 5px 0 5px;
+    padding-left: 5px;
+}
+
+.atcContainer {
+    width: 89%;
+    text-align: left;
+    margin: 5px 0 0 0;
+}
+
+.addToCart {
+    font-size: 14px;
+    background-color: var(--drama-pink);
+    color: var(--drama-yellow);
+    margin-top: 5px;
+    padding: 8px 20px;
 }
 
 .pageButtons {
@@ -43,8 +57,8 @@
 }
 
 .pageButtons > button {
-    width: 50%;
-    margin: 20px 10px;
+    width: 48%;
+    margin: 20px 1%;
     padding: 10px 20px;
     box-sizing: border-box;
 }

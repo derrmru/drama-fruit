@@ -69,12 +69,13 @@ const Cart = () => {
                                     >
                                     <Image
                                         src={'/' + items[item]['image']}
-                                        width={"40%"}
-                                        height={"40%"}
+                                        width={"50%"}
+                                        height={"50%"}
                                     />
                                     <div className={style.basketItemText}>
                                         <div className={style.basketItemTitle}>{item}</div>
                                         <div>€{items[item]['price']}</div>
+                                        <hr />
                                         <div className={style.incrementContain}> 
                                             <div 
                                                 className={style.incrementButton}

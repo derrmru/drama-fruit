@@ -26,7 +26,7 @@ export default function Home({ allProducts }) {
         <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
       </Head>
       <Layout>
-        <h2 style={{ textAlign: 'center' }}>Fresh Fruit!</h2>
+        <h2 style={{ textAlign: 'center', margin: '40px 0' }}>Fresh Fruit!</h2>
         <div className={style.homeProductsContainer}>
           {//fetch the selected products to showcase on the homepage
             allProducts.filter(item => Object.values(attributes).indexOf(item.product_name) >= 0).map((item, i) => {
