@@ -29,7 +29,7 @@ body {
   background-image: url("../public/images/background.svg");
   background-color: rgba(255, 255, 255, 0.9);
   background-blend-mode: color;
-  background-size: 100%;
+  background-size: cover;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
