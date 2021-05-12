@@ -11,7 +11,6 @@ const Cart = () => {
     //cart context
     const { items, itemsSetter } = useContext(ShoppingContext)
     const cartLength = Object.keys(items).length;
-    console.log(items)
 
     //delete item from cart
     const deleteItem = (item) => {

@@ -14,39 +14,59 @@ collections:
     folder: "content"
     create: true
     fields:
-      - {label: "Image", name: "image", widget: "image"}
-      - {label: "Alt Text", name: "image_alt", widget: "string"}
-      - {label: "Subtitle", name: "image_subtitle", widget: "string"}
-      - {label: "Price", name: "image_price", widget: "string"}
-      - {label: "Image2", name: "image2", widget: "image"}
-      - {label: "Alt Text", name: "image2_alt", widget: "string"}
-      - {label: "Subtitle", name: "image2_subtitle", widget: "string"}
-      - {label: "Price", name: "image2_price", widget: "string"}
-      - {label: "Image3", name: "image3", widget: "image"}
-      - {label: "Alt Text", name: "image3_alt", widget: "string"}
-      - {label: "Subtitle", name: "image3_subtitle", widget: "string"}
-      - {label: "Price", name: "image3_price", widget: "string"}
-      - {label: "Image4", name: "image4", widget: "image"}
-      - {label: "Alt Text", name: "image4_alt", widget: "string"}
-      - {label: "Subtitle", name: "image4_subtitle", widget: "string"}
-      - {label: "Price", name: "image4_price", widget: "string"}
-      - {label: "Image5", name: "image5", widget: "image"}
-      - {label: "Alt Text", name: "image5_alt", widget: "string"}
-      - {label: "Subtitle", name: "image5_subtitle", widget: "string"}
-      - {label: "Price", name: "image5_price", widget: "string"}
-      - {label: "Image6", name: "image6", widget: "image"}
-      - {label: "Alt Text", name: "image6_alt", widget: "string"}
-      - {label: "Subtitle", name: "image6_subtitle", widget: "string"}
-      - {label: "Price", name: "image6_price", widget: "string"}
       - {
-          label: "Product", 
-          name: "home_product", 
+          label: "Home Showcase 1", 
+          name: "home_showcase_1", 
           widget: "relation", 
           collection: "products", 
           search_fields: ["product_name"], 
           value_field: "product_name", 
           display_fields: ["product_name"],
-          multiple: true
+        }
+      - {
+          label: "Home Showcase 2", 
+          name: "home_showcase_2", 
+          widget: "relation", 
+          collection: "products", 
+          search_fields: ["product_name"], 
+          value_field: "product_name", 
+          display_fields: ["product_name"],
+        }
+      - {
+          label: "Home Showcase 3", 
+          name: "home_showcase_3", 
+          widget: "relation", 
+          collection: "products", 
+          search_fields: ["product_name"], 
+          value_field: "product_name", 
+          display_fields: ["product_name"],
+        }
+      - {
+          label: "Home Showcase 4", 
+          name: "home_showcase_4", 
+          widget: "relation", 
+          collection: "products", 
+          search_fields: ["product_name"], 
+          value_field: "product_name", 
+          display_fields: ["product_name"],
+        }
+      - {
+          label: "Home Showcase 5", 
+          name: "home_showcase_5", 
+          widget: "relation", 
+          collection: "products", 
+          search_fields: ["product_name"], 
+          value_field: "product_name", 
+          display_fields: ["product_name"],
+        }
+      - {
+          label: "Home Showcase 6", 
+          name: "home_showcase_6", 
+          widget: "relation", 
+          collection: "products", 
+          search_fields: ["product_name"], 
+          value_field: "product_name", 
+          display_fields: ["product_name"],
         }
   
   - name: "products"
