@@ -132,4 +132,12 @@
     padding: 10px 20px;
     box-sizing: border-box;
     text-decoration: none;
+    transition: .4s;
+}
+
+@media (hover:hover) {
+    .checkout:hover {
+        background-color: var(--drama-yellow);
+        color: var(--drama-pink);
+    }
 }

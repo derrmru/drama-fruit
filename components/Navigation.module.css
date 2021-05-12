@@ -17,6 +17,7 @@
 .bannerLogo {
     margin: 0 10px;
     padding: 10px;
+    width: 40%;
 }
 
 .iconsContainer {
@@ -83,9 +84,15 @@
 }
 
 @media only screen and (max-width: 600px) {
+    .headerTitle > h1 {
+        font-size: 20px;
+    }
     .iconsContainer {
         flex-direction: column;
         align-items: center;
         justify-content: center;
+    }
+    .desktopNav {
+        font-size: 16px;
     }
 }

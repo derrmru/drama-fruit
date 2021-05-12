@@ -1,0 +1,47 @@
+.imageContainer {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.homeImages {
+    width: 48%;
+    box-sizing: border-box;
+    border: 1px dashed var(--drama-yellow);
+    margin: 20px 0;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.cardHr {
+    text-align: center;
+    width: 70%;
+    margin: inherit auto;
+    height: 1px;
+}
+
+.imageSubtitle {
+    width: 100%;
+    text-align: center;
+    margin: 5px 0 10px;
+}
+
+.pageButtons {
+    width: 70%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+}
+
+.pageButtons > button {
+    flex-grow: 2;
+    margin: 20px 10px;
+    padding: 10px 20px;
+}

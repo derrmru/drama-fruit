@@ -34,3 +34,20 @@ a {
 * {
   box-sizing: border-box;
 }
+
+button {
+  cursor: pointer;
+  border: none;
+  background-color: var(--drama-green);
+  color: var(--drama-yellow);
+  font-family: 'HipHopper';
+  font-size: 18px;
+  transition: .4s;
+}
+
+@media (hover:hover) {
+  button:hover {
+    background-color: var(--drama-yellow);
+    color: var(--drama-pink);
+  }
+}

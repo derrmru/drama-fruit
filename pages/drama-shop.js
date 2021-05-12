@@ -1,40 +1,40 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import { attributes } from '../content/home.md'
+import { getProductsData } from '../lib/products'
 import Layout from '../components/templates/Layout'
-import { useEffect, useContext } from 'react'
+import { useState, useContext } from 'react'
 import { ShoppingContext } from '../src/context/shoppingCart'
-import styles from '../styles/Home.module.css'
+import styles from '../styles/Shop.module.css'
 
-const DramaShop = () => {
+export async function getStaticProps() {
+    const allProducts = getProductsData()
+    return {
+        props: {
+            allProducts
+        }
+    }
+}
+
+const DramaShop = ({ allProducts }) => {
     //shopping cart context
     const { items, itemsSetter } = useContext(ShoppingContext)
 
     //Update shopping cart context
-    function setCart(image) {
+    function setCart(item) {
         let obj = { ...items };
-        const key = attributes[image + '_subtitle'];
+        const key = item.product_name;
         const value = {
-            price: attributes[image + '_price'],
-            image: attributes[image],
+            price: item.product_price,
+            image: item.product_image,
             number: 1
         };
         obj[key] = value
         itemsSetter(obj)
     }
 
-    //re route for invited users
-    useEffect(() => {
-        if (window.netlifyIdentity) {
-            window.netlifyIdentity.on("init", user => {
-                if (!user) {
-                    window.netlifyIdentity.on("login", () => {
-                        document.location.href = "/admin/";
-                    });
-                }
-            });
-        }
-    })
+    //product pagination
+    const [page, setPage] = useState(0);
+    const productsPerPage = 6;
 
     return (
         <div className={styles.container}>
@@ -47,36 +47,44 @@ const DramaShop = () => {
             <Layout>
                 <h2 style={{ textAlign: 'center' }}>Fresh Fruit</h2>
                 <div className={styles.imageContainer}>
-                    {//map images from CMS
-                        Object.keys(attributes)
-                            .filter((item) => {
-                                return item.indexOf('alt') < 0 &&
-                                    item.indexOf('subtitle') < 0 &&
-                                    item.indexOf('price') < 0
-                            })
-                            .map((image, i) => {
-                                return <div
-                                    key={'homeImage' + i}
-                                    className={styles.homeImages + ' fade-in'}
-                                    onClick={() => setCart(image)}
-                                >
-                                    <Image
-                                        src={'/' + attributes[image]}
-                                        alt={attributes[image + '_alt'] || ''}
-                                        width={"200px"}
-                                        height={"200px"}
-                                    />
-                                    <hr className={styles.cardHr} />
-                                    <p className={styles.imageSubtitle + ' ' + styles.subTop}>
-                                        {attributes[image + '_subtitle']}
-                                    </p>
-                                    <p className={styles.imageSubtitle}>
-                                        €{attributes[image + '_price']}
-                                    </p>
-                                </div>
-                            })
+                    {//map products from CMS
+                        allProducts.slice(page, page + productsPerPage).map((item, i) => {
+                            return <div
+                                key={'shopItem' + i}
+                                className={styles.homeImages + ' fade-in'}
+                                onClick={() => setCart(item)}
+                            >
+                                <Image
+                                    src={'/' + item.product_image}
+                                    alt={item.product_image_alt || ''}
+                                    width={"180px"}
+                                    height={"180px"}
+                                />
+                                <hr className={styles.cardHr} />
+                                <p className={styles.imageSubtitle + ' ' + styles.subTop}>
+                                    {item.product_name}
+                                </p>
+                                <p className={styles.imageSubtitle}>
+                                    €{item.product_price}
+                                </p>
+                            </div>
+                        })
                     }
                 </div>
+                {
+                    allProducts.length > productsPerPage && <div className={styles.pageButtons}>
+                        <button
+                            onClick={() => page >= productsPerPage && setPage(page - productsPerPage)}
+                            >
+                            Previous
+                        </button>
+                        <button
+                            onClick={() => page < allProducts.length - productsPerPage && setPage(page + productsPerPage)}
+                        >
+                            Next
+                        </button>
+                    </div>
+                }
             </Layout>
 
         </div>

@@ -1,34 +1,27 @@
-.imageContainer {
-    width: 80%;
-    margin: auto;
+.homeProductsContainer {
+    width: 90%;
+    margin: 0 auto 20px auto;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-between;
-    flex-wrap: wrap;
+    align-items: center;
+    /*background-image: url('../public/images/90scolours3.jpg');*/
+    /*background-image: -webkit-image-set(url('./images/background-image.webp') 1x);*/
+    background-size: 30%;
+    background-position: center;
 }
 
-.homeImages {
-    width: 48%;
-    box-sizing: border-box;
-    border: 1px dashed var(--drama-yellow);
+.homeProduct {
+    width: 30%;
     margin: 20px 0;
-    padding: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: center;
-    cursor: pointer;
+    text-align: center;
 }
 
-.cardHr {
-    text-align: center;
-    width: 70%;
-    margin: inherit auto;
-    height: 1px;
-}
-
-.imageSubtitle {
-    width: 100%;
-    text-align: center;
-    margin: 5px 0 10px;
+@media only screen and (max-width: 600px) {
+    .homeProductsContainer {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
 }
