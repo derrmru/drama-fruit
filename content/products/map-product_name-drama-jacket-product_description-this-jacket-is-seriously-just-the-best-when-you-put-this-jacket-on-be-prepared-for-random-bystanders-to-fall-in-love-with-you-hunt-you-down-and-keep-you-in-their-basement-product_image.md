@@ -6,6 +6,5 @@ product_description: This Jacket is seriously just the best. When you put this
 product_image: images/jacket-red.jpg
 product_image_alt: Drama Jacket
 product_price: 500
-product_slug: /drama-shop/drama-jacket
 product_stock: "1"
 ---

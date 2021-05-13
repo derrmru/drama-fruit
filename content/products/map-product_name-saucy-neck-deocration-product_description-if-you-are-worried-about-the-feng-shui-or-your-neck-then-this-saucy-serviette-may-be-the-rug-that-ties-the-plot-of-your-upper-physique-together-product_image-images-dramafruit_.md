@@ -6,6 +6,5 @@ product_description: If you are worried about the feng-shui or your neck, then
 product_image: images/bowtie-pink.jpg
 product_image_alt: Saucy Neck Decoration
 product_price: 119
-product_slug: /drama-shop/saucy-neck-decoration
 product_stock: "2"
 ---

@@ -80,5 +80,4 @@ collections:
       - {label: "Image", name: "product_image", widget: "image"}
       - {label: "Image Alt Text", name: "product_image_alt", widget: "string"}
       - {label: "Price", name: "product_price", widget: "number"}
-      - {label: "URL", name: "product_slug", widget: "string"}
       - {label: "Stock", name: "product_stock", width: "number"}

@@ -64,19 +64,24 @@ const DramaShop = ({ allProducts }) => {
                 <div className={styles.imageContainer}>
                     {//map products from CMS
                         allProducts.slice(page, page + productsPerPage).map((item, i) => {
+                            const slug = item.product_name.toLowerCase().split(' ').join('-');
                             return <div
                                 key={'shopItem' + i}
                                 className={styles.homeImages + ' fade-in'}
                             >
                                 <div style={{ width: '90%' }}>
-                                    <Image
-                                        src={'/' + item.product_image}
-                                        alt={item.product_image_alt || ''}
-                                        layout="responsive"
-                                        objectFit="contain"
-                                        width={"260"}
-                                        height={"260"}
-                                    />
+                                    <Link href={'/products/' + slug}>
+                                        <a>
+                                            <Image
+                                                src={'/' + item.product_image}
+                                                alt={item.product_image_alt || ''}
+                                                layout="responsive"
+                                                objectFit="contain"
+                                                width={"260"}
+                                                height={"260"}
+                                            />
+                                        </a>
+                                    </Link>
                                 </div>
                                 <hr className={styles.cardHr} />
                                 <p className={styles.imageSubtitle + ' ' + styles.subTop}>
@@ -97,7 +102,7 @@ const DramaShop = ({ allProducts }) => {
                                             <a className={styles.checkoutButton + ' fade-in'}>
                                                 Go To Checkout
                                             </a>
-                                        </Link> : <Link href={'/' + item.product_slug}>
+                                        </Link> : <Link href={'/products/' + slug}>
                                             <a className={styles.findOutButton + ' fade-in'}>
                                                 Find Out More
                                             </a>

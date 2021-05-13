@@ -12,6 +12,13 @@ export default function Checkout() {
   const { items, itemsSetter } = useContext(ShoppingContext)
   console.log(items)
 
+  //delete item from cart
+  const deleteItem = (item) => {
+    let obj = {...items};
+    delete obj[item]
+    itemsSetter(obj)
+  }
+
   //increment or decrement pages
   const inc = (item, direction) => {
     let obj = { ...items };
@@ -54,11 +61,12 @@ export default function Checkout() {
                 <div className={style.itemsPanel}>
                   {//list basket items
                     Object.keys(items).map((item, i) => {
+                      const slug = item.toLowerCase().split(' ').join('-')
                       return <div
                         key={'basketItem' + i}
                         className={style.item}
                       >
-                        <div className={style.itemImage} style={{ width: '30%' }}>
+                        <div className={style.itemImage} style={{ width: '30%', height: '30%' }}>
                           <Image
                             src={'/' + items[item]['image']}
                             layout="responsive"
@@ -89,11 +97,17 @@ export default function Checkout() {
                                               </div>
                           </div>
                           <div className={style.itemHeader}>
-                            <Link href={items[item]['slug']}>
+                            <Link href={'/products/' + slug}>
                               <a>
                                 Visit Item Page
                               </a>
                             </Link>
+                          </div>
+                          <div
+                            className={style.removeButton}
+                            onClick={() => deleteItem(item)}
+                            >
+                              &#10006; Remove Item
                           </div>
                         </div>
                       </div>
@@ -152,7 +166,7 @@ export default function Checkout() {
               paySubmit={() => handlePaypalSuccess()}
             />
             <button
-              style={{marginBottom: '20px', width: '50%'}}
+              style={{marginBottom: '20px', width: '90%'}}
               onClick={() => setPayNow(false)}
               >
               Edit My Basket

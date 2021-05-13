@@ -5,6 +5,5 @@ product_description: Is it a bird!? Is it a plane!? NO! It's the other thing
 product_image: images/bowtie-stripey.jpg
 product_image_alt: Super Origami Bowtie
 product_price: 45
-product_slug: /drama-shop/super-origami-bowtie
 product_stock: "5"
 ---

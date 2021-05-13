@@ -6,6 +6,5 @@ product_description: Are you tired of fending off axe wielding maniacs without
 product_image: images/bowtie-stripey.jpg
 product_image_alt: The Jugular Bandage
 product_price: 24
-product_slug: /drama-shop/jugular-bandage
 product_stock: "3"
 ---

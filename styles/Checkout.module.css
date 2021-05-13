@@ -29,6 +29,13 @@
     flex-direction: row;
 }
 
+.removeButton {
+    color: var(--drama-pink);
+    margin: 10px 0;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
 .itemImage {
     border: 3px solid var(--drama-pink);
 }
@@ -88,6 +95,31 @@
 */
 
 .paypalContainer {
-    width: 100%;
+    width: 60%;
+    margin: 0 auto 40px auto;
+    border: 3px dashed var(--drama-green);
+    padding: 20px;
     text-align: center;
 }
+
+@media only screen and (max-width: 975px) {
+    .checkoutPanel {
+        flex-direction: column;
+    }
+    .itemsPanel {
+        width: 96%;
+        margin: auto;
+        border-right: dashed var(--drama-green);
+        border-bottom: none;
+    }
+    .paymentPanel {
+        width: 96%;
+        margin: 0 auto 40px auto;
+    }
+}  
+
+@media only screen and (max-width: 600px) {
+    .paypalContainer {
+        width: 96%;
+    }
+}   
