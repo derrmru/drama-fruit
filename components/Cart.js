@@ -71,8 +71,9 @@ const Cart = () => {
                                         <Image
                                             src={'/' + items[item]['image']}
                                             layout="responsive"
-                                            width={"50%"}
-                                            height={"50%"}
+                                            objectFit="contain"
+                                            width={"200"}
+                                            height={"200"}
                                         />
                                     </div>
                                     <div className={style.basketItemText}>

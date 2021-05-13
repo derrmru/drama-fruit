@@ -19,7 +19,7 @@ const Navigation = ({ navItems }) => {
                                     alt="Drama Fruit Logo"
                                     layout="responsive"
                                     width={"100"}
-                                    height={"96"}
+                                    height={"100"}
                                 />
                             </div>
                             <h1>Fruit</h1>
