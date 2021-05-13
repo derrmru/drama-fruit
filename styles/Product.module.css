@@ -39,3 +39,16 @@
         color: var(--drama-yellow);
     }
 }
+
+@media only screen and (max-width: 600px) {
+    .productContain {
+        flex-direction: column;
+    }
+    .imageContain, .description {
+        width: 96%;
+        margin: 0 auto 20px auto;
+    }
+    .textContain {
+        width: 100%;
+    }
+}  
