@@ -48,18 +48,51 @@
     padding: 8px 20px;
 }
 
+.findOutButton {
+    margin: 0 20px;
+    color: var(--drama-yellow);
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.checkoutButton {
+    margin: 0 20px;
+    color: var(--drama-green);
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+@media (hover:hover) {
+    .checkoutButton:hover {
+        color: var(--drama-yellow);
+    }
+    .findOutButton:hover {
+        color: var(--drama-pink);
+    }
+}
+
+@media only screen and (max-width: 950px) {
+    .atcContainer {
+        display: flex;
+        flex-direction: column;
+    }
+    .checkoutButton, .findOutButton {
+        margin: 20px 0 0 0;
+        text-align: center;
+    }
+}  
+
 .pageButtons {
     width: 80%;
     margin: auto;
     padding: 0;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
 }
 
 .pageButtons > button {
     width: 48%;
-    margin: 20px 1%;
+    margin: 10px 1%;
     padding: 10px 20px;
     box-sizing: border-box;
 }

@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/link'
 import { getProductsData } from '../lib/products'
 import Layout from '../components/templates/Layout'
 import { useState, useContext } from 'react'
@@ -18,6 +19,7 @@ export async function getStaticProps() {
 const DramaShop = ({ allProducts }) => {
     //shopping cart context
     const { items, itemsSetter } = useContext(ShoppingContext)
+    console.log(items)
 
     //Update shopping cart context
     function setCart(item) {
@@ -26,7 +28,8 @@ const DramaShop = ({ allProducts }) => {
         const value = {
             price: item.product_price,
             image: item.product_image,
-            number: 1
+            number: 1,
+            slug: item.product_slug
         };
         obj[key] = value
         itemsSetter(obj)
@@ -38,12 +41,12 @@ const DramaShop = ({ allProducts }) => {
     const incUp = () => {
         if (page < allProducts.length - productsPerPage) {
             setPage(page + productsPerPage)
-            window.scrollTo({top: 100, behavior: 'smooth'});
+            window.scrollTo({ top: 100, behavior: 'smooth' });
         }
     }
     const incDown = () => {
         if (page >= productsPerPage) {
-            window.scrollTo({top: 100, behavior: 'smooth'});
+            window.scrollTo({ top: 100, behavior: 'smooth' });
             setPage(page - productsPerPage)
         }
     }
@@ -65,7 +68,7 @@ const DramaShop = ({ allProducts }) => {
                                 key={'shopItem' + i}
                                 className={styles.homeImages + ' fade-in'}
                             >
-                                <div style={{width: '90%'}}>
+                                <div style={{ width: '90%' }}>
                                     <Image
                                         src={'/' + item.product_image}
                                         alt={item.product_image_alt || ''}
@@ -86,9 +89,20 @@ const DramaShop = ({ allProducts }) => {
                                     <button
                                         onClick={() => setCart(item)}
                                         className={styles.addToCart}
-                                        >
-                                            Add To Cart
+                                    >
+                                        Add To Cart
                                     </button>
+                                    {//if item is in cart offer a checkout button
+                                        Object.keys(items).filter(name => name === item.product_name).length > 0 ? <Link href='/checkout'>
+                                            <a className={styles.checkoutButton + ' fade-in'}>
+                                                Go To Checkout
+                                            </a>
+                                        </Link> : <Link href={'/' + item.product_slug}>
+                                            <a className={styles.findOutButton + ' fade-in'}>
+                                                Find Out More
+                                            </a>
+                                        </Link>
+                                    }
                                 </div>
                             </div>
                         })
@@ -98,7 +112,7 @@ const DramaShop = ({ allProducts }) => {
                     allProducts.length > productsPerPage && <div className={styles.pageButtons}>
                         <button
                             onClick={() => incDown()}
-                            >
+                        >
                             Previous
                         </button>
                         <button

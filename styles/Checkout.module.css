@@ -1,0 +1,93 @@
+.checkoutPanel {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.itemsPanel {
+    margin-bottom: 40px;
+    width: 50%;
+    border: 3px dashed var(--drama-green);
+    border-right: none;
+    padding: 20px;
+}
+
+.paymentPanel {
+    margin-bottom: 40px;
+    width: 50%;
+    border: 3px solid var(--drama-green);
+    background-color: rgba(255, 255, 255, .9);
+    padding: 20px 60px;
+}
+
+.item {
+    width: 100%;
+    margin: 20px 0;
+    display: flex;
+    flex-direction: row;
+}
+
+.itemImage {
+    border: 3px solid var(--drama-pink);
+}
+
+.itemText {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    width: 70%;
+}
+
+.itemText > p {
+    margin: 10px 0;
+}
+
+.incrementContain {
+    margin: 0 0 10px 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.incrementButton {
+    margin: 0 20px;
+    cursor: pointer;
+}
+
+/**
+*Basket Details Panel
+*/
+
+.stickyPay {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 20px;
+}
+
+.basketDetailsHeader {
+    margin-top: 20px;
+    font-size: 26px;
+    color: var(--drama-yellow);
+}
+
+.basketTotal {
+    width: 30%;
+    padding: 10px 0;
+    border-top: 1px dashed black;
+    border-bottom: 1px dashed black;
+}
+
+.payNowButton {
+    width: 100%;
+}
+
+/**
+*PAYPAL VIEW
+*/
+
+.paypalContainer {
+    width: 100%;
+    text-align: center;
+}
