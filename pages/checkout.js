@@ -39,8 +39,6 @@ export default function Checkout() {
     console.log('success')
   }
 
-  console.log(window)
-
   return (
     <div>
       <Head>
