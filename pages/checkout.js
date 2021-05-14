@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import Layout from '../components/templates/Layout'
 import PayPalButton from 'react-paypal-smart-button'
-import { useState, useContext } from 'react'
+import { useState, useContext, useEffect } from 'react'
 import { ShoppingContext } from '../src/context/shoppingCart'
 import style from '../styles/Checkout.module.css'
 
@@ -38,6 +38,8 @@ export default function Checkout() {
   const handlePaypalSuccess = () => {
     console.log('success')
   }
+
+  console.log(window)
 
   return (
     <div>

@@ -119,6 +119,12 @@
 }  
 
 @media only screen and (max-width: 600px) {
+    .paymentPanel {
+        padding: 20px;
+    }
+    .basketTotal {
+        width: 100%;
+    }
     .paypalContainer {
         width: 96%;
     }
