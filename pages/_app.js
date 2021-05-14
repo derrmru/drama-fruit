@@ -14,6 +14,7 @@ function MyApp({ Component, pageProps }) {
     setItems(i)
   }
 
+  //value to pass to ShoppingProvider
   const value = { items, itemsSetter }
 
   return (

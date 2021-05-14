@@ -37,13 +37,6 @@
     text-align: center;
 }
 
-.icon {
-    cursor: pointer;
-    position: absolute;
-    top: 10%;
-    right: 0;
-}
-
 .desktopNav {
     width: 100%;
     text-decoration: none;

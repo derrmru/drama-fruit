@@ -14,6 +14,11 @@
     text-align: center;
 }
 
+.itemCard {
+    border: 5px solid var(--drama-green);
+    position: relative;
+}
+
 @media only screen and (max-width: 600px) {
     .homeProductsContainer {
         flex-direction: column;

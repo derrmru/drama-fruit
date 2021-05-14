@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/link'
 import Layout from '../components/templates/Layout'
 import { attributes } from '../content/home.md'
 import { getProductsData } from '../lib/products'
@@ -15,7 +16,6 @@ export async function getStaticProps() {
 }
 
 export default function Home({ allProducts }) {
-  console.log(allProducts.filter(item => Object.values(attributes).indexOf(item.product_name) >= 0))
   return (
     <div>
       <Head>
@@ -30,18 +30,28 @@ export default function Home({ allProducts }) {
         <div className={style.homeProductsContainer + ' fade-in'}>
           {//fetch the selected products to showcase on the homepage
             allProducts.filter(item => Object.values(attributes).indexOf(item.product_name) >= 0).map((item, i) => {
+              const slug = '/products/' + item.product_name.toLowerCase().split(' ').join('-');
               return <div
                 key={'homepage-items' + i}
                 className={style.homeProduct}
               >
-                <Image
-                  src={'/' + item.product_image}
-                  alt={item.product_image_alt || ''}
-                  layout="responsive"
-                  objectFit="contain"
-                  width={"200"}
-                  height={"200"}
-                />
+                <div 
+                  style={{width: '100%', height: '100%'}}
+                  className={style.itemCard}
+                  >
+                  <Link href={slug}>
+                    <a>
+                      <Image
+                        src={'/' + item.product_image}
+                        alt={item.product_image_alt || ''}
+                        layout="responsive"
+                        objectFit="contain"
+                        width={"200"}
+                        height={"200"}
+                      />
+                    </a>
+                  </Link>
+                </div>
                 <div>{item.product_name}</div>
                 <div>€{item.product_price}</div>
               </div>
