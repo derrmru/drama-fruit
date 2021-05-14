@@ -2,7 +2,7 @@ backend:
   name: github
   repo: derrmru/drama-fruit
   branch: master
-  base_url: https://drama-fruit.vercel.app/admin/index.html
+  base_url: https://drama-fruit.vercel.app
   auth_endpoint: api/auth
 
 media_folder: public/images
