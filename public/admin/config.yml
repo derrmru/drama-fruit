@@ -1,5 +1,5 @@
 backend:
-  name: github
+  name: git-gateway
   repo: derrmru/drama-fruit
   branch: master
   base_url: https://drama-fruit.vercel.app/
