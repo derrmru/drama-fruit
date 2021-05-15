@@ -1,8 +1,6 @@
 backend:
-  name: [github | gitlab]
-  repo: derrmru/drama-fruit
+  name: git-gateway
   branch: master
-  base_url: https://drama-fruit.vercel.app
 
 media_folder: public/images
 public_folder: images
