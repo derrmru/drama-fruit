@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-  branch: master
+  branch: cloudinary
 
 media_folder: public/images
 public_folder: images
