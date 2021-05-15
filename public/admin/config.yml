@@ -2,6 +2,9 @@ backend:
   name: git-gateway
   branch: cloudinary
 
+media_library:
+  name: cloudinary
+
 media_folder: public/images
 public_folder: images
 logo_url: https://raw.githubusercontent.com/derrmru/drama-fruit/master/public/images/Drama%20Gif.gif
