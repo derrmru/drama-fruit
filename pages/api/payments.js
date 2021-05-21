@@ -14,4 +14,5 @@ export default async (req, res) => {
       order_id: '12345',
     },
   });
+  await res.send('received')
 }
