@@ -14,5 +14,6 @@ export default async (req, res) => {
       order_id: '12345',
     },
   });
+  console.log(payment)
   await res.redirect(payment.redirectUrl)
 }
