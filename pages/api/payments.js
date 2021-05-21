@@ -1,5 +1,5 @@
 const { createMollieClient } = require('@mollie/api-client');
-const mollieClient = createMollieClient({ apiKey: process.env.MOLLIE_KEY });
+const mollieClient = createMollieClient({ apiKey: "test_6AVPHyeQADq34cfPN3uUU85EAPrxxh" });
 
 (async () => {
   const payment = await mollieClient.payments.create({
