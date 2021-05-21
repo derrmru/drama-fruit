@@ -1,7 +1,7 @@
 const { createMollieClient } = require('@mollie/api-client');
 const mollieClient = createMollieClient({ apiKey: "test_6AVPHyeQADq34cfPN3uUU85EAPrxxh" });
 
-(async () => {
+export default async (req, res) => {
   const payment = await mollieClient.payments.create({
     amount: {
       currency: 'EUR',
@@ -14,4 +14,4 @@ const mollieClient = createMollieClient({ apiKey: "test_6AVPHyeQADq34cfPN3uUU85E
       order_id: '12345',
     },
   });
-})();
+}
