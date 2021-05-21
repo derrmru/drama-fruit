@@ -15,5 +15,5 @@ export default async (req, res) => {
     },
   });
   console.log(payment)
-  await res.redirect(payment.redirectUrl)
+  await res.redirect(payment.getCheckoutUrl())
 }
