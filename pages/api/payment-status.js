@@ -5,5 +5,5 @@ export default async (req, res) => {
     //after transaction is complete we receive payment ID and must query the status
     const payment = await mollieClient.payments.get(req.body.id)
     console.log(payment)
-    res.status(200)
+    res.status(200).send('complete')
 }
