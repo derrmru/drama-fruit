@@ -8,7 +8,7 @@ export default async (req, res) => {
       value: '10.00', // We enforce the correct number of decimals through strings
     },
     description: 'Order #12345',
-    redirectUrl: 'https://drama-fruit.vercel.app/',
+    redirectUrl: 'https://drama-fruit.vercel.app/payment-successful',
     webhookUrl: 'https://drama-fruit.vercel.app/api/payment-status',
     metadata: {
       order_id: '12345',
