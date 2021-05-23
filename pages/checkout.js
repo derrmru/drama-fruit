@@ -12,7 +12,6 @@ import style from '../styles/Checkout.module.css'
 export default function Checkout() {
   //cart context
   const { items, itemsSetter } = useContext(ShoppingContext)
-  console.log(items)
 
   //delete item from cart
   const deleteItem = (item) => {

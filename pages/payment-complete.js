@@ -9,14 +9,15 @@ const PaymentComplete = () => {
     useEffect(() => {
         tId = window.location.href.split('transaction=')[1];
         console.log(tId)
-    })
 
-    //get order status from transaction id using api/payment-check
-    $.post(
-        '/api/check-order',
-        { transaction_id: tId }
-    ).done((data) => {
-        setTransaction(data)
+        //get order status from transaction id using api/payment-check
+        $.post(
+            '/api/check-order',
+            { 
+                transaction_id: tId 
+            }).done((data) => {
+                setTransaction(data)
+            })
     })
 
     console.log(transaction)
