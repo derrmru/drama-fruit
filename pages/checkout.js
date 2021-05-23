@@ -49,13 +49,6 @@ export default function Checkout() {
     setFields(temp)
   }
 
-  const submit = (e) => {
-    e.preventDefault()
-    $.post('/api/payments', {
-      email: fields.email
-    })
-  }
-
   return (
     <div>
       <Head>
@@ -176,6 +169,8 @@ export default function Checkout() {
             <form 
               onSubmit={(e) => submit(e)} 
               style={{textAlign: 'left', margin: '0 0 20px 0'}}
+              target="/api/payments"
+              method="post"
               >
               <TextInput 
                 name="full_name"
@@ -209,7 +204,7 @@ export default function Checkout() {
               paySubmit={() => handlePaypalSuccess()}
             />*/}
             <button
-              style={{marginBottom: '20px', width: '90%'}}
+              style={{marginBottom: '20px', width: '100%'}}
               onClick={() => setPayNow(false)}
               >
               Edit My Basket
