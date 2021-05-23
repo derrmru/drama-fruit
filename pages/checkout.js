@@ -59,11 +59,9 @@ export default function Checkout() {
         email: fields.email,
         telephone: fields.telephone,
         total: total.toFixed(2)
-      },
-      (res, status) => {
-        console.log(res)
-      }
-      )
+      }).done((data) => {
+        console.log(data)
+      })
   }
 
   return (

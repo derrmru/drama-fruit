@@ -12,10 +12,11 @@ export default async (req, res) => {
     redirectUrl: 'https://drama-fruit.vercel.app/',
     webhookUrl: 'https://drama-fruit.vercel.app/api/payment-status',
     metadata: {
-      order_id: '12345',
+      order_id: '12345'
     },
     billingEmail: req.body.email
   });
   console.log(payment)
-  await res.redirect(payment.getCheckoutUrl())
+  await res.send(payment.getCheckoutUrl())
+  //await res.redirect(payment.getCheckoutUrl())
 }
