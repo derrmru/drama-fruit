@@ -1,8 +1,10 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
+import $ from 'jquery'
 import Layout from '../components/templates/Layout'
 import PayPalButton from 'react-paypal-smart-button'
+import TextInput from '../components/form_components/TextInput'
 import { useState, useContext, useEffect } from 'react'
 import { ShoppingContext } from '../src/context/shoppingCart'
 import style from '../styles/Checkout.module.css'
@@ -37,6 +39,20 @@ export default function Checkout() {
   //handle paypal submission
   const handlePaypalSuccess = () => {
     console.log('success')
+  }
+
+  //handle form inputs
+  const [fields, setFields] = useState({});
+  const setValue = (name, value) => {
+    let temp = {...fields}
+    temp[name] = value;
+    setFields(temp)
+  }
+
+  const submit = () => {
+    $.post('/api/payments', {
+      email: fields.email
+    })
   }
 
   return (
@@ -156,6 +172,23 @@ export default function Checkout() {
           </>
           :
           <div className={style.paypalContainer}>
+            <form onSubmit={() => submit()} style={{textAlign: 'left', margin: '0 0 20px 0'}}>
+              <TextInput 
+                name="full_name"
+                value={fields.full_name}
+                setValue={(name, value) => setValue(name, value)}
+                />
+              <TextInput 
+                name="email"
+                value={fields.email}
+                setValue={(name, value) => setValue(name, value)}
+                />
+              <TextInput 
+                name="telephone"
+                value={fields.telephone}
+                setValue={(name, value) => setValue(name, value)}
+                />
+              </form>
             <PayPalButton 
               price={total}
               description={Object.keys(items).reduce((total, item) => {

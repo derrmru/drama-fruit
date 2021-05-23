@@ -1,0 +1,11 @@
+.label {
+    width: 100%;
+    text-align: left;
+}
+
+.input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 5px;
+    margin: 5px 0;
+}

@@ -2,6 +2,7 @@ const { createMollieClient } = require('@mollie/api-client');
 const mollieClient = createMollieClient({ apiKey: "test_6AVPHyeQADq34cfPN3uUU85EAPrxxh" });
 
 export default async (req, res) => {
+  console.log(req.body)
   const payment = await mollieClient.payments.create({
     amount: {
       currency: 'EUR',
@@ -13,6 +14,7 @@ export default async (req, res) => {
     metadata: {
       order_id: '12345',
     },
+    billingEmail: req.body.email
   });
   console.log(payment)
   await res.redirect(payment.getCheckoutUrl())
