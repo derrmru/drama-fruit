@@ -12,7 +12,7 @@ export default async (req, res) => {
     console.log(payment)
 
     //update status in firebase
-    db.collection('orders').doc(req.body.metadata.order_id).set({
+    db.collection('orders').doc(payment.metadata.order_id).set({
         status: payment.status
     }, { merge: true })
 
