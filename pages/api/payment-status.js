@@ -6,8 +6,10 @@ const mollieClient = createMollieClient({ apiKey: process.env.MOLLIE_KEY });
 import db from '../../lib/db'
 
 export default async (req, res) => {
+    console.log(req.body)
     //after transaction is complete we receive payment ID and must query the status
     const payment = await mollieClient.payments.get(req.body.id)
+    console.log(payment)
 
     //update status in firebase
     db.collection('orders').doc(req.body.metadata.order_id).set({
