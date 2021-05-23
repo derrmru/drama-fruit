@@ -18,7 +18,7 @@ const PaymentComplete = () => {
             }).done((data) => {
                 setTransaction(data)
             })
-    })
+    }, [])
 
     console.log(transaction)
 
