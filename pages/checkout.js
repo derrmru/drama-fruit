@@ -167,9 +167,8 @@ export default function Checkout() {
           :
           <div className={style.paypalContainer}>
             <form 
-              onSubmit={(e) => submit(e)} 
               style={{textAlign: 'left', margin: '0 0 20px 0'}}
-              target="/api/payments"
+              action="/api/payments"
               method="post"
               >
               <TextInput 
