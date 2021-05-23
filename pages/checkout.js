@@ -58,9 +58,9 @@ export default function Checkout() {
         name: fields.full_name,
         email: fields.email,
         telephone: fields.telephone,
-        total: total.toFixed(2)
-      }).done((data) => {
-        console.log(data)
+        total: total.toFixed(2) //Mollie requires format of amount to be string with two decimal places
+      }).done((paymentUrl) => {
+        window.location.href= paymentUrl
       })
   }
 
