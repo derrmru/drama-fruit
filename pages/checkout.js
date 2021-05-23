@@ -2,8 +2,8 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
 import $ from 'jquery'
+import { v4 as uuidv4 } from 'uuid';
 import Layout from '../components/templates/Layout'
-import PayPalButton from 'react-paypal-smart-button'
 import TextInput from '../components/form_components/TextInput'
 import { useState, useContext, useEffect } from 'react'
 import { ShoppingContext } from '../src/context/shoppingCart'
@@ -36,10 +36,10 @@ export default function Checkout() {
     return total += (Number(items[item]['price']) * Number(items[item]['number']))
   }, 0);
 
-  //handle paypal submission
-  /*const handlePaypalSuccess = () => {
-    console.log('success')
-  }*/
+  //description variable
+  const desc = Object.keys(items).reduce((description, current) => {
+    return description += (current + ' x' + items[current]['number'])
+  }, '')
 
   //handle form inputs
   const [fields, setFields] = useState({});
@@ -55,9 +55,11 @@ export default function Checkout() {
     $.post(
       '/api/payments', 
       {
+        transaction_id: uuidv4(),
         name: fields.full_name,
         email: fields.email,
         telephone: fields.telephone,
+        description: desc,
         total: total.toFixed(2) //Mollie requires format of amount to be string with two decimal places
       }).done((paymentUrl) => {
         window.location.href= paymentUrl
