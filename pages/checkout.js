@@ -58,7 +58,7 @@ export default function Checkout() {
         name: fields.full_name,
         email: fields.email,
         telephone: fields.telephone,
-        total: total
+        total: total.toFixed(2)
       },
       (res, status) => {
         console.log(res)
