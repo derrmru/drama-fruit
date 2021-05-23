@@ -49,7 +49,8 @@ export default function Checkout() {
     setFields(temp)
   }
 
-  const submit = () => {
+  const submit = (e) => {
+    e.preventDefault()
     $.post('/api/payments', {
       email: fields.email
     })
@@ -172,7 +173,10 @@ export default function Checkout() {
           </>
           :
           <div className={style.paypalContainer}>
-            <form onSubmit={() => submit()} style={{textAlign: 'left', margin: '0 0 20px 0'}}>
+            <form 
+              onSubmit={(e) => submit(e)} 
+              style={{textAlign: 'left', margin: '0 0 20px 0'}}
+              >
               <TextInput 
                 name="full_name"
                 value={fields.full_name}
@@ -188,8 +192,14 @@ export default function Checkout() {
                 value={fields.telephone}
                 setValue={(name, value) => setValue(name, value)}
                 />
+              <input
+                type="submit"
+                className={style.buyButton}
+                style={{margin: '20px 0', width: '100%'}}
+                value="BUY"
+                />
               </form>
-            <PayPalButton 
+            {/*<PayPalButton 
               price={total}
               description={Object.keys(items).reduce((total, item) => {
                 return total += item + ' x' + items[item]['number']
@@ -197,7 +207,7 @@ export default function Checkout() {
               clientId="AQ7S1K9k_fTVm-hxtjumIIoZXi3cxwiiEuMbhjj8ls8XmzBbE6KlX6ghFbyKI8QiRXKq1ym46q2xCQNR"
               currency="EUR"
               paySubmit={() => handlePaypalSuccess()}
-            />
+            />*/}
             <button
               style={{marginBottom: '20px', width: '90%'}}
               onClick={() => setPayNow(false)}
