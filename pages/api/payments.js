@@ -6,7 +6,7 @@ export default async (req, res) => {
   const payment = await mollieClient.payments.create({
     amount: {
       currency: 'EUR',
-      value: '10.00', // We enforce the correct number of decimals through strings
+      value: req.body.total, // We enforce the correct number of decimals through strings
     },
     description: 'Order #12345',
     redirectUrl: 'https://drama-fruit.vercel.app/',

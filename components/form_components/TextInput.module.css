@@ -8,4 +8,5 @@
     box-sizing: border-box;
     padding: 10px 5px;
     margin: 5px 0;
+    font-family: inherit;
 }

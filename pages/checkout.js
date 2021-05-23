@@ -37,9 +37,9 @@ export default function Checkout() {
   }, 0);
 
   //handle paypal submission
-  const handlePaypalSuccess = () => {
+  /*const handlePaypalSuccess = () => {
     console.log('success')
-  }
+  }*/
 
   //handle form inputs
   const [fields, setFields] = useState({});
@@ -47,6 +47,23 @@ export default function Checkout() {
     let temp = {...fields}
     temp[name] = value;
     setFields(temp)
+  }
+
+  //handle submit
+  const submit = (e) => {
+    e.preventDefault()
+    $.post(
+      '/api/payments', 
+      {
+        name: fields.full_name,
+        email: fields.email,
+        telephone: fields.telephone,
+        total: total
+      },
+      (res, status) => {
+        console.log(res)
+      }
+      )
   }
 
   return (
@@ -167,9 +184,8 @@ export default function Checkout() {
           :
           <div className={style.paypalContainer}>
             <form 
+              onSubmit={(e) => submit(e)} 
               style={{textAlign: 'left', margin: '0 0 20px 0'}}
-              action="/api/payments"
-              method="post"
               >
               <TextInput 
                 name="full_name"
