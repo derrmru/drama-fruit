@@ -6,6 +6,7 @@ import { v4 as uuidv4 } from 'uuid';
 import Loading from '../components/Loading'
 import Layout from '../components/templates/Layout'
 import TextInput from '../components/form_components/TextInput'
+import AddressInput from '../components/form_components/AddressInput'
 import { useState, useContext, useEffect } from 'react'
 import { ShoppingContext } from '../src/context/shoppingCart'
 import style from '../styles/Checkout.module.css'
@@ -38,7 +39,7 @@ export default function Checkout() {
 
   //description variable
   const desc = Object.keys(items).reduce((description, current) => {
-    return description += (current + ' x' + items[current]['number'])
+    return description += (current + ' x' + items[current]['number'] + ', ')
   }, '')
 
   //handle form inputs
@@ -48,6 +49,9 @@ export default function Checkout() {
     temp[name] = value;
     setFields(temp)
   }
+
+  //auto complete address state
+  const [address, setAddress] = useState('');
 
   //handle submit
   const submit = (e) => {
@@ -61,9 +65,10 @@ export default function Checkout() {
         email: fields.email,
         telephone: fields.telephone,
         description: desc,
+        address: address,
         total: total.toFixed(2) //Mollie requires format of amount to be string with two decimal places
       }).done((paymentUrl) => {
-        window.location.href= paymentUrl
+        window.location.href = paymentUrl
       })
   }
 
@@ -188,6 +193,7 @@ export default function Checkout() {
           :
           load ? <Loading /> :
           <div className={style.paypalContainer}>
+            <h3 style={{margin: '5px 0 20px'}}>Delivery Details</h3>
             <form 
               onSubmit={(e) => submit(e)} 
               style={{textAlign: 'left', margin: '0 0 20px 0'}}
@@ -207,6 +213,11 @@ export default function Checkout() {
                 value={fields.telephone}
                 setValue={(name, value) => setValue(name, value)}
                 />
+              <AddressInput 
+                name="address"
+                value={address}
+                setAddress={(value) => setAddress(value)}
+                />
               <input
                 type="submit"
                 className={style.buyButton}
@@ -214,15 +225,6 @@ export default function Checkout() {
                 value="BUY"
                 />
               </form>
-            {/*<PayPalButton 
-              price={total}
-              description={Object.keys(items).reduce((total, item) => {
-                return total += item + ' x' + items[item]['number']
-              }, '')}
-              clientId="AQ7S1K9k_fTVm-hxtjumIIoZXi3cxwiiEuMbhjj8ls8XmzBbE6KlX6ghFbyKI8QiRXKq1ym46q2xCQNR"
-              currency="EUR"
-              paySubmit={() => handlePaypalSuccess()}
-            />*/}
             <button
               style={{marginBottom: '20px', width: '100%'}}
               onClick={() => setPayNow(false)}
