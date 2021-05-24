@@ -15,15 +15,17 @@ const PaymentComplete = () => {
         tId = window.location.href.split('transaction=')[1];
 
         //get order status from transaction id using api/payment-check
-        $.post(
-            '/api/check-order',
-            { 
-                transaction_id: tId 
-            }).done((data) => {
-                console.log(data)
-                setTransaction(data)
-            })
-    })
+        if (transaction === {}) {
+            $.post(
+                '/api/check-order',
+                { 
+                    transaction_id: tId 
+                }).done((data) => {
+                    console.log(data)
+                    setTransaction(data)
+                })
+        }
+    }, [transaction])
 
     return (
         <div>
