@@ -7,7 +7,7 @@ const Layout = ({ children }) => {
             <Navigation 
                 navItems={[
                     ['Home', '/'],
-                    ['News', '/news'],
+                    ['Past Projects', '/past-projects'],
                     ['Drama Shop', '/drama-shop'],
                     ['About', '/about'],
                     ['FAQ\'s', '/faq'],

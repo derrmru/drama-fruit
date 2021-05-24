@@ -63,6 +63,12 @@ ul {
   text-align: left;
 }
 
+ol {
+  margin-left: 0;
+  padding-left: 12px;
+  text-align: left;
+}
+
 @media (hover: hover) {
   button:hover {
     background-color: var(--drama-yellow);

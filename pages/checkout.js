@@ -7,7 +7,7 @@ import Loading from '../components/Loading'
 import Layout from '../components/templates/Layout'
 import TextInput from '../components/form_components/TextInput'
 import AddressInput from '../components/form_components/AddressInput'
-import { useState, useContext, useEffect } from 'react'
+import { useState, useContext } from 'react'
 import { ShoppingContext } from '../src/context/shoppingCart'
 import style from '../styles/Checkout.module.css'
 
@@ -181,7 +181,7 @@ export default function Checkout() {
                       className={style.payNowButton}
                       onClick={() => setPayNow(true)}
                       >
-                      Pay Now
+                      Proceed
                     </button>
                     <hr style={{margin: '40px 0 40px 0', border: 'none', height: '3px', backgroundColor: 'var(--drama-pink)'}} />
                   </div>

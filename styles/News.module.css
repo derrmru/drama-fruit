@@ -1,0 +1,63 @@
+.postContainer {
+    width: 90%;
+    margin: 0 auto 40px auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.card {
+    width: calc(100% / 3 - 1%);
+    text-align: center;
+    border: 2px dashed var(--drama-yellow);
+    padding: 10px 20px 20px 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    transition: .4s;
+}
+
+@media (hover:hover) {
+    .card:hover {
+        background-color: rgba(255, 255, 255, 1)
+    }
+}
+
+.cardTitle {
+    width: 90%;
+    margin: 20px auto;
+    padding: 10px;
+    border: 2px solid var(--drama-green);
+}
+
+.continueReading {
+    color: var(--drama-pink);
+    font-size: 18px;
+    transition: .4s;
+}
+
+@media (hover:hover) {
+    .continueReading:hover {
+        color: var(--drama-yellow);
+    }
+}
+
+.navButtons {
+    width: 90%;
+    margin: 0 auto 40px auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.navButtons > button {
+    width: 48%;
+}
+
+@media only screen and (max-width: 600px) {
+    .postContainer {
+        flex-direction: column;
+    }
+    .card {
+        width: 90%;
+        margin: 0 auto 20px auto;
+    }
+}  

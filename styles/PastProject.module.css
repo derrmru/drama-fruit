@@ -1,0 +1,10 @@
+.ppContainer {
+    width: 70%;
+    margin: 40px auto;
+}
+
+@media only screen and (max-width: 600px) {
+    .ppContainer {
+        width: 90%;
+    }
+}  
