@@ -38,7 +38,7 @@ const PaymentComplete = () => {
                     transaction["status"] === 'paid' ? <div>
                         <h2 style={{ textAlign: 'center', margin: '40px 0 40px' }}>Payment Complete!</h2>
                         <h3 style={{ textAlign: 'center', margin: '40px 0 40px' }}>Please check your emails for confirmation of your order.</h3>
-                        <h3 style={{ textAlign: 'center', margin: '40px 0 40px' }}>Your Order ID is: <span style={{fontSize: '28px'}}>{tId && tId}</span></h3>
+                        <h3 style={{ textAlign: 'center', margin: '40px 0 40px' }}>Your Order ID is: <span style={{fontSize: '28px'}}>{transaction && transaction.mollie_id}</span></h3>
                         <div style={{ textAlign: 'center', margin: '40px 0 40px' }}>Feel like buying more?! Head back to the <Link href="/drama-shop"><a>Shop</a></Link></div>
                     </div> :
                         transaction["status"] === 'open' ? <div>
