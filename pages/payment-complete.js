@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import Layout from '../components/templates/Layout'
 import { useEffect, useState } from "react"
 import $ from 'jquery'
 import style from '../styles/Payment.module.css'
