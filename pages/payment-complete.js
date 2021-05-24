@@ -61,11 +61,7 @@ const PaymentComplete = () => {
                         <h3 style={{ textAlign: 'center', margin: '40px 0 40px' }}>It looks like we can't accept your payment method.</h3>
                         <div style={{ textAlign: 'center', margin: '40px 0 40px' }}>Why not head back to the <Link href="/drama-shop"><a>Shop</a></Link> and try again with a different card.</div>
                     </div> :
-                        <div>
-                            <h2 style={{ textAlign: 'center', margin: '40px 0 40px' }}>
-                                Something strange occured, please contact us!
-                            </h2>
-                        </div> :
+                        <Loading /> :
                     <Loading />
                 }
                 </div>

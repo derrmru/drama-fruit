@@ -63,7 +63,6 @@ export default function Checkout() {
         description: desc,
         total: total.toFixed(2) //Mollie requires format of amount to be string with two decimal places
       }).done((paymentUrl) => {
-        setLoad(false)
         window.location.href= paymentUrl
       })
   }
