@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import $ from 'jquery'
 import { v4 as uuidv4 } from 'uuid';
+import Loading from '../components/Loading'
 import Layout from '../components/templates/Layout'
 import TextInput from '../components/form_components/TextInput'
 import { useState, useContext, useEffect } from 'react'
@@ -51,6 +52,7 @@ export default function Checkout() {
   //handle submit
   const submit = (e) => {
     e.preventDefault()
+    setLoad(true)
     $.post(
       '/api/payments', 
       {
@@ -61,9 +63,13 @@ export default function Checkout() {
         description: desc,
         total: total.toFixed(2) //Mollie requires format of amount to be string with two decimal places
       }).done((paymentUrl) => {
+        setLoad(false)
         window.location.href= paymentUrl
       })
   }
+
+  //set Load
+  const [load, setLoad] = useState(false);
 
   return (
     <div>
@@ -181,6 +187,7 @@ export default function Checkout() {
           }
           </>
           :
+          load ? <Loading /> :
           <div className={style.paypalContainer}>
             <form 
               onSubmit={(e) => submit(e)} 

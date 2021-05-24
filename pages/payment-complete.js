@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import Layout from '../components/templates/Layout'
+import Loading from '../components/Loading'
 import { useEffect, useState } from "react"
 import $ from 'jquery'
 import style from '../styles/Payment.module.css'
@@ -65,7 +66,7 @@ const PaymentComplete = () => {
                                 Something strange occured, please contact us!
                             </h2>
                         </div> :
-                    <div>Loading...</div>
+                    <Loading />
                 }
                 </div>
             </Layout>
