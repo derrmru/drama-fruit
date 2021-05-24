@@ -22,7 +22,7 @@ const PaymentComplete = () => {
                 console.log(data)
                 setTransaction(data)
             })
-    }, [])
+    })
 
     return (
         <div>
@@ -33,11 +33,11 @@ const PaymentComplete = () => {
             </Head>
             <Layout>
                 <div className={style.response}>
-                {transaction &&
+                {transaction ?
                     transaction["status"] === 'paid' ? <div>
                         <h2 style={{ textAlign: 'center', margin: '40px 0 40px' }}>Payment Complete!</h2>
                         <h3 style={{ textAlign: 'center', margin: '40px 0 40px' }}>Please check your emails for confirmation of your order.</h3>
-                        <h3 style={{ textAlign: 'center', margin: '40px 0 40px' }}>Your Order ID is: <span style={{fontSize: '28px'}}>{transaction && transaction.metadata.order_id}</span></h3>
+                        <h3 style={{ textAlign: 'center', margin: '40px 0 40px' }}>Your Order ID is: <span style={{fontSize: '28px'}}>{transaction && transaction.mollie_id}</span></h3>
                         <div style={{ textAlign: 'center', margin: '40px 0 40px' }}>Feel like buying more?! Head back to the <Link href="/drama-shop"><a>Shop</a></Link></div>
                     </div> :
                         transaction["status"] === 'open' ? <div>
@@ -61,8 +61,11 @@ const PaymentComplete = () => {
                         <div style={{ textAlign: 'center', margin: '40px 0 40px' }}>Why not head back to the <Link href="/drama-shop"><a>Shop</a></Link> and try again with a different card.</div>
                     </div> :
                         <div>
-                            Something strange occured, please contact us!
-                        </div>
+                            <h2 style={{ textAlign: 'center', margin: '40px 0 40px' }}>
+                                Something strange occured, please contact us!
+                            </h2>
+                        </div> :
+                    <div>Loading...</div>
                 }
                 </div>
             </Layout>
