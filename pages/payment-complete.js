@@ -33,7 +33,7 @@ const PaymentComplete = () => {
             </Head>
             <Layout>
                 <div className={style.response}>
-                {transaction ?
+                {(transaction && transaction !== {}) ?
                     transaction["status"] === 'paid' ? <div>
                         <h2 style={{ textAlign: 'center', margin: '40px 0 40px' }}>Payment Complete!</h2>
                         <h3 style={{ textAlign: 'center', margin: '40px 0 40px' }}>Please check your emails for confirmation of your order.</h3>
