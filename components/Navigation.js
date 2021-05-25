@@ -38,13 +38,26 @@ const Navigation = ({ navItems }) => {
             </div>
             <hr className={style.navHR} />
                 <nav className={style.desktopNav}>
+                    <ul style={{
+                        listStyleType: 'none', 
+                        width: '90%',
+                        margin: '0',
+                        padding: '0',
+                        display: 'flex', 
+                        flexDirection: 'row',
+                        flexWrap: 'wrap',
+                        justifyContent: 'space-evenly',
+                        textDecoration: 'none',
+                        fontSize: 'inherit'
+
+                    }}>
                     {
                         navItems.map((item, i) => {
                             return <Link 
                                 key={'nav-item' + i} 
                                 href={item[1]}
                                 >
-                                <a>
+                                <a style={{textDecoration: 'none'}}>
                                     <li>
                                         {item[0]}
                                     </li>
@@ -52,6 +65,7 @@ const Navigation = ({ navItems }) => {
                             </Link>
                         })
                     }
+                    </ul>
                 </nav>
             <hr className={style.navHR} />
         </>

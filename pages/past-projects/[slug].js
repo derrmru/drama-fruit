@@ -1,5 +1,6 @@
 import Head from "next/head"
 import Layout from '../../components/templates/Layout'
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import style from '../../styles/PastProject.module.css'
 
 export default function Slug({ post }) {
@@ -14,16 +15,7 @@ export default function Slug({ post }) {
                 {
                     post.fields.body.content.map((paragraph, i) => {
                         console.log(paragraph)
-                        if (paragraph.nodeType === 'paragraph') {
-                            return <div
-                                key={'paragraph' + i}
-                                className={style.paragraph}
-                            >
-                                <p>
-                                    {paragraph.content[0].value}
-                                </p>
-                            </div>
-                        } else if (paragraph.nodeType === 'embedded-asset-block') {
+                        if (paragraph.nodeType === 'embedded-asset-block') {
                             return <div
                                 key={'paragraph' + i}
                                 className={style.paragraph}
@@ -37,40 +29,13 @@ export default function Slug({ post }) {
                                     style={{ margin: 'auto' }}
                                 />
                             </div>
-                        } else if (paragraph.nodeType === 'unordered-list') {
-                            return <ul
-                                key={'ul' + i}
+                        } else {
+                            return <div
+                                key={'paragraph' + i}
+                                className={style.paragraph}
                             >
-                                {paragraph.content.map((item, j) => {
-                                    return <li key={'item' + j}>
-                                        {item.content[0].content[0].value}
-                                    </li>
-                                })}
-                            </ul>
-                        } else if (paragraph.nodeType === 'hr') {
-                            return <hr key={'hr' + i} />
-                        } else if (paragraph.nodeType === 'ordered-list') {
-                            return <ol
-                                key={'ul' + i}
-                            >
-                                {paragraph.content.map((item, j) => {
-                                    return <li key={'item' + j}>
-                                        {item.content[0].content[0].value}
-                                    </li>
-                                })}
-                            </ol>
-                        } else if (paragraph.nodeType === 'heading-3') {
-                            return <h3 key={'h3' + i}>
-                                {paragraph.content[0].value}
-                            </h3>
-                        } else if (paragraph.nodeType === 'heading-4') {
-                            return <h4 key={'h3' + i}>
-                                {paragraph.content[0].value}
-                            </h4>
-                        } else if (paragraph.nodeType === 'heading-5') {
-                            return <h5 key={'h3' + i}>
-                                {paragraph.content[0].value}
-                            </h5>
+                                {documentToReactComponents(paragraph)}
+                            </div>
                         }
                     })
                 }

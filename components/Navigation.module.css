@@ -50,16 +50,16 @@
     font-size: 22px;
 }
 
-.desktopNav > a {
+.desktopNav > ul > a {
     transition: .2s;
 }
 
-.desktopNav > a:focus {
+.desktopNav > ul > a:focus {
     color: var(--drama-pink);
 }
 
 @media(hover:hover) {
-    .desktopNav > a:hover {
+    .desktopNav > ul > a:hover {
         color: var(--drama-pink);
     }
 }
@@ -87,5 +87,19 @@
     }
     .desktopNav {
         font-size: 16px;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .headerTitle > h1 {
+        font-size: 20px;
+    }
+    .iconsContainer {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .desktopNav {
+        font-size: 12px;
     }
 }

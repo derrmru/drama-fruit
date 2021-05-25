@@ -1,7 +1,24 @@
 .ppContainer {
-    width: 70%;
+    width: 60%;
     margin: 40px auto;
 }
+
+.ppContainer a {
+    color: var(--drama-pink);
+    transition: .4s;
+}
+
+@media (hover:hover) {
+    .ppContainer a:hover {
+        color: var(--drama-green);
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .ppContainer {
+        width: 80%;
+    }
+} 
 
 @media only screen and (max-width: 600px) {
     .ppContainer {
