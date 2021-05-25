@@ -1,59 +1,59 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import Link from 'next/link'
 import Layout from '../components/templates/Layout'
-import { attributes } from '../content/home.md'
-import { getProductsData } from '../lib/products'
+import { useState, useEffect } from 'react'
+import { fetchEntries } from '../lib/contentful'
 import style from '../styles/Home.module.css'
 
-export async function getStaticProps() {
-  const allProducts = getProductsData()
-  return {
-    props: {
-      allProducts
-    }
-  }
-}
+export default function Home() {
+  //fetch posts from contentful
+  const [items, setItems] = useState()
 
-export default function Home({ allProducts }) {
+  useEffect(() => {
+      const getProducts = async () => {
+        const selection = await fetchEntries({
+          content_type: "homePage",
+      })
+        setItems(...selection)
+      }
+      getProducts()
+  }, [])
+
+  console.log(items)
+
   return (
     <div>
       <Head>
         <title>Drama Fruit</title>
         <meta name="description" content="Fresh Fruit by Marek Kalianko" />
         <link rel="icon" href="/favicon.ico" />
-        {/*netlify cms identity script*/}
-        <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
       </Head>
       <Layout>
         <h2 style={{ textAlign: 'center', margin: '40px 0' }}>Fresh Fruit!</h2>
         <div className={style.homeProductsContainer + ' fade-in'}>
           {//fetch the selected products to showcase on the homepage
-            allProducts.filter(item => Object.values(attributes).indexOf(item.product_name) >= 0).map((item, i) => {
-              const slug = '/products/' + item.product_name.toLowerCase().split(' ').join('-');
+            items && items.fields.showCases.map((item, i) => {
               return <div
                 key={'homepage-items' + i}
                 className={style.homeProduct}
               >
                 <div 
-                  style={{width: '100%', height: '100%'}}
                   className={style.itemCard}
                   >
-                  <Link href={slug}>
+                  <Link href={'/drama-shop/' + item.fields.slug}>
                     <a>
-                      <Image
-                        src={'/' + item.product_image}
-                        alt={item.product_image_alt || ''}
-                        layout="responsive"
-                        objectFit="contain"
-                        width={"200"}
-                        height={"200"}
+                      <img
+                        src={item.fields.productImage.fields.file.url}
+                        alt={item.fields.imageAltText || ''}
+                        object-fit="cover"
+                        width="100%"
+                        height="100%"
                       />
                     </a>
                   </Link>
                 </div>
-                <div>{item.product_name}</div>
-                <div>€{item.product_price}</div>
+                <div>{item.fields.title}</div>
+                <div>€{item.fields.productPrice}</div>
               </div>
             })
           }

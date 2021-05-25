@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import Link from 'next/link'
 import $ from 'jquery'
 import { v4 as uuidv4 } from 'uuid';
@@ -81,8 +80,6 @@ export default function Checkout() {
         <title>Drama Fruit</title>
         <meta name="description" content="Fresh Fruit by Marek Kalianko" />
         <link rel="icon" href="/favicon.ico" />
-        {/*netlify cms identity script*/}
-        <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
       </Head>
       <Layout>
         <h2 style={{ textAlign: 'center', margin: '40px 0 40px' }}>Checkout</h2>
@@ -102,13 +99,12 @@ export default function Checkout() {
                         key={'basketItem' + i}
                         className={style.item}
                       >
-                        <div className={style.itemImage} style={{ width: '30%', height: '30%' }}>
-                          <Image
+                        <div className={style.itemImage}>
+                          <img
                             src={'/' + items[item]['image']}
-                            layout="responsive"
-                            objectFit="contain"
-                            width={"30"}
-                            height={"30"}
+                            object-fit="cover"
+                            width="100%"
+                            height="100%"
                           />
                         </div>
                         <div className={style.itemText}>
@@ -133,7 +129,7 @@ export default function Checkout() {
                                               </div>
                           </div>
                           <div className={style.itemHeader}>
-                            <Link href={'/products/' + slug}>
+                            <Link href={'/drama-shop/' + slug}>
                               <a>
                                 Visit Item Page
                               </a>

@@ -1,6 +1,5 @@
 import { useState, useContext, useEffect } from 'react'
 import { ShoppingContext } from '../src/context/shoppingCart'
-import Image from 'next/image'
 import Link from 'next/link'
 import style from './Cart.module.css'
 
@@ -68,12 +67,10 @@ const Cart = () => {
                                     className={style.item}
                                     >
                                     <div style={{width: '30%'}}>
-                                        <Image
+                                        <img
                                             src={'/' + items[item]['image']}
-                                            layout="responsive"
-                                            objectFit="contain"
-                                            width={"200"}
-                                            height={"200"}
+                                            width="100%"
+                                            height="auto"
                                         />
                                     </div>
                                     <div className={style.basketItemText}>

@@ -10,13 +10,18 @@
 
 .homeProduct {
     width: 30%;
-    margin: 0 0 20px;
+    height: 30%;
+    margin: 0 auto 20px auto;
+    padding: 0;
     text-align: center;
 }
 
 .itemCard {
+    width: 28vw;
+    height: 28vw;
     border: 5px solid var(--drama-green);
-    position: relative;
+    cursor: pointer;
+    padding: 0;
 }
 
 @media only screen and (max-width: 600px) {
@@ -27,5 +32,10 @@
     }
     .homeProduct {
         width: 96%;
+    }
+    .itemCard {
+        width: 84vw;
+        margin: auto;
+        height: 84vw;
     }
 }

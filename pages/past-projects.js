@@ -1,35 +1,24 @@
 import { useEffect, useState } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
+import { fetchEntries } from '../lib/contentful'
 import Layout from '../components/templates/Layout'
 import style from '../styles/News.module.css'
-
-//contentful
-const client = require('contentful').createClient({
-    space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
-    accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN,
-})
 
 const News = () => {
 
     //fetch posts from contentful
-    const fetchEntries = async () => {
-        const entries = await client.getEntries()
-        if (entries.items) return entries.items
-        console.log(`Error getting Entries for ${contentType.name}.`)
-    }
-
     const [posts, setPosts] = useState([])
 
     useEffect(() => {
         const getPosts = async () => {
-          const allPosts = await fetchEntries()
+          const allPosts = await fetchEntries({
+            content_type: "blog",
+        })
           setPosts([...allPosts])
         }
         getPosts()
     }, [])
-
-    console.log(posts)
 
     //increment through posts
     const [inc, setInc] = useState(0)

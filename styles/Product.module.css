@@ -10,6 +10,11 @@
     width: 50%;
 }
 
+.image {
+    width: 40vw;
+    height: 40vw;
+}
+
 .description {
     width: 50%;
     display: flex;
@@ -47,6 +52,10 @@
     .imageContain, .description {
         width: 96%;
         margin: 0 auto 20px auto;
+    }
+    .image {
+        width: 80vw;
+        height: 80vw;
     }
     .textContain {
         width: 100%;

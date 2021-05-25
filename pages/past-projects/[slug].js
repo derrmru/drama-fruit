@@ -1,5 +1,6 @@
 import Head from "next/head"
 import Layout from '../../components/templates/Layout'
+import { client } from '../../lib/contentful'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import style from '../../styles/PastProject.module.css'
 
@@ -10,7 +11,7 @@ export default function Slug({ post }) {
             <Head>
                 <title>Drama Fruit - {post.fields.title}</title>
             </Head>
-            <div className={style.ppContainer}>
+            <div className={style.ppContainer + ' fade-in'}>
                 <h2 style={{ textAlign: 'center', margin: '40px 0 40px' }}>{post.fields.title}</h2>
                 {
                     post.fields.body.content.map((paragraph, i) => {
@@ -45,12 +46,6 @@ export default function Slug({ post }) {
 }
 
 export async function getStaticProps(context) {
-    // Create an instance of the Contentful JavaScript SDK
-    const client = require("contentful").createClient({
-        space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
-        accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN,
-    })
-
     // Fetch all results where `fields.slug` is equal to the `slug` param
     const result = await client
         .getEntries({
@@ -78,11 +73,6 @@ export async function getStaticProps(context) {
 }
 
 export async function getStaticPaths() {
-    // Create an instance of the Contentful JavaScript SDK
-    const client = require("contentful").createClient({
-        space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
-        accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN,
-    })
 
     // Query Contentful for all blog posts in the space
     const posts = await client

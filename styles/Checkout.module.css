@@ -38,6 +38,8 @@
 
 .itemImage {
     border: 3px solid var(--drama-pink);
+    width: 12vw;
+    height: 12vw;
 }
 
 .itemText {
@@ -142,6 +144,11 @@
     }
     .basketTotal {
         width: 100%;
+    }
+    .itemImage {
+        border: 3px solid var(--drama-pink);
+        width: 20vw;
+        height: 20vw;
     }
     .paypalContainer {
         width: 96%;

@@ -20,7 +20,7 @@ const Layout = ({ children }) => {
             </main>
 
             <footer className={style.footer}>
-                <span>©Drama Fruit, 2021 | built by <a href="https://thepetersweeney.com">thepetersweeney.com</a></span>
+                <p style={{textAlign: 'center'}}><span>©Drama Fruit, 2021 | built by <a href="https://thepetersweeney.com">thepetersweeney.com</a></span></p>
             </footer>
 
         </>
