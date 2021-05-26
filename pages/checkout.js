@@ -9,6 +9,7 @@ import EmailInput from '../components/form_components/EmailInput'
 import AddressInput from '../components/form_components/AddressInput'
 import { useState, useContext } from 'react'
 import { ShoppingContext } from '../src/context/shoppingCart'
+import { updateStock } from '../lib/updateStock'
 import style from '../styles/Checkout.module.css'
 
 export default function Checkout() {
@@ -69,14 +70,23 @@ export default function Checkout() {
         telephone: fields.telephone,
         description: desc,
         address: address,
-        total: total.toFixed(2) //Mollie requires format of amount to be string with two decimal places
+        total: total.toFixed(2), //Mollie requires format of amount to be string with two decimal places
+        details: items
       }).done((paymentUrl) => {
+        //navigate to payment url
         window.location.href = paymentUrl
       })
   }
 
   //set Load
   const [load, setLoad] = useState(false);
+
+  //update stock on contentful to minus number of items bought
+  /*if (Object.keys(items).length > 0) {
+    Object.keys(items).forEach(item => {
+      updateStock(items[item].environment, items[item].id, items[item].number)
+    })
+  }*/
 
   return (
     <div>

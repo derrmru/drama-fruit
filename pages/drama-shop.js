@@ -11,7 +11,7 @@ const DramaShop = () => {
     const { items, itemsSetter } = useContext(ShoppingContext)
 
     //Update shopping cart context
-    function setCart(item, slug) {
+    function setCart(item) {
         let obj = { ...items };
         const key = item.fields.title;
         const value = {
@@ -19,7 +19,9 @@ const DramaShop = () => {
             image: item.fields.productImage.fields.file.url,
             number: 1,
             maxNumber: item.fields.stock,
-            slug: '/drama-shop/' + item.fields.slug
+            slug: '/drama-shop/' + item.fields.slug,
+            environment: item.sys.environment.sys.id,
+            id: item.sys.id
         };
         obj[key] = value
         itemsSetter(obj)
@@ -67,13 +69,12 @@ const DramaShop = () => {
                 <div className={styles.imageContainer}>
                     {//map products from CMS
                         products.slice(page, page + productsPerPage).map((item, i) => {
-                            const slug = item.fields.title.toLowerCase().split(' ').join('-');
                             return <div
                                 key={'shopItem' + i}
                                 className={styles.homeImages + ' fade-in'}
                             >
                                 <div style={{ width: '90%' }}>
-                                    <Link href={'/drama-shop/' + slug}>
+                                    <Link href={'/drama-shop/' + item.fields.slug}>
                                         <a>
                                             <img
                                                 src={item.fields.productImage.fields.file.url}
@@ -93,7 +94,7 @@ const DramaShop = () => {
                                 </p>
                                 <div className={styles.atcContainer}>
                                     <button
-                                        onClick={() => setCart(item, slug)}
+                                        onClick={() => setCart(item)}
                                         className={styles.addToCart}
                                     >
                                         Add To Cart
@@ -103,7 +104,7 @@ const DramaShop = () => {
                                             <a className={styles.checkoutButton + ' fade-in'}>
                                                 Go To Checkout
                                             </a>
-                                        </Link> : <Link href={'/drama-shop/' + slug}>
+                                        </Link> : <Link href={'/drama-shop/' + item.fields.slug}>
                                             <a className={styles.findOutButton + ' fade-in'}>
                                                 Find Out More
                                             </a>

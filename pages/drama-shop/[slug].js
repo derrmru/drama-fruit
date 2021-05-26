@@ -18,7 +18,9 @@ export default function Produce({ productData }) {
             image: item.fields.productImage.fields.file.url,
             number: number,
             maxNumber: productData.fields.stock,
-            slug: '/drama-shop/' + item.fields.slug
+            slug: '/drama-shop/' + item.fields.slug,
+            environment: item.sys.environment.sys.id,
+            id: item.sys.id
         };
         obj[key] = value
         itemsSetter(obj)
@@ -78,24 +80,30 @@ export default function Produce({ productData }) {
                                                     This is the last {title} in stock!
                                                 </p>
                                             </> :
+                                            productData.fields.stock === 0 ?
                                             <>
-                                                <p>Number of items:</p>
-                                                <div className={style.increment}>
-                                                    <div
-                                                        className={style.incrementButton}
-                                                        onClick={() => number > 1 && inc(-1)}
-                                                    >
-                                                        -
+                                                <p style={{color: 'var(--drama-pink)', margin: '0 0 20px 0'}}>
+                                                    This item is no longer in stock :(
+                                                </p>
+                                            </> :
+                                                <>
+                                                    <p>Number of items:</p>
+                                                    <div className={style.increment}>
+                                                        <div
+                                                            className={style.incrementButton}
+                                                            onClick={() => number > 1 && inc(-1)}
+                                                        >
+                                                            -
+                                                            </div>
+                                                            <div style={{width: '30%'}}>{number}</div>
+                                                        <div
+                                                            className={style.incrementButton}
+                                                            onClick={() => number < productData.fields.stock && inc(1)}
+                                                        >
+                                                            +
                                                         </div>
-                                                        <div style={{width: '30%'}}>{number}</div>
-                                                    <div
-                                                        className={style.incrementButton}
-                                                        onClick={() => number < productData.fields.stock && inc(1)}
-                                                    >
-                                                        +
                                                     </div>
-                                                </div>
-                                            </>
+                                                </>
                                     }
                                     {
                                         items[title] ?
