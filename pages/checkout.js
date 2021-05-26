@@ -60,9 +60,6 @@ export default function Checkout() {
   const submit = (e) => {
     e.preventDefault()
     setLoad(true)
-    const details = Object.keys(items).map(item => {
-      return {environment: items[item]['environment'], id: items[item]['id']}
-    });
     $.post(
       '/api/payments', 
       {
@@ -73,7 +70,6 @@ export default function Checkout() {
         description: desc,
         address: address,
         total: total.toFixed(2), //Mollie requires format of amount to be string with two decimal places
-        details: details
       }).done((paymentUrl) => {
         //navigate to payment url
         window.location.href = paymentUrl
