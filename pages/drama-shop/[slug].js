@@ -1,8 +1,8 @@
-import { useContext } from 'react'
+import { useState, useContext, useEffect } from 'react'
 import { ShoppingContext } from '../../src/context/shoppingCart'
+import { client } from '../../lib/contentful'
 import Link from 'next/link'
 import Layout from '../../components/templates/Layout'
-import { client } from '../../lib/contentful'
 import style from '../../styles/Product.module.css'
 
 export default function Produce({ productData }) {
@@ -16,17 +16,35 @@ export default function Produce({ productData }) {
         const value = {
             price: item.fields.productPrice,
             image: item.fields.productImage.fields.file.url,
-            number: 1,
+            number: number,
+            maxNumber: productData.fields.stock,
             slug: '/drama-shop/' + item.fields.slug
         };
         obj[key] = value
         itemsSetter(obj)
     }
 
+    //increment or decrement pages
+    const title = productData.fields.title;
+    const [number, setNumber] = useState(1)
+    const inc = (direction) => {
+        setNumber(number + direction)
+        //if item is in basked, update basket as well
+        if (items[title]) {
+            let obj = {...items};
+            obj[title]['number'] = number + direction
+            itemsSetter(obj)
+        }
+    }
+    
+    useEffect(()=> {
+        if (items[title]) setNumber(items[title]['number'])
+    })
+
     return (
         <div>
             <Layout>
-                <h2 style={{ textAlign: 'center', margin: '40px 0' }}>{productData.fields.title}</h2>
+                <h2 style={{ textAlign: 'center', margin: '40px 0' }}>{title}</h2>
                 <div className={style.productContain}>
 
                     <div className={style.imageContain}>
@@ -34,7 +52,7 @@ export default function Produce({ productData }) {
                             <img
                                 src={'/' + productData.fields.productImage.fields.file.url}
                                 alt={productData.fields.imageAltText || ''}
-                                object-fit="contain"
+                                object-fit="cover"
                                 width="100%"
                                 height="100%"
                             />
@@ -50,16 +68,67 @@ export default function Produce({ productData }) {
                         <div className={style.productPrice}>
                             Price: €{productData.fields.productPrice}
                         </div>
-                        <button
-                            onClick={() => setCart(productData)}
-                        >
-                            Add To Basket
-                        </button>
-                        <Link href='/checkout'>
-                            <a className={style.checkoutButton + ' fade-in'}>
-                                Go To Checkout
-                            </a>
-                        </Link>
+                        {
+                            productData.fields.stock > 0 ?
+                                <>
+                                    {
+                                        productData.fields.stock === 1 ? 
+                                            <>
+                                                <p style={{color: 'var(--drama-pink)', margin: '0 0 20px 0'}}>
+                                                    This is the last {title} in stock!
+                                                </p>
+                                            </> :
+                                            <>
+                                                <p>Number of items:</p>
+                                                <div className={style.increment}>
+                                                    <div
+                                                        className={style.incrementButton}
+                                                        onClick={() => number > 1 && inc(-1)}
+                                                    >
+                                                        -
+                                                        </div>
+                                                        <div style={{width: '30%'}}>{number}</div>
+                                                    <div
+                                                        className={style.incrementButton}
+                                                        onClick={() => number < productData.fields.stock && inc(1)}
+                                                    >
+                                                        +
+                                                    </div>
+                                                </div>
+                                            </>
+                                    }
+                                    {
+                                        items[title] ?
+                                            <p 
+                                                className="fade-in" 
+                                                style={{color: 'var(--drama-pink', fontSize: '16px', margin: '10px 0'}}
+                                                >
+                                                {'> Added To Basket'}
+                                            </p> :
+                                                <button
+                                                    onClick={() => setCart(productData)}
+                                                >
+                                                    Add To Basket
+                                                </button>
+                                    }
+                                    <Link href='/checkout'>
+                                        <a className={style.checkoutButton + ' fade-in'}>
+                                            Go To Checkout
+                                        </a>
+                                    </Link>
+                                </> :
+                                <>
+                                    <p style={{ color: 'var(--drama-pink)' }}>
+                                        Unfortunately this item is no longer in stock.
+                                    </p>
+                                    <Link href="/contact">
+                                        <a>
+                                            Get in touch to request it!
+                                        </a>
+                                    </Link>
+                                </>
+
+                        }
                     </div>
 
                 </div>

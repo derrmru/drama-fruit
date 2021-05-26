@@ -14,7 +14,7 @@ const PaymentComplete = () => {
     useEffect(() => {
         tId = window.location.href.split('transaction=')[1];
 
-        //get order status from transaction id using api/payment-check
+        //get order status from transaction id using api/check-order
         if (Object.keys(transaction).length === 0) {
             $.post(
                 '/api/check-order',

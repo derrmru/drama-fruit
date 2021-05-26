@@ -20,14 +20,20 @@ const Cart = () => {
 
     //increment or decrement pages
     const inc = (item, direction) => {
+        //new value
         let obj = {...items};
-        obj[item]['number'] = Number(obj[item]['number']) + direction
-        itemsSetter(obj)
+        const newValue = Number(obj[item]['number']) + direction
+        //if new value is above 0 and less than max then increment
+        if (newValue >= 0 && newValue <= items[item]['maxNumber']) {
+            obj[item]['number'] += direction
+            itemsSetter(obj)
+        }
     }
 
+    //prevent cart display if basket is empty
     useEffect(() => {
         if (show) cartLength < 1 && setShow(false)
-    })
+    }, [cartLength])
 
     return (
         <div className={style.cartOverlay}>
@@ -77,21 +83,29 @@ const Cart = () => {
                                         <div className={style.basketItemTitle}>{item}</div>
                                         <div>€{items[item]['price']}</div>
                                         <hr />
-                                        <div className={style.incrementContain}> 
-                                            <div 
-                                                className={style.incrementButton}
-                                                onClick={() => items[item]['number'] > 1 && inc(item, -1)}
-                                                >
-                                                    -
-                                            </div>
-                                            <div>{items[item]['number']}</div>
-                                            <div 
-                                                className={style.incrementButton}
-                                                onClick={() => inc(item, 1)}
-                                                >
-                                                    +
-                                            </div>
-                                        </div>
+                                        {
+                                            items[item]['maxNumber'] === 1 ? 
+                                                <div 
+                                                    style={{fontSize: '12px', margin: '12px 0', color: 'var(--drama-pink)'}}
+                                                    >
+                                                        Last In Stock
+                                                </div> :
+                                                    <div className={style.incrementContain}> 
+                                                        <div 
+                                                            className={style.incrementButton}
+                                                            onClick={() => items[item]['number'] > 1 && inc(item, -1)}
+                                                            >
+                                                                -
+                                                        </div>
+                                                        <div>{items[item]['number']}</div>
+                                                        <div 
+                                                            className={style.incrementButton}
+                                                            onClick={() => inc(item, 1)}
+                                                            >
+                                                                +
+                                                        </div>
+                                                    </div>
+                                        }
                                     </div>
                                     <div 
                                         className={style.itemCross}

@@ -25,8 +25,11 @@ export default function Checkout() {
   //increment or decrement pages
   const inc = (item, direction) => {
     let obj = { ...items };
-    obj[item]['number'] = Number(obj[item]['number']) + direction
-    itemsSetter(obj)
+    const newValue = obj[item]['number'] + direction
+    if (newValue <= obj[item]['maxNumber']) {
+      obj[item]['number'] = Number(obj[item]['number']) + direction
+      itemsSetter(obj)
+    }
   }
 
   //state measures whether they are ready to pay
@@ -78,7 +81,7 @@ export default function Checkout() {
   return (
     <div>
       <Head>
-        <title>Drama Fruit</title>
+        <title>Checkout - Drama Fruit</title>
         <meta name="description" content="Fresh Fruit by Marek Kalianko" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -113,22 +116,30 @@ export default function Checkout() {
                             {item}
                           </h3>
                           <p>Price: €{items[item]['price']}</p>
-                          <div className={style.incrementContain}>
-                            Number of Items:
-                            <div
-                              className={style.incrementButton}
-                              onClick={() => items[item]['number'] > 1 && inc(item, -1)}
-                            >
-                              &#8722;
-                                              </div>
-                            <div>{items[item]['number']}</div>
-                            <div
-                              className={style.incrementButton}
-                              onClick={() => inc(item, 1)}
-                            >
-                              &#x2b;
-                                              </div>
-                          </div>
+                          {
+                            items[item]['maxNumber'] === 1 ? 
+                              <p 
+                                style={{color: 'var(--drama-pink)', margin: '0 0 10px 0'}}
+                                >
+                                  Last In Stock
+                              </p> :
+                              <div className={style.incrementContain}>
+                                Number of Items:
+                                <div
+                                  className={style.incrementButton}
+                                  onClick={() => items[item]['number'] > 1 && inc(item, -1)}
+                                >
+                                  &#8722;
+                                                  </div>
+                                <div>{items[item]['number']}</div>
+                                <div
+                                  className={style.incrementButton}
+                                  onClick={() => inc(item, 1)}
+                                >
+                                  &#x2b;
+                                                  </div>
+                              </div>
+                          }
                           <div className={style.itemHeader}>
                             <Link href={'/drama-shop/' + slug}>
                               <a>

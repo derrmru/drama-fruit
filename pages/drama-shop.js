@@ -18,6 +18,7 @@ const DramaShop = () => {
             price: item.fields.productPrice,
             image: item.fields.productImage.fields.file.url,
             number: 1,
+            maxNumber: item.fields.stock,
             slug: '/drama-shop/' + item.fields.slug
         };
         obj[key] = value
@@ -56,8 +57,8 @@ const DramaShop = () => {
     return (
         <div className={styles.container}>
             <Head>
-                <title>Drama Fruit</title>
-                <meta name="description" content="Fresh Fruit by Marek Kalianko" />
+                <title>Drama Fruit - Shop</title>
+                <meta name="description" content="Drama Fruit Shop" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
