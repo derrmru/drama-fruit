@@ -6,6 +6,7 @@ const mollieClient = createMollieClient({ apiKey: process.env.MOLLIE_KEY });
 import db from '../../lib/db'
 
 export default async (req, res) => {
+  console.log(req.body)
   const payment = await mollieClient.payments.create({
     amount: {
       currency: 'EUR',
@@ -31,6 +32,7 @@ export default async (req, res) => {
         description: req.body.description,
         total: req.body.total,
         mollie_id: payment.id,
+        details: req.body.details,
         date_created: new Date()
     });
 
