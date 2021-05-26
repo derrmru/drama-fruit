@@ -51,6 +51,11 @@ const Contact = () => {
                         value={fields.last_name}
                         setValue={(name, value) => updateFields(name, value)}
                         />
+                    <TextInput 
+                        name='oh_no_honey'
+                        value={fields.oh_no_honey}
+                        setValue={(name, value) => updateFields(name, value)}
+                        />
                     <EmailInput 
                         name='email'
                         value={fields.email}

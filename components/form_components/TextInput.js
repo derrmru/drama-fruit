@@ -8,7 +8,10 @@ const TextInput = ({
     id
 }) => {
     return (
-        <label className={style.label}>
+        <label 
+            className={style.label} 
+            style={name === 'oh_no_honey' ? {opacity: 0, position: 'fixed', top: 0} : {}}
+            >
             {name.split('_').map(word => ' ' + word[0].toUpperCase() + word.toLowerCase().slice(1))}:
             <br />
             { description && <p style={{color: 'var(--drama-pink)', margin: '4px 0'}}>{description}</p> } 
