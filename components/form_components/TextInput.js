@@ -21,7 +21,7 @@ const TextInput = ({
                 className={style.input}
                 value={value || ""}
                 onChange={(e) => setValue(name, e.target.value)}
-                required={true}
+                required={name === 'oh_no_honey' ? false : true}
                 />
         </label>
     )
