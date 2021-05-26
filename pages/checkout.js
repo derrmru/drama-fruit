@@ -71,7 +71,7 @@ export default function Checkout() {
         description: desc,
         address: address,
         total: total.toFixed(2), //Mollie requires format of amount to be string with two decimal places
-        details: items
+        details: Object.keys(items).map(item => items[item])
       }).done((paymentUrl) => {
         //navigate to payment url
         window.location.href = paymentUrl
