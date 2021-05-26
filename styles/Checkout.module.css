@@ -104,24 +104,6 @@
     text-align: center;
 }
 
-.buyButton {
-    font-family: inherit;
-    font-size: 18px;
-    color: var(--drama-yellow);
-    border: none;
-    background-color: var(--drama-green);
-    padding: 10px 0;
-    cursor: pointer;
-    transition: .4s;
-}
-
-@media (hover:hover) {
-    .buyButton:hover {
-        background-color: var(--drama-yellow);
-        color: var(--drama-pink);
-    }
-}
-
 @media only screen and (max-width: 975px) {
     .checkoutPanel {
         flex-direction: column;

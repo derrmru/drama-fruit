@@ -1,0 +1,13 @@
+.form {
+    width: 60%;
+    margin: 40px auto;
+    padding: 20px;
+    box-sizing: border-box;
+    border: 4px dashed var(--drama-green);
+}
+
+@media only screen and (max-width: 600px) {
+    .form {
+        width: 90%;
+    }
+}   

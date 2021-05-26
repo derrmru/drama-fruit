@@ -5,6 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 import Loading from '../components/Loading'
 import Layout from '../components/templates/Layout'
 import TextInput from '../components/form_components/TextInput'
+import EmailInput from '../components/form_components/EmailInput'
 import AddressInput from '../components/form_components/AddressInput'
 import { useState, useContext } from 'react'
 import { ShoppingContext } from '../src/context/shoppingCart'
@@ -199,7 +200,7 @@ export default function Checkout() {
                 value={fields.full_name}
                 setValue={(name, value) => setValue(name, value)}
                 />
-              <TextInput 
+              <EmailInput 
                 name="email"
                 value={fields.email}
                 setValue={(name, value) => setValue(name, value)}
@@ -216,8 +217,6 @@ export default function Checkout() {
                 />
               <input
                 type="submit"
-                className={style.buyButton}
-                style={{margin: '20px 0', width: '100%'}}
                 value="BUY"
                 />
               </form>

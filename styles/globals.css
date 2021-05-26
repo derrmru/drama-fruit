@@ -56,6 +56,13 @@ button {
   padding: 10px 20px;
 }
 
+@media (hover: hover) {
+  button:hover {
+    background-color: var(--drama-yellow);
+    color: var(--drama-pink);
+  }
+}
+
 ul {
   list-style-type: '> ';
   margin-left: 0;
@@ -69,10 +76,36 @@ ol {
   text-align: left;
 }
 
-@media (hover: hover) {
-  button:hover {
-    background-color: var(--drama-yellow);
+input, textarea {
+  border: 2px solid var(--drama-green);
+}
+
+input:focus, textarea:focus {
+  border: 2px solid #00000000;
+  outline: 2px solid var(--drama-pink);
+}
+
+textarea {
+  min-height: 160px;
+}
+
+input[type="submit"] {
+  width: 100%;
+  padding: 10px 0;
+  margin: 20px 0 10px 0;
+  background-color: var(--drama-green);
+  color: var(--drama-yellow);
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+  font-size: 18px;
+  transition: .4s;
+}
+
+@media (hover:hover) {
+  input[type="submit"]:hover {
     color: var(--drama-pink);
+    background-color: var(--drama-yellow);
   }
 }
 
