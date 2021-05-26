@@ -60,7 +60,9 @@ export default function Checkout() {
   const submit = (e) => {
     e.preventDefault()
     setLoad(true)
-    const details = Object.keys(items).map(item => items[item]);
+    const details = Object.keys(items).map(item => {
+      return {environment: items[item]['environment'], id: items[item]['id']}
+    });
     $.post(
       '/api/payments', 
       {
