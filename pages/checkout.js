@@ -9,7 +9,6 @@ import EmailInput from '../components/form_components/EmailInput'
 import AddressInput from '../components/form_components/AddressInput'
 import { useState, useContext } from 'react'
 import { ShoppingContext } from '../src/context/shoppingCart'
-import { updateStock } from '../lib/updateStock'
 import style from '../styles/Checkout.module.css'
 
 export default function Checkout() {
@@ -61,6 +60,7 @@ export default function Checkout() {
   const submit = (e) => {
     e.preventDefault()
     setLoad(true)
+    const details = Object.keys(items).map(item => items[item]);
     $.post(
       '/api/payments', 
       {
@@ -71,7 +71,7 @@ export default function Checkout() {
         description: desc,
         address: address,
         total: total.toFixed(2), //Mollie requires format of amount to be string with two decimal places
-        details: Object.keys(items).map(item => items[item])
+        details: details
       }).done((paymentUrl) => {
         //navigate to payment url
         window.location.href = paymentUrl
