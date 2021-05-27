@@ -100,6 +100,7 @@ input[type="submit"] {
   font-family: inherit;
   font-size: 18px;
   transition: .4s;
+  -webkit-appearance: none;
 }
 
 @media (hover:hover) {

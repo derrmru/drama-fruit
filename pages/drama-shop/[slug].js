@@ -1,6 +1,7 @@
 import { useState, useContext, useEffect } from 'react'
 import { ShoppingContext } from '../../src/context/shoppingCart'
 import { client } from '../../lib/contentful'
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import Link from 'next/link'
 import Layout from '../../components/templates/Layout'
 import style from '../../styles/Product.module.css'
@@ -43,6 +44,8 @@ export default function Produce({ productData }) {
         if (items[title]) setNumber(items[title]['number'])
     })
 
+    console.log(productData)
+
     return (
         <div>
             <Layout>
@@ -64,7 +67,7 @@ export default function Produce({ productData }) {
                     <div className={style.description}>
                         <div className={style.textContain}>
                             {productData.fields.productDescription.content.map((paragraph, i) => {
-                                return <p key={'para' + i}>{paragraph.content[0].value}</p>
+                                return <div key={'para' + i}>{documentToReactComponents(paragraph)}</div>
                             })}
                         </div>
                         <div className={style.productPrice}>
