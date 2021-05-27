@@ -14,6 +14,8 @@ const TextArea = ({
             { description && <p style={{color: 'var(--drama-pink)', margin: '4px 0'}}>{description}</p> } 
             <textarea 
                 className={style.input}
+                id={id || ""}
+                style={{resize: 'none'}}
                 value={value || ""}
                 onChange={(e) => setValue(name, e.target.value)}
                 required={true}

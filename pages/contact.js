@@ -65,6 +65,7 @@ const Contact = () => {
                         name='message'
                         value={fields.message}
                         setValue={(name, value) => updateFields(name, value)}
+                        id="contact_textarea"
                         />
                     <input 
                         type="submit"
