@@ -24,12 +24,7 @@ const PaymentComplete = () => {
                     console.log(data)
                     setTransaction(data)
                 })
-        } else {
-            const timer = setTimeout(() => {
-                setTransaction({})
-            }, 500);
-            return () => clearTimeout(timer);
-        }
+        } 
     }, [transaction])
 
     return (
