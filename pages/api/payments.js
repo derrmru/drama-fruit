@@ -13,8 +13,8 @@ export default async (req, res) => {
       value: req.body.total,
     },
     description: req.body.description,
-    redirectUrl: 'https://drama-fruit.vercel.app/payment-complete?transaction=' + req.body.transaction_id,
-    webhookUrl: 'https://drama-fruit.vercel.app/api/payment-status',
+    redirectUrl: 'https://www.dramafruit.com/payment-complete?transaction=' + req.body.transaction_id,
+    webhookUrl: 'https://www.dramafruit.com/api/payment-status',
     metadata: {
       order_id: req.body.transaction_id,
       address: req.body.address
