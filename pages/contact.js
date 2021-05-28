@@ -5,6 +5,7 @@ import Layout from '../components/templates/Layout'
 import TextInput from '../components/form_components/TextInput'
 import EmailInput from '../components/form_components/EmailInput'
 import TextArea from '../components/form_components/TextArea'
+import SocialMedia from '../components/SocialMedia'
 import style from '../styles/Contact.module.css'
 
 const Contact = () => {
@@ -72,6 +73,9 @@ const Contact = () => {
                         value="Send"
                         />
                 </form>
+                <div className={style.social}>
+                    <SocialMedia />
+                </div>
             </Layout>
         </div>
     )
