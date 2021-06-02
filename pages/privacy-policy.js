@@ -29,7 +29,7 @@ const Privacy = () => {
     return (
         <Layout>
             <Head>
-                <title>Terms and Conditions - Drama Fruit</title>
+                <title>Privacy Policy - Drama Fruit</title>
                 <meta name="description" content="Drama Fruit Terms and Conditions" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
