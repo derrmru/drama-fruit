@@ -138,7 +138,10 @@ const DramaShop = () => {
                     }
                 </div>
                 {
-                    products.length > productsPerPage && <div className={styles.pageButtons}>
+                    products.filter(product => {
+                        if (select !== 'Select') return product.fields.productCategory === select
+                        return true
+                    }).length > productsPerPage && <div className={styles.pageButtons}>
                         <button
                             onClick={() => incDown()}
                         >
