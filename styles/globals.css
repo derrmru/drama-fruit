@@ -111,6 +111,15 @@ input[type="submit"] {
   }
 }
 
+input[type="checkbox"] {
+  width: 30px;
+  height: 30px;
+}
+
+input[type="checkbox"]:checked {
+  background-color: var(--drama-pink);
+}
+
 .fade-in {
   animation: fadeIn ease .8s;
   -webkit-animation: fadeIn ease .8s;
