@@ -4,13 +4,13 @@ import { useState, useEffect } from 'react'
 import { getEntry } from '../lib/contentful'
 import style from '../styles/TandCs.module.css'
 
-const TandCs = () => {
+const Privacy = () => {
     //fetch t&c's from contentful
     const [terms, setTerms] = useState({})
 
     useEffect(() => {
         const getPolicy = async () => {
-            const selection = await getEntry('1lhexx8mYE1SNr4UnoI9Gw')
+            const selection = await getEntry('dBigm3szJcXAvkGP7FAr2')
             setTerms(selection)
         }
         getPolicy()
@@ -21,12 +21,10 @@ const TandCs = () => {
     let policy;
     if (terms.fields) {
         policy = terms.fields.terms
-        console.log(policy)
     }
 
     //open accordian paragraph
     const [openClose, setOpenClose] = useState('');
-    console.log(openClose)
 
     return (
         <Layout>
@@ -36,7 +34,7 @@ const TandCs = () => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <h2 style={{ textAlign: 'center', margin: '40px 0' }}>Terms and Conditions</h2>
+            <h2 style={{ textAlign: 'center', margin: '40px 0' }}>Privacy Policy</h2>
             <div className={style.termsBody}>
             {
                 policy && Object.keys(policy).map((section, i) => {
@@ -70,4 +68,4 @@ const TandCs = () => {
     )
 }
 
-export default TandCs
+export default Privacy
