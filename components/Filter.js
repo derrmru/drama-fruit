@@ -1,10 +1,11 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import style from './Filter.module.css'
 
 const Filter = ({
     options, 
     selected,
-    setSelect
+    setSelect,
+    setPage
 }) => {
     const [showOptions, setShowOptions] = useState(false)
     
@@ -13,6 +14,7 @@ const Filter = ({
     const update = (option) => {
         setShowOptions(!showOptions)
         option === ' - Clear Filter - ' ? setSelect('Select') : setSelect(option)
+        setPage()
     }
 
     return (

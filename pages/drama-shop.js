@@ -63,7 +63,7 @@ const DramaShop = () => {
     useEffect(() => {
         if (products) setProductCategories(Object.keys(products).reduce((total, product) => {
             const pc = products[product].fields.productCategory
-            if (pc && total.indexOf(pc) < 0) total.push(products[product].fields.productCategory)
+            if (pc && total.indexOf(pc) < 0) total.push(pc)
             return total
         }, []))
     }, [products])
@@ -82,6 +82,7 @@ const DramaShop = () => {
                     options={productCategories}
                     selected={select}
                     setSelect={(selected) => setSelect(selected)}
+                    setPage={() => setPage(0)}
                 />
                 <div className={styles.imageContainer}>
                     {//map products from CMS
