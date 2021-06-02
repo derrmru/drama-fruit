@@ -11,6 +11,13 @@
     justify-content: space-between;
 }
 
+.openedText {
+    border: 1px dashed var(--drama-green);
+    background-color: rgba(255, 255, 255, .9);
+    padding: 0 20px 20px 20px;
+    margin-bottom: 20px;
+}
+
 @media only screen and (max-width: 1025px) {
     .termsBody {
         width: 70%;

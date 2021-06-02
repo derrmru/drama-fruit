@@ -48,7 +48,7 @@ const TandCs = () => {
                                 <div>{section}</div> <div>{openClose === ('p' + i) ? '-' : '+'}</div>
                         </button>
                         {openClose === ('p' + i) &&
-                            <div className="fade-in">
+                            <div className={style.openedText + " fade-in"}>
                                 {policy[section].map((paragraph, j) => {
                                     return paragraph.listItems ? //if paragraph is a subarray, map out as unordered list
                                         <ul key={'listItems' + j}>
