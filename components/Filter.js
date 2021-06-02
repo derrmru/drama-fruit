@@ -16,7 +16,7 @@ const Filter = ({
     }
 
     return (
-        <div className={style.filterContainer}>
+        <div className={style.filterContainer + ' fade-in'}>
             <div 
                 className={style.filterSelect}
                 onClick={() => setShowOptions(!showOptions)}
