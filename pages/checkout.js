@@ -6,6 +6,7 @@ import Loading from '../components/Loading'
 import Layout from '../components/templates/Layout'
 import TextInput from '../components/form_components/TextInput'
 import EmailInput from '../components/form_components/EmailInput'
+import Checkbox from '../components/form_components/Checkbox'
 import AddressInput from '../components/form_components/AddressInput'
 import { useState, useContext } from 'react'
 import { ShoppingContext } from '../src/context/shoppingCart'
@@ -52,6 +53,7 @@ export default function Checkout() {
     temp[name] = value;
     setFields(temp)
   }
+  console.log(fields)
 
   //auto complete address state
   const [address, setAddress] = useState('');
@@ -70,6 +72,7 @@ export default function Checkout() {
         description: desc,
         address: address,
         total: total.toFixed(2), //Mollie requires format of amount to be string with two decimal places
+        privacy: fields.privacy
       }).done((paymentUrl) => {
         //navigate to payment url
         window.location.href = paymentUrl
@@ -233,6 +236,12 @@ export default function Checkout() {
                 name="address"
                 value={address}
                 setAddress={(value) => setAddress(value)}
+                />
+              <Checkbox 
+                name="privacy"
+                value={fields.privacy}
+                setValue={(name, value) => setValue(name, value)}
+                description={<>By ticking this box you agree that you have read and agree with our <Link href="/terms-and-conditions"><a>Terms and Conditions</a></Link> and <Link href="/privacy-policy"><a>Privacy Policy</a></Link></>}
                 />
               <input
                 type="submit"

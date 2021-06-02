@@ -1,10 +1,12 @@
 import { useState } from 'react'
 import $ from 'jquery'
 import Head from 'next/head'
+import Link from 'next/link'
 import Layout from '../components/templates/Layout'
 import TextInput from '../components/form_components/TextInput'
 import EmailInput from '../components/form_components/EmailInput'
 import TextArea from '../components/form_components/TextArea'
+import Checkbox from '../components/form_components/Checkbox'
 import SocialMedia from '../components/SocialMedia'
 import style from '../styles/Contact.module.css'
 
@@ -17,6 +19,7 @@ const Contact = () => {
         temp[name] = value;
         setFields(temp)
     }
+    console.log(fields)
 
     //submit form
     const submit = (e) => {
@@ -67,6 +70,12 @@ const Contact = () => {
                         value={fields.message}
                         setValue={(name, value) => updateFields(name, value)}
                         id="contact_textarea"
+                        />
+                    <Checkbox 
+                        name="privacy"
+                        value={fields.privacy}
+                        setValue={(name, value) => updateFields(name, value)}
+                        description={<>By ticking this box you agree that you have read and agree with our <Link href="/privacy-policy"><a>Privacy Policy</a></Link></>}
                         />
                     <input 
                         type="submit"

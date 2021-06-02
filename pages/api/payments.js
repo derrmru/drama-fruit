@@ -32,6 +32,7 @@ export default async (req, res) => {
         description: req.body.description,
         total: req.body.total,
         mollie_id: payment.id,
+        privacy: req.body.privacy,
         date_created: new Date()
     });
 
