@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { fetchEntries } from '../lib/contentful'
 import Layout from '../components/templates/Layout'
+import Filter from '../components/Filter'
 import { useState, useContext, useEffect } from 'react'
 import { ShoppingContext } from '../src/context/shoppingCart'
 import styles from '../styles/Shop.module.css'
@@ -29,13 +30,14 @@ const DramaShop = () => {
 
     //fetch posts from contentful
     const [products, setProducts] = useState([])
+    const [productCategories, setProductCategories] = useState([]);
 
     useEffect(() => {
         const getProducts = async () => {
-          const allProducts = await fetchEntries({
-            content_type: "products",
-        })
-          setProducts([...allProducts])
+            const allProducts = await fetchEntries({
+                content_type: "products",
+            })
+            setProducts([...allProducts])
         }
         getProducts()
     }, [])
@@ -56,6 +58,16 @@ const DramaShop = () => {
         }
     }
 
+    //Select Categories
+    const [select, setSelect] = useState('Select');
+    useEffect(() => {
+        if (products) setProductCategories(Object.keys(products).reduce((total, product) => {
+            const pc = products[product].fields.productCategory
+            if (pc && total.indexOf(pc) < 0) total.push(products[product].fields.productCategory)
+            return total
+        }, []))
+    }, [products])
+
     return (
         <div className={styles.container}>
             <Head>
@@ -66,9 +78,19 @@ const DramaShop = () => {
 
             <Layout>
                 <h2 style={{ textAlign: 'center', margin: '40px 0 20px' }}>Drama Shop</h2>
+                <Filter
+                    options={productCategories}
+                    selected={select}
+                    setSelect={(selected) => setSelect(selected)}
+                />
                 <div className={styles.imageContainer}>
                     {//map products from CMS
-                        products.slice(page, page + productsPerPage).map((item, i) => {
+                        products
+                        .filter(product => {
+                            if (select !== "Select") return product.fields.productCategory === select
+                            return true
+                        })
+                        .slice(page, page + productsPerPage).map((item, i) => {
                             return <div
                                 key={'shopItem' + i}
                                 className={styles.homeImages + ' fade-in'}

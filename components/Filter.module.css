@@ -1,0 +1,37 @@
+.filterContainer {
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+}
+
+.filterSelect {
+    width: 80%;
+    margin: auto;
+    padding: 10px;
+    border: 2px solid var(--drama-yellow);
+    position: relative;
+    background-color: rgba(255, 255, 255, .9);
+    color: var(--drama-pink);
+}
+
+.downArrow {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: var(--drama-pink);
+}
+
+.option {
+    padding: 10px;
+    width: 80%;
+    margin: auto;
+    background-color: rgba(255, 255, 255, .9);
+    border: 2px dashed var(--drama-green);
+    border-top: none;
+}
+
+@media (hover:hover) {
+    .option:hover, .filterSelect:hover {
+        background-color: rgba(250, 250, 250, .9);
+    }
+}
