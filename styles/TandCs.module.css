@@ -1,0 +1,24 @@
+.termsBody {
+    width: 50%;
+    margin: 40px auto;
+}
+
+.accordOC {
+    width: 100%;
+    margin: 0 0 20px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+@media only screen and (max-width: 1025px) {
+    .termsBody {
+        width: 70%;
+    }
+}   
+
+@media only screen and (max-width: 600px) {
+    .termsBody {
+        width: 90%;
+    }
+}   
