@@ -43,7 +43,7 @@ const TandCs = () => {
                     return <div key={'acc-section' + i} style={{width: '100%'}}>
                         <button 
                             className={style.accordOC}
-                            onClick={() => openClose === '' ? setOpenClose(('p' + i)) : setOpenClose('')}
+                            onClick={() => (openClose === '' || openClose !== ('p' + i)) ? setOpenClose(('p' + i)) : setOpenClose('')}
                             >
                                 <div>{section}</div> <div>{openClose === ('p' + i) ? '-' : '+'}</div>
                         </button>
