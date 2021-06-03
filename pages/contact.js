@@ -37,7 +37,7 @@ const Contact = () => {
         <div>
             <Layout>
                 <Head>
-                    <title>Drama Fruit - Contact</title>
+                    <title>Contact - Drama Fruit</title>
                     <meta name="description" content="Get In Touch - Drama Fruit" />
                     <link rel="icon" href="/favicon.ico" />
                     <meta 
