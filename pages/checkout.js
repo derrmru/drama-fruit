@@ -241,7 +241,7 @@ export default function Checkout() {
                 name="privacy"
                 value={fields.privacy}
                 setValue={(name, value) => setValue(name, value)}
-                description={<>By ticking this box you agree that you have read and agree with our <Link href="/terms-and-conditions"><a>Terms and Conditions</a></Link> and <Link href="/privacy-policy"><a>Privacy Policy</a></Link></>}
+                description={<>By ticking this box you indicate that you have read and agree with our <Link href="/terms-and-conditions"><a>Terms and Conditions</a></Link> and <Link href="/privacy-policy"><a>Privacy Policy</a></Link></>}
                 />
               <input
                 type="submit"

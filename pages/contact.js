@@ -75,7 +75,7 @@ const Contact = () => {
                         name="privacy"
                         value={fields.privacy}
                         setValue={(name, value) => updateFields(name, value)}
-                        description={<>By ticking this box you agree that you have read and agree with our <Link href="/privacy-policy"><a>Privacy Policy</a></Link></>}
+                        description={<>By ticking this box you indicate that you have read and agree with our <Link href="/privacy-policy"><a>Privacy Policy</a></Link></>}
                         />
                     <input 
                         type="submit"
