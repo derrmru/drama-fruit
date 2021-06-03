@@ -45,6 +45,7 @@ export default function Home() {
                       <img
                         src={item.fields.productImage.fields.file.url}
                         alt={item.fields.imageAltText || ''}
+                        className={style.cardImage}
                         object-fit="cover"
                         width="100%"
                         height="100%"

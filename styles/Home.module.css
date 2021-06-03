@@ -24,6 +24,11 @@
     padding: 0;
 }
 
+.cardImage {
+    min-height: 200px;
+    min-width: 200px;
+}
+
 @media only screen and (max-width: 600px) {
     .homeProductsContainer {
         flex-direction: column;
