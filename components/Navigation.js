@@ -53,16 +53,17 @@ const Navigation = ({ navItems }) => {
                     }}>
                     {
                         navItems.map((item, i) => {
-                            return <Link 
+                            return <li 
                                 key={'nav-item' + i} 
-                                href={item[1]}
                                 >
-                                <a style={{textDecoration: 'none'}}>
-                                    <li>
+                                <Link 
+                                    href={item[1]}
+                                    >
+                                    <a style={{textDecoration: 'none'}}>
                                         {item[0]}
-                                    </li>
-                                </a>
-                            </Link>
+                                    </a>
+                                </Link>
+                            </li>
                         })
                     }
                     </ul>

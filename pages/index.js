@@ -19,8 +19,6 @@ export default function Home() {
       getProducts()
   }, [])
 
-  console.log(items)
-
   return (
     <div>
       <Head>

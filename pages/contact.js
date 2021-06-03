@@ -39,6 +39,10 @@ const Contact = () => {
                     <title>Drama Fruit - Contact</title>
                     <meta name="description" content="Get In Touch - Drama Fruit" />
                     <link rel="icon" href="/favicon.ico" />
+                    <meta 
+                        name="viewport" 
+                        content="width=device-width, initial-scale=1.0,user-scalable=0"
+                        />
                 </Head>
                 <h2 style={{ textAlign: 'center', margin: '40px 0 40px' }}>Contact</h2>
                 <form 

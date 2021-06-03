@@ -50,16 +50,16 @@
     font-size: 22px;
 }
 
-.desktopNav > ul > a {
+.desktopNav > ul > li > a {
     transition: .2s;
 }
 
-.desktopNav > ul > a:focus {
+.desktopNav > ul > li > a:focus {
     color: var(--drama-pink);
 }
 
 @media(hover:hover) {
-    .desktopNav > ul > a:hover {
+    .desktopNav > ul > li > a:hover {
         color: var(--drama-pink);
     }
 }

@@ -95,6 +95,10 @@ export default function Checkout() {
         <title>Checkout - Drama Fruit</title>
         <meta name="description" content="Fresh Fruit by Marek Kalianko" />
         <link rel="icon" href="/favicon.ico" />
+        <meta 
+          name="viewport" 
+          content="width=device-width, initial-scale=1.0,user-scalable=0"
+          />
       </Head>
       <Layout>
         <h2 style={{ textAlign: 'center', margin: '40px 0 40px' }}>Checkout</h2>
