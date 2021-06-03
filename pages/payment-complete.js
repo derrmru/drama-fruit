@@ -31,9 +31,12 @@ const PaymentComplete = () => {
     useEffect(() => {
         let items = window.location.href.split('id=');
         items.shift()
+        console.log(items)
         items.forEach((item) => {
             const id = item.split('number=')[0];
+            console.log(id)
             const num = item.split('number=')[1];
+            console.log(num)
             if (transaction["status"] === 'paid') {
                 updateStock(id, num)
             }
