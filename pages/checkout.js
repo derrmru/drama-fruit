@@ -13,6 +13,7 @@ import style from '../styles/Checkout.module.css'
 export default function Checkout() {
   //cart context
   const { items, itemsSetter } = useContext(ShoppingContext)
+  console.log(items)
 
   //delete item from cart
   const deleteItem = (item) => {
@@ -43,6 +44,13 @@ export default function Checkout() {
   const desc = Object.keys(items).reduce((description, current) => {
     return description += (current + ' x' + items[current]['number'] + ', ')
   }, '')
+  console.log(desc)
+
+  //id string variable
+  const ids = Object.keys(items).reduce((ids, current) => {
+    return ids += ('id=' + items[current]['id'] + 'number=' + items[current]['number'])
+  }, '')
+  console.log(ids)
 
   //handle form inputs
   const [fields, setFields] = useState({});
@@ -70,7 +78,8 @@ export default function Checkout() {
         description: desc,
         address: address,
         total: total.toFixed(2), //Mollie requires format of amount to be string with two decimal places
-        privacy: fields.privacy
+        privacy: fields.privacy,
+        ids: ids
       }).done((paymentUrl) => {
         //navigate to payment url
         window.location.href = paymentUrl

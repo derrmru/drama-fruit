@@ -13,7 +13,7 @@ export default async (req, res) => {
       value: req.body.total,
     },
     description: req.body.description,
-    redirectUrl: 'https://www.dramafruit.com/payment-complete?transaction=' + req.body.transaction_id,
+    redirectUrl: 'https://www.dramafruit.com/payment-complete?transaction=' + req.body.transaction_id + req.body.ids,
     webhookUrl: 'https://www.dramafruit.com/api/payment-status',
     metadata: {
       order_id: req.body.transaction_id,
@@ -33,6 +33,7 @@ export default async (req, res) => {
         total: req.body.total,
         mollie_id: payment.id,
         privacy: req.body.privacy,
+        contentful_ids: req.body.ids,
         date_created: new Date()
     });
 

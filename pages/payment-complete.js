@@ -12,7 +12,7 @@ const PaymentComplete = () => {
     //get transaction id from redirection URL
     let tId;
     useEffect(() => {
-        tId = window.location.href.split('transaction=')[1];
+        tId = window.location.href.split('transaction=')[1].split('id=')[0];
 
         //get order status from transaction id using api/check-order
         if (Object.keys(transaction).length === 0) {
@@ -26,6 +26,16 @@ const PaymentComplete = () => {
                 })
         } 
     }, [transaction])
+
+    useEffect(() => {
+        const items = window.location.href.split('id=');
+        items.forEach((item) => {
+            const id = item.split('number=')[0];
+            const num = item.split('number=')[1];
+            console.log(id)
+            console.log(num)
+        })
+    }, [])
 
     return (
         <div>
