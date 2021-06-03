@@ -29,7 +29,8 @@ const PaymentComplete = () => {
     }, [transaction])
 
     useEffect(() => {
-        const items = window.location.href.split('id=');
+        let items = window.location.href.split('id=');
+        items.shift()
         items.forEach((item) => {
             const id = item.split('number=')[0];
             const num = item.split('number=')[1];
