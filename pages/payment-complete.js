@@ -29,18 +29,21 @@ const PaymentComplete = () => {
     }, [transaction])
 
     useEffect(() => {
-        let items = window.location.href.split('id=');
-        items.shift()
-        console.log(items)
-        items.forEach((item) => {
-            const id = item.split('number=')[0];
-            console.log(id)
-            const num = item.split('number=')[1];
-            console.log(num)
-            if (transaction["status"] === 'paid') {
-                updateStock(id, num)
-            }
-        })
+        if (Object.keys(transaction).length > 0) {
+            let items = window.location.href.split('id=');
+            console.log(items)
+            items.map((item, i) => {
+                if (i > 0) {
+                    const id = item.split('number=')[0];
+                    console.log(id)
+                    const num = item.split('number=')[1];
+                    console.log(num)
+                    if (transaction["status"] === 'paid') {
+                        updateStock(id, num)
+                    }
+                }
+            })
+        }
     }, [transaction])
 
     return (
