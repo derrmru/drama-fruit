@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Layout from '../components/templates/Layout'
 import Loading from '../components/Loading'
 import { useEffect, useState } from "react"
+import { updateStock } from '../lib/contentful'
 import $ from 'jquery'
 import style from '../styles/Payment.module.css'
 
@@ -32,10 +33,11 @@ const PaymentComplete = () => {
         items.forEach((item) => {
             const id = item.split('number=')[0];
             const num = item.split('number=')[1];
-            console.log(id)
-            console.log(num)
+            if (transaction["status"] === 'paid') {
+                updateStock(id, num)
+            }
         })
-    }, [])
+    }, [transaction])
 
     return (
         <div>
