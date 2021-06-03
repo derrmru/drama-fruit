@@ -8,7 +8,7 @@
     width: 80%;
     margin: auto;
     padding: 10px;
-    border: 2px solid var(--drama-yellow);
+    border: 1px solid var(--drama-green);
     position: relative;
     background-color: rgba(255, 255, 255, .9);
     color: var(--drama-pink);
