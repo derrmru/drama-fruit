@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { fetchEntries } from '../lib/contentful'
 import Layout from '../components/templates/Layout'
+import PageTitle from '../components/PageTitle'
 import Filter from '../components/Filter'
 import { useState, useContext, useEffect } from 'react'
 import { ShoppingContext } from '../src/context/shoppingCart'
@@ -77,7 +78,7 @@ const DramaShop = () => {
             </Head>
 
             <Layout>
-                <h2 style={{ textAlign: 'center', margin: '40px 0 20px' }}>Drama Shop</h2>
+                <PageTitle title="Drama Shop" />
                 <Filter
                     options={productCategories}
                     selected={select}

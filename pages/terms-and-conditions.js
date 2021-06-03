@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Layout from '../components/templates/Layout'
+import PageTitle from '../components/PageTitle'
 import { useState, useEffect } from 'react'
 import { fetchEntries } from '../lib/contentful'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
@@ -30,7 +31,7 @@ const TandCs = () => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <h2 style={{ textAlign: 'center', margin: '40px 0' }}>Terms and Conditions</h2>
+            <PageTitle title="Terms & Conditions" />
             <div className={style.termsBody}>
             {
                 terms && terms

@@ -39,6 +39,13 @@ a {
   color: inherit;
   text-decoration: underline;
   display: inline;
+  transition: .4s;
+}
+
+@media (hover:hover) {
+  a:hover {
+    color: var(--drama-pink);
+  }
 }
 
 * {

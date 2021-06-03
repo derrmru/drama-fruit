@@ -4,6 +4,7 @@ import $ from 'jquery'
 import { v4 as uuidv4 } from 'uuid';
 import Loading from '../components/Loading'
 import Layout from '../components/templates/Layout'
+import PageTitle from '../components/PageTitle'
 import TextInput from '../components/form_components/TextInput'
 import EmailInput from '../components/form_components/EmailInput'
 import Checkbox from '../components/form_components/Checkbox'
@@ -101,7 +102,7 @@ export default function Checkout() {
           />
       </Head>
       <Layout>
-        <h2 style={{ textAlign: 'center', margin: '40px 0 40px' }}>Checkout</h2>
+        <PageTitle title="Checkout" />
         {
           !payNow ? <>
           {

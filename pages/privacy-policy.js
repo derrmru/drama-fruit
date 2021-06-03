@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Layout from '../components/templates/Layout'
+import PageTitle from '../components/PageTitle'
 import { useState, useEffect } from 'react'
 import { fetchEntries } from '../lib/contentful'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
@@ -32,7 +33,7 @@ const Privacy = () => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <h2 style={{ textAlign: 'center', margin: '40px 0' }}>Privacy Policy</h2>
+            <PageTitle title="Privacy Policy" />
             <div className={style.termsBody}>
             {
                 terms && terms

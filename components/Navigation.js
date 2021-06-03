@@ -11,7 +11,7 @@ const Navigation = ({ navItems }) => {
                 <div className={style.iconsContainer}></div>
                 
                 <Link href="/">
-                    <a style={{textDecoration: 'none'}}>
+                    <a style={{textDecoration: 'none', color: 'black'}}>
                         <span className={style.headerTitle}>
                             <h1>Drama</h1> 
                             <div style={{width: '100px'}} className={style.bannerLogo}>

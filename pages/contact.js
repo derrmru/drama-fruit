@@ -3,6 +3,7 @@ import $ from 'jquery'
 import Head from 'next/head'
 import Link from 'next/link'
 import Layout from '../components/templates/Layout'
+import PageTitle from '../components/PageTitle'
 import TextInput from '../components/form_components/TextInput'
 import EmailInput from '../components/form_components/EmailInput'
 import TextArea from '../components/form_components/TextArea'
@@ -44,7 +45,7 @@ const Contact = () => {
                         content="width=device-width, initial-scale=1.0,user-scalable=0"
                         />
                 </Head>
-                <h2 style={{ textAlign: 'center', margin: '40px 0 40px' }}>Contact</h2>
+                <PageTitle title="Contact" />
                 <form 
                     className={style.form}
                     onSubmit={(e) => submit(e)}

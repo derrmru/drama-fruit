@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
+import PageTitle from '../components/PageTitle'
 import { fetchEntries } from '../lib/contentful'
 import Layout from '../components/templates/Layout'
 import style from '../styles/News.module.css'
@@ -40,7 +41,7 @@ const News = () => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Layout>
-                <h2 style={{ textAlign: 'center', margin: '40px 0 40px' }}>Past Projects</h2>
+                <PageTitle title="Past Projects" />
                 <div className={style.postContainer}>
                     {
                         posts
