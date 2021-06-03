@@ -36,7 +36,7 @@ const News = () => {
     return (
         <div>
             <Head>
-                <title>Drama Fruit - Past Projects</title>
+                <title>Past Projects - Drama Fruit</title>
                 <meta name="description" content="Latest news from Drama Fruit" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
