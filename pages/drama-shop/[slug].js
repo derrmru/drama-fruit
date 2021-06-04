@@ -1,6 +1,6 @@
 import { useState, useContext, useEffect } from 'react'
 import { ShoppingContext } from '../../src/context/shoppingCart'
-import { client } from '../../lib/contentful'
+import { client, genEntry, getEntry } from '../../lib/contentful'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import Link from 'next/link'
 import Layout from '../../components/templates/Layout'
@@ -44,7 +44,18 @@ export default function Produce({ productData }) {
         if (items[title]) setNumber(items[title]['number'])
     })
 
-    console.log(productData)
+    const [stock, setStock] = useState(null);
+    useEffect(() => {
+        if (!stock) {
+            const s = async () => {
+                const sto = await getEntry(productData.sys.id)
+                setStock(sto)
+            }
+            s()
+        }
+    }, [stock])
+
+    console.log(stock)
 
     return (
         <div>
