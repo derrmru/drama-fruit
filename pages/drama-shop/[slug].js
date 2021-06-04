@@ -44,19 +44,6 @@ export default function Produce({ productData }) {
         if (items[title]) setNumber(items[title]['number'])
     })
 
-    const [stock, setStock] = useState(null);
-    useEffect(() => {
-        if (!stock) {
-            const s = async () => {
-                const sto = await getEntry(productData.sys.id)
-                setStock(sto)
-            }
-            s()
-        }
-    }, [stock])
-
-    console.log(stock)
-
     return (
         <div>
             <Layout>
