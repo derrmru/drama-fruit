@@ -13,17 +13,15 @@ const Navigation = ({ navItems }) => {
                 <Link href="/">
                     <a style={{textDecoration: 'none', color: 'black'}}>
                         <span className={style.headerTitle}>
-                            <h1>Drama</h1> 
-                            <div style={{width: '100px'}} className={style.bannerLogo}>
+                            <div style={{width: '280px'}} className={style.bannerLogo}>
                                 <Image
                                     src="/images/drama_fruit_logo.png"
                                     alt="Drama Fruit Logo"
                                     layout="responsive"
-                                    width={"100"}
-                                    height={"100"}
+                                    width={"812"}
+                                    height={"307"}
                                 />
                             </div>
-                            <h1>Fruit</h1>
                         </span>
                     </a>
                 </Link>
