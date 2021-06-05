@@ -1,4 +1,4 @@
-import { createContext } from 'react';
+import { createContext, useEffect } from 'react';
 
 export const ShoppingContext = createContext({
   items: {},

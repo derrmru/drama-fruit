@@ -28,7 +28,7 @@ const PaymentComplete = () => {
         } 
     }, [transaction])
 
-    useEffect(() => {
+    useEffect(() => {//update stock for items that were purchased
         if (Object.keys(transaction).length > 0) {
             let items = window.location.href.split('id=');
             console.log(items)
@@ -44,6 +44,10 @@ const PaymentComplete = () => {
                 }
             })
         }
+    }, [transaction])
+
+    useEffect(() => {
+        if (Object.keys(transaction).length > 0) window.localStorage.setItem('items', JSON.stringify({}))
     }, [transaction])
 
     return (

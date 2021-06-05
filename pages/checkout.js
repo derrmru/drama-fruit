@@ -13,7 +13,6 @@ import style from '../styles/Checkout.module.css'
 export default function Checkout() {
   //cart context
   const { items, itemsSetter } = useContext(ShoppingContext)
-  console.log(items)
 
   //delete item from cart
   const deleteItem = (item) => {
@@ -22,7 +21,7 @@ export default function Checkout() {
     itemsSetter(obj)
   }
 
-  //increment or decrement pages
+  //increment or decrement items
   const inc = (item, direction) => {
     let obj = { ...items };
     const newValue = obj[item]['number'] + direction
