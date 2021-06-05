@@ -13,7 +13,7 @@ const Navigation = ({ navItems }) => {
                 <Link href="/">
                     <a style={{textDecoration: 'none', color: 'black'}}>
                         <span className={style.headerTitle}>
-                            <div style={{width: '280px'}} className={style.bannerLogo}>
+                            <div style={{width: '240px'}} className={style.bannerLogo}>
                                 <Image
                                     src="/images/drama_fruit_logo.png"
                                     alt="Drama Fruit Logo"
