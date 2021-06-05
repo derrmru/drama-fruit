@@ -23,7 +23,7 @@ export default function Home() {
     <div>
       <Head>
         <title>Drama Fruit</title>
-        <meta name="description" content={items.fields.seoDescription} />
+        <meta name="description" content={items && items.fields.seoDescription} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout>
