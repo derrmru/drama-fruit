@@ -44,13 +44,11 @@ export default function Checkout() {
   const desc = Object.keys(items).reduce((description, current) => {
     return description += (current + ' x' + items[current]['number'] + ', ')
   }, '')
-  console.log(desc)
 
   //id string variable
   const ids = Object.keys(items).reduce((ids, current) => {
     return ids += ('id=' + items[current]['id'] + 'number=' + items[current]['number'])
   }, '')
-  console.log(ids)
 
   //handle form inputs
   const [fields, setFields] = useState({});
@@ -59,7 +57,6 @@ export default function Checkout() {
     temp[name] = value;
     setFields(temp)
   }
-  console.log(fields)
 
   //auto complete address state
   const [address, setAddress] = useState('');
@@ -93,7 +90,7 @@ export default function Checkout() {
     <div>
       <Head>
         <title>Checkout - Drama Fruit</title>
-        <meta name="description" content="Fresh Fruit by Marek Kalianko" />
+        <meta name="description" content="Complete your drama fruit purchase." />
         <link rel="icon" href="/favicon.ico" />
         <meta 
           name="viewport" 
