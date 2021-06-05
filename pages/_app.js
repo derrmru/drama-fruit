@@ -19,8 +19,6 @@ function MyApp({ Component, pageProps }) {
     if (window.localStorage.getItem('items')) setItems(JSON.parse(window.localStorage.getItem('items')))
   }, [])
 
-  console.log(items)
-
   //value to pass to ShoppingProvider
   const value = { items, itemsSetter }
 
