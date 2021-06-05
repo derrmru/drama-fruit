@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import { useState, useContext, useEffect } from 'react'
 import { ShoppingContext } from '../../src/context/shoppingCart'
 import { client, genEntry, getEntry } from '../../lib/contentful'
@@ -46,6 +47,11 @@ export default function Produce({ productData }) {
 
     return (
         <div>
+            <Head>
+                <title>{productData.fields.title} - Drama Fruit</title>
+                {productData && <meta name="description" content={productData.fields.seoDescription} />}
+                <link rel="icon" href="/favicon.ico" />
+            </Head>
             <Layout>
                 <h2 style={{ textAlign: 'center', margin: '40px 0' }}>{title}</h2>
                 <div className={style.productContain}>

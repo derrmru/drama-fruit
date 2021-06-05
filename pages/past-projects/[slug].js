@@ -9,7 +9,9 @@ export default function Slug({ post }) {
     return (
         <Layout>
             <Head>
-                <title>Drama Fruit - {post.fields.title}</title>
+                <title>{post.fields.title} - Drama Fruit</title>
+                {post && <meta name="description" content={post.fields.seoDescription} />}
+                <link rel="icon" href="/favicon.ico" />
             </Head>
             <div className={style.ppContainer + ' fade-in'}>
                 <h2 style={{ textAlign: 'center', margin: '40px 0 40px' }}>{post.fields.title}</h2>
