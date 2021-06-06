@@ -6,6 +6,7 @@
       format("woff"),
     url("../public/fonts/hip_hopper/hip_hopper/@font-face/e28d4e9297e3db1aea3d3142a1e9abe3.ttf")
       format("truetype");
+  font-display: swap;
 }
 
 :root {
