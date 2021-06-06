@@ -1,5 +1,6 @@
 .FAQContainer {
     width: 70%;
+    min-height: 40vh;
     margin: 40px auto;
 }
 

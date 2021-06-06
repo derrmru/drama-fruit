@@ -18,8 +18,6 @@ const FAQ = () => {
         }
         ent()
     }, [])
-
-    console.log(entries)
     
     return (
         <div>
