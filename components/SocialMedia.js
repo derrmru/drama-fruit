@@ -3,7 +3,7 @@ import { useState } from 'react'
 const SocialMedia = () => {
     const [hover, setHover] = useState('');
     const size = {
-        height: '40px'
+        height: '34px'
     }
     const stroke = {
         transition: '.4s',

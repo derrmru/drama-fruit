@@ -3,7 +3,7 @@
     margin: 40px auto;
     padding: 20px;
     box-sizing: border-box;
-    border: 4px dashed var(--drama-green);
+    border: 3px dashed var(--drama-green);
 }
 
 .social {
