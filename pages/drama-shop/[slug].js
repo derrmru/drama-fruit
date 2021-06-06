@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import { useState, useContext, useEffect } from 'react'
 import { ShoppingContext } from '../../src/context/shoppingCart'
-import { client, genEntry, getEntry } from '../../lib/contentful'
+import { client } from '../../lib/contentful'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import Link from 'next/link'
 import Layout from '../../components/templates/Layout'

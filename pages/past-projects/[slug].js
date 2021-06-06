@@ -5,7 +5,6 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import style from '../../styles/PastProject.module.css'
 
 export default function Slug({ post }) {
-    console.log(post)
     return (
         <Layout>
             <Head>
