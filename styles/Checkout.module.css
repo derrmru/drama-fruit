@@ -102,6 +102,7 @@
     border: 3px dashed var(--drama-green);
     padding: 20px;
     text-align: center;
+    background-color: rgba(255, 255, 255, .9);
 }
 
 @media only screen and (max-width: 975px) {

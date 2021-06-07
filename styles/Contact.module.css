@@ -4,6 +4,7 @@
     padding: 20px;
     box-sizing: border-box;
     border: 3px dashed var(--drama-green);
+    background-color: rgba(255, 255, 255, .8);
 }
 
 .social {
