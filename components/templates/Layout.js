@@ -8,10 +8,10 @@ const Layout = ({ children }) => {
             <Navigation 
                 navItems={[
                     ['Home', '/'],
-                    ['Past Projects', '/past-projects'],
-                    ['Drama Shop', '/drama-shop'],
+                    ['Blog', '/past-projects'],
+                    ['Shop', '/drama-shop'],
                     ['About', '/about'],
-                    ['FAQ\'s', '/faq'],
+                    ['FAQ', '/faq'],
                     ['Contact', '/contact']
                 ]}
                 />
@@ -22,7 +22,7 @@ const Layout = ({ children }) => {
 
             <footer className={style.footer}>
                 <p style={{textAlign: 'center', marginTop: '20px'}}><span>©Drama Fruit, 2021 | <Link href="/terms-and-conditions"><a>Terms and Conditions</a></Link> | <Link href="/privacy-policy"><a>Privacy Policy</a></Link></span></p>
-                <div style={{width: '100%', textAlign: 'center', marginBottom: '20px'}}>built by <a href="https://thepetersweeney.com">thepetersweeney.com</a></div>
+                <p style={{width: '100%', textAlign: 'center', marginBottom: '80px'}}>built by <a href="https://thepetersweeney.com">thepetersweeney.com</a></p>
             </footer>
 
         </>
