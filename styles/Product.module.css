@@ -17,6 +17,39 @@
     max-height: 500px;
 }
 
+.altContainer {
+    width: 36vw;
+    max-width: 500px;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.altImages {
+    width: 18%;
+    margin: 0 1%;
+    cursor: pointer;
+    transition: .2s;
+    background-color: var(--drama-pink);
+}
+
+@media (hover:hover) {
+    .altImages:hover {
+        background-color: var(--drama-green);
+    }
+    .altImage:hover {
+        border-color: var(--drama-green);
+    }
+}
+
+.altImage {
+    width: 100%;
+    border: 3px solid var(--drama-pink);
+    box-sizing: border-box;
+    padding: 0;
+}
+
 .description {
     width: 50%;
     display: flex;
@@ -82,6 +115,9 @@
     .image {
         width: 80vw;
         height: 80vw;
+    }
+    .altContainer {
+        width: 80vw;
     }
     .textContain {
         width: 100%;

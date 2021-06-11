@@ -45,6 +45,10 @@ export default function Produce({ productData }) {
         if (items[title]) setNumber(items[title]['number'])
     })
 
+    //select current image
+    const [currentImage, setCurrentImage] = useState('')
+    console.log(productData)
+
     return (
         <div>
             <Head>
@@ -59,12 +63,29 @@ export default function Produce({ productData }) {
                     <div className={style.imageContain}>
                         <div className={style.image} style={{ margin: 'auto', border: '5px solid var(--drama-pink)' }}>
                             <img
-                                src={'/' + productData.fields.productImage.fields.file.url}
+                                src={'/' + (currentImage !== '' ? currentImage : productData.fields.productImage.fields.file.url)}
                                 alt={productData.fields.imageAltText || ''}
                                 object-fit="cover"
                                 width="100%"
                                 height="100%"
                             />
+                        </div>
+                        <div className={style.altContainer}>
+                        {
+                            productData.fields.productPageImages && productData.fields.productPageImages.map((image, i) => {
+                                return <div 
+                                    key={'altImage' + i}
+                                    className={style.altImages + ' fade-in'}
+                                    onClick={() => setCurrentImage(image.fields.file.url)}
+                                    >
+                                    <img
+                                        className={style.altImage}
+                                        src={image.fields.file.url}
+                                        alt={image.fields.description}
+                                        />
+                                </div>
+                            })
+                        }
                         </div>
                     </div>
 
