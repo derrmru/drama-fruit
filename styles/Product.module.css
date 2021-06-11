@@ -23,7 +23,7 @@
     margin: 20px auto;
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: space-evenly;
 }
 
 .altImages {
@@ -31,13 +31,9 @@
     margin: 0 1%;
     cursor: pointer;
     transition: .2s;
-    background-color: var(--drama-pink);
 }
 
 @media (hover:hover) {
-    .altImages:hover {
-        background-color: var(--drama-green);
-    }
     .altImage:hover {
         border-color: var(--drama-green);
     }
