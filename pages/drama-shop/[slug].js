@@ -77,6 +77,7 @@ export default function Produce({ productData }) {
                                     key={'altImage' + i}
                                     className={style.altImages + ' fade-in'}
                                     onClick={() => setCurrentImage(image.fields.file.url)}
+                                    onMouseOver={() => setCurrentImage(image.fields.file.url)}
                                     >
                                     <img
                                         className={style.altImage}
