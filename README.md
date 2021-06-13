@@ -10,3 +10,4 @@ Bespoke website for Amsterdam-based boutique fashion store, Drama Fruit.
  - [Firebase](https://firebase.google.com/)
  - [Mollie](https://www.mollie.com/en)
  - [UUID](https://www.npmjs.com/package/uuid)
+ - [Next-Sitemap](https://www.npmjs.com/package/next-sitemap)

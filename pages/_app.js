@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react'
+import * as gtag from '../lib/gtag'
+import { useRouter } from 'next/router'
 import { ShoppingProvider } from '../src/context/shoppingCart'
 import '../styles/globals.css'
 
@@ -21,6 +23,19 @@ function MyApp({ Component, pageProps }) {
 
   //value to pass to ShoppingProvider
   const value = { items, itemsSetter }
+
+
+  //Google Analytics
+  const router = useRouter()
+  useEffect(() => {
+    const handleRouteChange = (url) => {
+      gtag.pageview(url)
+    }
+    router.events.on('routeChangeComplete', handleRouteChange)
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange)
+    }
+  }, [router.events])
 
   return (
     <ShoppingProvider value={value}>
