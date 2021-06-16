@@ -24,7 +24,6 @@ function MyApp({ Component, pageProps }) {
   //value to pass to ShoppingProvider
   const value = { items, itemsSetter }
 
-
   //Google Analytics
   const router = useRouter()
   useEffect(() => {
