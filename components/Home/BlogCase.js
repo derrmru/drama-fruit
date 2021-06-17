@@ -23,7 +23,7 @@ const ShopCase = ({
                 >
                 <img
                     className={style.theImage} 
-                    src={items && items.fields.bannerImage.fields.file.url} 
+                    src={items && items.fields.blogImage.fields.file.url} 
                     />
             </div>
         </div>
