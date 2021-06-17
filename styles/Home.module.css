@@ -16,6 +16,10 @@
     justify-content: center;
 }
 
+.bannerText > div {
+    width: 90%;
+}
+
 .bannerImage {
     width: 50%;
     border: 3px dashed var(--drama-green);
