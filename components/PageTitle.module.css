@@ -1,10 +1,11 @@
 .title {
     margin: 40px 0;
+    font-size: 32px;
 }
 
 @media only screen and (max-width: 600px) {
     .title {
         margin: 20px 0;
-        font-size: 18px;
+        font-size: 22px;
     }
 }

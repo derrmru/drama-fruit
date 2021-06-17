@@ -1,12 +1,13 @@
 @font-face {
   font-family: "HipHopper";
-  src: /*url("../public/fonts/hip_hopper/hip_hopper/@font-face/e28d4e9297e3db1aea3d3142a1e9abe3.woff2")
-      format("woff2"),
-    url("../public/fonts/hip_hopper/hip_hopper/@font-face/e28d4e9297e3db1aea3d3142a1e9abe3.woff")
-      format("woff"),
-    url("../public/fonts/hip_hopper/hip_hopper/@font-face/e28d4e9297e3db1aea3d3142a1e9abe3.ttf")
-      format("truetype");*/
-    url("../public/fonts/Ledger/Ledger-Regular.ttf")
+  src: url("../public/fonts/Ledger/Ledger-Regular.ttf")
+      format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "sejagad";
+  src: url("../public/fonts/great_sejagad/Great\ Sejagad.ttf")
       format("truetype");
   font-display: swap;
 }
@@ -38,7 +39,12 @@ body {
   background-repeat: no-repeat;
 }
 
-h1, h2, h3, h4, h5, h6, a {
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'sejagad';
+  font-weight: 600;
+}
+
+a {
   font-weight: 600;
 }
 

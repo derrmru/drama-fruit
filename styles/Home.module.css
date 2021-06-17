@@ -1,46 +1,106 @@
-.homeProductsContainer {
-    width: 90%;
-    margin: 0 auto 20px auto;
+.bannerContainer{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
+    width: 80%;
+    margin: 40px auto;
+}
+
+.bannerText {
+    width: 50%;
+    background-color: rgba(255, 255, 255, .7);
+    border: 3px solid var(--drama-green);
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.bannerImage {
+    width: 50%;
+    border: 3px dashed var(--drama-green);
+    padding: 10px;
+}
+
+/**
+*Handle specifics
+*/
+
+.mainImage {
+    border-left: none;
+}
+
+.mainText {
+    font-size: 50px;
+    line-height: 100px;
     align-items: center;
 }
 
-.homeProduct {
-    width: 30%;
-    height: 30%;
-    margin: 0 auto 20px auto;
-    padding: 0;
-    text-align: center;
+.shopText {
+    border-left: none;
+    text-align: left;
+    padding: 20px;
+    font-size: 20px;
 }
 
-.itemCard {
-    width: 28vw;
-    height: 28vw;
-    border: 5px solid var(--drama-green);
-    cursor: pointer;
-    padding: 0;
+.shopText > div > h2 {
+    margin: 10px 0;
+    font-size: 40px;
 }
 
-.cardImage {
-    min-height: 200px;
-    min-width: 200px;
+.blogText {
+    border-right: none;
+    text-align: left;
+    padding: 20px;
+    font-size: 20px;
+}
+
+.blogText > div > h2 {
+    margin: 10px 0;
+    font-size: 40px;
+}
+
+.theImage {
+    width: 100%;
+}
+
+@media only screen and (max-width: 1170px) {
+    .mainText {
+        font-size: 40px;
+    }
+}
+
+@media only screen and (max-width: 960px) {
+    .mainText {
+        font-size: 30px;
+        line-height: 80px;
+    }
 }
 
 @media only screen and (max-width: 600px) {
-    .homeProductsContainer {
+    .bannerContainer {
+        width: 90%;
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
     }
-    .homeProduct {
-        width: 96%;
+    .mainText {
+        line-height: 40px;
     }
-    .itemCard {
-        width: 84vw;
-        margin: auto;
-        height: 84vw;
+    .bannerText, .bannerImage {
+        width: 100%;
+    }
+    .mainImage {
+        border-left: 3px dashed var(--drama-green);
+        border-top: none;
+    }
+    .shopText {
+        border-left: 3px solid var(--drama-pink);
+        border-top: none;
+    }
+    .blogText {
+        border-right: 3px solid var(--drama-yellow);
+        border-top: none;
+    }
+    .blogReverse {
+        flex-direction: column-reverse;
     }
 }

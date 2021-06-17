@@ -1,7 +1,8 @@
 import Head from 'next/head'
 import Layout from '../components/templates/Layout'
-import HomeShowCases from '../components/Home/HomeShowCases'
-import PageTitle from '../components/PageTitle'
+import Banner from '../components/Home/Banner'
+import ShopCase from '../components/Home/ShopCase'
+import BlogCase from '../components/Home/BlogCase'
 import { useState, useEffect } from 'react'
 import { fetchEntries } from '../lib/contentful'
 
@@ -27,8 +28,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout>
-        <PageTitle title="Fresh Fruit!" />
-        <HomeShowCases items={items} />
+        <Banner items={items} />
+        <ShopCase items={items} />
+        <BlogCase items={items} />
       </Layout>
     </div>
   )

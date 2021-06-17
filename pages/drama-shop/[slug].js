@@ -5,6 +5,7 @@ import { client } from '../../lib/contentful'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import Link from 'next/link'
 import Layout from '../../components/templates/Layout'
+import PageTitle from '../../components/PageTitle'
 import style from '../../styles/Product.module.css'
 
 export default function Produce({ productData }) {
@@ -57,7 +58,7 @@ export default function Produce({ productData }) {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Layout>
-                <h2 style={{ textAlign: 'center', margin: '40px 0' }}>{title}</h2>
+                <PageTitle title={title} />
                 <div className={style.productContain}>
 
                     <div className={style.imageContain}>

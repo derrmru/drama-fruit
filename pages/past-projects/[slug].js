@@ -2,6 +2,7 @@ import Head from "next/head"
 import Layout from '../../components/templates/Layout'
 import { client } from '../../lib/contentful'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import PageTitle from '../../components/PageTitle'
 import style from '../../styles/PastProject.module.css'
 
 export default function Slug({ post }) {
@@ -13,7 +14,7 @@ export default function Slug({ post }) {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <div className={style.ppContainer + ' fade-in'}>
-                <h2 style={{ textAlign: 'center', margin: '40px 0 40px' }}>{post.fields.title}</h2>
+                <PageTitle title={post.fields.title} />
                 {
                     post.fields.body.content.map((paragraph, i) => {
                         console.log(paragraph)
