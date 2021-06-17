@@ -36,7 +36,20 @@
     align-items: center;
 }
 
+.blogImage, .shopImage {
+    width: 30%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.blogText > div > p, .shopText > div > p {
+    font-size: 16px;
+}
+
 .shopText {
+    width: 70%;
     border-left: none;
     text-align: left;
     padding: 20px;
@@ -44,11 +57,12 @@
 }
 
 .shopText > div > h2 {
-    margin: 10px 0;
+    margin: 20px 0 0 0;
     font-size: 34px;
 }
 
 .blogText {
+    width: 70%;
     border-right: none;
     text-align: left;
     padding: 20px;
@@ -56,7 +70,7 @@
 }
 
 .blogText > div > h2 {
-    margin: 10px 0;
+    margin: 20px 0 0 0;
     font-size: 34px;
 }
 
@@ -67,6 +81,9 @@
 @media only screen and (max-width: 1170px) {
     .mainText {
         font-size: 40px;
+    }
+    .blogText > div > h2, .shopText > div > h2 {
+        margin: 0;
     }
 }
 

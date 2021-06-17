@@ -18,7 +18,7 @@ const ShopCase = ({
                 </div>
             </div>
             <div 
-                className={style.bannerImage}
+                className={style.bannerImage + ' ' + style.blogImage}
                 style={{borderColor: 'var(--drama-yellow)'}}
                 >
                 <img

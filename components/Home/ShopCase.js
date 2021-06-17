@@ -7,9 +7,9 @@ const ShopCase = ({
 }) => {
     console.log(items)
     return (
-        <div className={style.bannerContainer + ' fade-in'}>
+        <div className={style.bannerContainer + ' fade-in ' + style.shopContainer}>
             <div 
-                className={style.bannerImage}
+                className={style.bannerImage + ' ' + style.shopImage}
                 style={{borderColor: 'var(--drama-pink)'}}
                 >
                 <img
