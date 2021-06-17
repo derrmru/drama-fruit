@@ -103,8 +103,9 @@
         width: 90%;
         flex-direction: column;
     }
-    .mainText {
-        line-height: 40px;
+    .mainText > h2 {
+        font-size: 40px;
+        line-height: 60px;
     }
     .bannerText, .bannerImage {
         width: 100%;
