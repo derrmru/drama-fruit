@@ -9,6 +9,7 @@ const ProductCards = ({
     items,
     setCart
 }) => {
+    console.log(products)
     return <div className={styles.imageContainer}>
     {
         products
@@ -16,6 +17,7 @@ const ProductCards = ({
             if (select !== "Select") return product.fields.productCategory === select
             return true
         })
+        .sort((a, b) => a.fields.position - b.fields.position)
         .slice(page, page + productsPerPage).map((item, i) => {
             return <div
                 key={'shopItem' + i}
