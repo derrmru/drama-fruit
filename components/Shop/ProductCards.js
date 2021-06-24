@@ -16,7 +16,7 @@ const ProductCards = ({
             if (select !== "Select") return product.fields.productCategory === select
             return true
         })
-        .sort((a, b) => a.fields.datePublished - b.fields.datePublished)
+        .sort((a, b) => new Date(b.fields.datePublished) - new Date(a.fields.datePublished))
         .slice(page, page + productsPerPage).map((item, i) => {
             return <div
                 key={'shopItem' + i}

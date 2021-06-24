@@ -87,6 +87,32 @@
     }
 }
 
+.sizesContainer {
+    border: 2px dotted var(--drama-green);
+    padding: 10px;
+    margin: 0 0 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.size {
+    padding: 10px 15px;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: .4s;
+    box-sizing: border-box;
+    min-width: 50px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0);
+}
+
+@media (hover:hover) {
+    .size:hover {
+        background-color: rgba(200, 200, 200);
+    }
+}
+
 .checkoutButton {
     margin: 20px 0;
     color: var(--drama-green);

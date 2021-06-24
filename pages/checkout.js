@@ -41,7 +41,7 @@ export default function Checkout() {
 
   //description variable
   const desc = Object.keys(items).reduce((description, current) => {
-    return description += (current + ' x' + items[current]['number'] + ', ')
+    return description += (current + ' x' + items[current]['number'] + ' - ' + items[current]['size'] + ', ')
   }, '')
 
   //id string variable
@@ -182,7 +182,7 @@ export default function Checkout() {
                         {//list items above total
                           Object.keys(items).map((item, j) => {
                             return <li key={'totalItem' + j} style={{marginBottom: '20px'}}>
-                              {item} x{items[item]['number']}: <span style={{color: 'var(--drama-yellow)'}}>€{(Number(items[item]['price']) * Number(items[item]['number']))}</span>
+                              {item} x{items[item]['number']}, {items[item]['size']}: <span style={{color: 'var(--drama-yellow)'}}>€{(Number(items[item]['price']) * Number(items[item]['number']))}</span>
                             </li>
                           })
                         }

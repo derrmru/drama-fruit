@@ -6,11 +6,13 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import Link from 'next/link'
 import Layout from '../../components/templates/Layout'
 import PageTitle from '../../components/PageTitle'
+import Sizes from '../../components/Shop/Sizes'
 import style from '../../styles/Product.module.css'
 
 export default function Produce({ productData }) {
     //cart context
     const { items, itemsSetter } = useContext(ShoppingContext)
+    console.log(items)
 
     //Update shopping cart context
     function setCart(item) {
@@ -20,6 +22,7 @@ export default function Produce({ productData }) {
             price: item.fields.productPrice,
             image: item.fields.productImage.fields.file.url,
             number: number,
+            size: theSize,
             maxNumber: productData.fields.stock,
             slug: '/drama-shop/' + item.fields.slug,
             environment: item.sys.environment.sys.id,
@@ -46,9 +49,19 @@ export default function Produce({ productData }) {
         if (items[title]) setNumber(items[title]['number'])
     })
 
+    //handle size selections
+    const [theSize, setTheSize] = useState();
+    const setSize = (size) => {
+        setTheSize(size);
+        if (items[title]) {
+            let obj = {...items};
+            obj[title]['size'] = size
+            itemsSetter(obj)
+        }
+    }
+
     //select current image
-    const [currentImage, setCurrentImage] = useState('')
-    console.log(productData)
+    const [currentImage, setCurrentImage] = useState('');
 
     return (
         <div>
@@ -135,6 +148,11 @@ export default function Produce({ productData }) {
                                                     </div>
                                                 </>
                                     }
+                                    <Sizes 
+                                        sizes={productData.fields.availableSizes}
+                                        theSize={theSize}
+                                        setTheSize={(size) => setSize(size)}
+                                        />
                                     {
                                         items[title] ?
                                             <p 
