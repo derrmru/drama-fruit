@@ -1,3 +1,4 @@
+import React from 'react'
 import { useState } from 'react'
 import $ from 'jquery'
 import Head from 'next/head'
@@ -10,6 +11,11 @@ import TextArea from '../components/form_components/TextArea'
 import Checkbox from '../components/form_components/Checkbox'
 import SocialMedia from '../components/SocialMedia'
 import style from '../styles/Contact.module.css'
+import Button from '@material-ui/core/Button';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
 
 const Contact = () => {
     //form fields
@@ -25,13 +31,32 @@ const Contact = () => {
     //submit form
     const submit = (e) => {
         e.preventDefault();
+        setFields({
+            first_name: '',
+            last_name: '',
+            email: '',
+            message: '',
+            privacy: '',
+        });
         $.post(
             '/api/contact',
             fields
         ).done((res) => {
-            console.log(res)
-        })
-    }
+            console.log(res);
+        });
+        handleClickOpen();
+    } 
+    
+    //open and close confirmation dialog
+    const [open, setOpen] = React.useState(false);
+
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
 
     return (
         <div>
@@ -46,9 +71,26 @@ const Contact = () => {
                         />
                 </Head>
                 <PageTitle title="Contact" />
+                <div>
+                    <Dialog
+                        open={open}
+                        onClose={handleClose}
+                    >
+                        <DialogContent>
+                            <DialogContentText id="alert-dialog-description">
+                                Thanks for getting in touch. I'll reply soon. 
+                            </DialogContentText>
+                        </DialogContent>
+                        <DialogActions>
+                            <Button onClick={handleClose}>
+                                Close
+                            </Button>
+                        </DialogActions>
+                    </Dialog>
+                </div>
                 <form 
                     className={style.form}
-                    onSubmit={(e) => submit(e)}
+                    onSubmit={(e) => {submit(e)}}
                     >
                     <TextInput 
                         name='first_name'

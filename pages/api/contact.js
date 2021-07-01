@@ -1,74 +1,77 @@
-const nodemailer = require('nodemailer');
-let transporter = nodemailer.createTransport({
-    host: 'smtp-mail.outlook.com',
-    port: 587,
-    secure: false,
-    auth: {
-        user: 'drama-fruit-test@outlook.com',
-        pass: 'genericPassword'
-    },
-    tls: {
-        rejectUnauthorized:false,
-    }
-});
-
-export default async (req, res) => {
-    console.log(req.body);
+export default async(req, res) => {
     //node function to handle contact form submission
     if (req.body.oh_no_honey){
-        ; //handle as spam
+        //handle as spam
+        ;
     } else {
         console.log('Sending mail');
-        
+
+        //nodemailer transporter
+        const nodemailer = require('nodemailer');
+
+        let transporter = nodemailer.createTransport({
+            host: 'mail.hover.com',
+            //secureConnection: true,
+            port: 465,
+            auth: {
+                user: 'play@dramafruit.com',
+                pass: 'weD14/11Ding',
+            },
+            //tls:{
+            //    secureProtocol: "TLSv1_method"
+            //}
+        });
+
+        //verify server is ready
         transporter.verify(function(error, success) {
             if(error){
                 console.log(error)
-            } else  {
-                console.log("Server is ready to take messages");
+            } else {
+                console.log("Server is ready to take messages", success);
             }
         });
-        
+
+        let emailToSend = 
+            `<ul>
+                <li>From: ${req.body.email}</li>
+                <li>Name: ${req.body.first_name} ${req.body.last_name}</li>
+                <li>Message: ${req.body.message}</li>`
+
         //forward email to site owner
-        const mailOptionsRec = {
-            from: '"${ req.body.first_name } ${ req.body.last_name }" <${ req.body.email }>', 
-            to: 'drama-fruit-test@outlook.com',
-            subject: 'Contact email through drama-fruit.com',
-            text: req.body.message
+        let forwardMail = {
+            from: `${ req.body.email }`,
+            to: 'play@dramafruit.com',
+            subject: 'Contact form through dramafruit.com',
+            text: req.body.message,
+            html: emailToSend,
         };
-        transporter.sendMail(mailOptionsRec, function(error, info){
-            if (error){
-                console.log(error);
-            } else {
-                res.status(418);
-                console.log('Email sent: ' + info.response);
-                
-                //send confirmation email to enquirer
-                const mailOptionsSent = {
-                    from: 'play@drama-fruit.com',
-                    to: '${ req.body.email }',
-                    subject: 'Thank you for your email - Drama Fruit',
-                    text: "Automated confirmation -- Thank you for your e-mail. I'll get back to you asap. In the meantime, stay sexy."
-                };
-                transporter.sendMail(mailOptionsSent, function(error, info){
-                    if (error){
-                        console.log(error);
-                    } else {
-                    console.log('Email sent: ' + info.response);
-                    }
-                res.send('Success');
-                });
-            };
-        
-    });
-    
-    return res.send('complete');
+
+        transporter.sendMail(forwardMail, (error) => {
+            if (error) {
+                return console.log(error.message);
+            }
+            console.log('success');
+        });
+
+        //send email confirmation to form user
+        let confirmMail = {
+            from: 'play@dramafruit.com',
+            to: `${ req.body.email }`,
+            subject: 'Thank you for your email - Drama Fruit',
+            text: "This is an automated confirmation: Thank you for getting in touch with me, I will reply to your message asap. - Marek",
+            html: `<h2>This is an automated confirmation</h2>
+                    <p>Thank you for getting in touch with me, I will reply to your message asap.</p>
+                    <br>All the best,
+                    <p>Marek`
+        };
+
+        transporter.sendMail(confirmMail, (error) => {
+            if (error) {
+                return console.log(error.message);
+            }
+            console.log('success');
+        });
     }
+    return res.json;
 }
 
-    //endpoint receives body of email
-    
-    //if honepot has content handle as spam 
-    //if not spam, sent submitted form content to Marek via email, then
-    //send confirmation email to customer via their submitted email (in req.body.email)
-    //endpoint responds with success or error (you can probably just respond with the nodemailer result)
-    //frontend displays success or error to client
