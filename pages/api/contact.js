@@ -1,3 +1,5 @@
+import * as LoginData from '/access.json'
+
 export default async(req, res) => {
     //node function to handle contact form submission
     if (req.body.oh_no_honey){
@@ -14,8 +16,8 @@ export default async(req, res) => {
             //secureConnection: true,
             port: 465,
             auth: {
-                user: 'play@dramafruit.com',
-                pass: 'weD14/11Ding',
+                user: LoginData.EMAIL,
+                pass: LoginData.PASSWORD,
             },
             //tls:{
             //    secureProtocol: "TLSv1_method"
@@ -40,7 +42,7 @@ export default async(req, res) => {
         //forward email to site owner
         let forwardMail = {
             from: `${ req.body.email }`,
-            to: 'play@dramafruit.com',
+            to: LoginData.EMAIL,
             subject: 'Contact form through dramafruit.com',
             text: req.body.message,
             html: emailToSend,
@@ -55,7 +57,7 @@ export default async(req, res) => {
 
         //send email confirmation to form user
         let confirmMail = {
-            from: 'play@dramafruit.com',
+            from: LoginData.EMAIL,
             to: `${ req.body.email }`,
             subject: 'Thank you for your email - Drama Fruit',
             text: "This is an automated confirmation: Thank you for getting in touch with me, I will reply to your message asap. - Marek",
