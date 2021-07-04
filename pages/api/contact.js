@@ -37,7 +37,8 @@ export default async(req, res) => {
             `<ul>
                 <li>From: ${req.body.email}</li>
                 <li>Name: ${req.body.first_name} ${req.body.last_name}</li>
-                <li>Message: ${req.body.message}</li>`
+                <li>Message: ${req.body.message}</li>
+            </ul>`
 
         //forward email to site owner
         let forwardMail = {
@@ -74,6 +75,6 @@ export default async(req, res) => {
             console.log('success');
         });
     }
-    return res.json({result: 'sent'});
+    return res.send('sent');
 }
 
