@@ -28,9 +28,11 @@ const Navigation = ({ navItems }) => {
                 <div
                     className={style.iconsContainer}
                     >
+                    {/*
                     <div className={style.cartOverlay}>
                         <Search />
                     </div>
+                    */}
                     <Cart />
                 </div>
             </div>
