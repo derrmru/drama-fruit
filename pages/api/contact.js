@@ -37,8 +37,7 @@ export default async(req, res) => {
             `<ul>
                 <li>From: ${req.body.email}</li>
                 <li>Name: ${req.body.first_name} ${req.body.last_name}</li>
-                <li>Message: ${req.body.message}</li>
-            </ul>`
+                <li>Message: ${req.body.message}</li>`
 
         //forward email to site owner
         let forwardMail = {
@@ -65,7 +64,7 @@ export default async(req, res) => {
             html: `<h2>This is an automated confirmation</h2>
                     <p>Thank you for getting in touch with me, I will reply to your message asap.</p>
                     <br>All the best,
-                    <p>Marek</p>`
+                    <p>Marek`
         };
 
         transporter.sendMail(confirmMail, (error) => {
