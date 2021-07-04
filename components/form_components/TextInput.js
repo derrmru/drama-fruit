@@ -20,6 +20,7 @@ const TextInput = ({
                 id={id ? id : ''}
                 className={style.input}
                 value={value || ""}
+                tabIndex={name === 'oh_no_honey' ? '-1' : ''}
                 onChange={(e) => setValue(name, e.target.value)}
                 required={name === 'oh_no_honey' ? false : true}
                 />
