@@ -12,6 +12,7 @@ const Banner = ({
                 <img
                     className={style.theImage} 
                     src={items && items.fields.bannerImage.fields.file.url} 
+                    alt={items && items.fields.altDescription}
                     />
             </div>
         </div>

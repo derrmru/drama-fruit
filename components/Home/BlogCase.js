@@ -5,7 +5,6 @@ import style from '../../styles/Home.module.css'
 const ShopCase = ({
     items
 }) => {
-    console.log(items)
     return (
         <div className={style.bannerContainer + ' fade-in ' + style.blogReverse}>
             <div 
@@ -24,6 +23,7 @@ const ShopCase = ({
                 <img
                     className={style.theImage} 
                     src={items && items.fields.blogImage.fields.file.url} 
+                    alt={items && items.fields.blogAltDescription}
                     />
             </div>
         </div>
