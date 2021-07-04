@@ -74,6 +74,6 @@ export default async(req, res) => {
             console.log('success');
         });
     }
-    return res.json;
+    return res.json({result: 'sent'});
 }
 
