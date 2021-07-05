@@ -18,28 +18,25 @@ export default async (req, res) => {
             auth: {
                 user: process.env.EMAIL,
                 pass: process.env.PASSWORD,
-            },
-            //tls:{
-            //    secureProtocol: "TLSv1_method"
-            //}
+            }
         });
-        console.log(process.env.EMAIL);
-        console.log(process.env.PASSWORD);
 
         //verify server is ready
-        transporter.verify( async (error, success) => {
+        /*transporter.verify( async (error, success) => {
             if(error){
                 console.log(error)
             } else {
                 console.log("Server is ready to take messages", success);
             }
-        });
+        });*/
 
+        //site owner email content (HTML)
         let emailToSend = 
             `<ul>
                 <li>From: ${req.body.email}</li>
                 <li>Name: ${req.body.first_name} ${req.body.last_name}</li>
-                <li>Message: ${req.body.message}</li>`
+                <li>Message: ${req.body.message}</li>
+            </ul>`
         console.log(emailToSend);
 
         //forward email to site owner
@@ -52,8 +49,8 @@ export default async (req, res) => {
         };
 
         transporter.sendMail(forwardMail, async (error, info) => {
-            if (error) await res.send(error)
-            console.log(info)
+            if (error) await console.log(error)
+            //res.send(info)
         });
 
         //send email confirmation to form user
@@ -65,16 +62,15 @@ export default async (req, res) => {
             html: `<h2>This is an automated confirmation</h2>
                     <p>Thank you for getting in touch with me, I will reply to your message asap.</p>
                     <br>All the best,
-                    <p>Marek`
+                    <p>Marek</p>`
         };
 
         transporter.sendMail(confirmMail, async (error) => {
             if (error) {
-                console.log(error.message);
+                res.send(error.message);
             }
-            console.log('success');
+            res.send('success');
         });
     }
-    await res.send('sent');
 }
 
