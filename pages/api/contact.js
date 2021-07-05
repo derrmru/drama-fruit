@@ -4,7 +4,7 @@ export default async (req, res) => {
     //node function to handle contact form submission
     if (req.body.oh_no_honey){
         //handle as spam
-        return res.send('spam')
+        res.send('spam')
     } else {
         console.log('Sending mail');
 
@@ -48,8 +48,8 @@ export default async (req, res) => {
         };
 
         transporter.sendMail(forwardMail, async (error, info) => {
-            if (error) console.log(error)
-            if (info) console.log(info)
+            if (error) await console.log(error)
+            //res.send(info)
         });
 
         //send email confirmation to form user
