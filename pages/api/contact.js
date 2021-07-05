@@ -37,7 +37,6 @@ export default async (req, res) => {
                 <li>Name: ${req.body.first_name} ${req.body.last_name}</li>
                 <li>Message: ${req.body.message}</li>
             </ul>`
-        console.log(emailToSend);
 
         //forward email to site owner
         let forwardMail = {
@@ -49,8 +48,8 @@ export default async (req, res) => {
         };
 
         transporter.sendMail(forwardMail, async (error, info) => {
-            if (error) await console.log(error)
-            //res.send(info)
+            if (error) console.log(error)
+            if (info) console.log(info)
         });
 
         //send email confirmation to form user
