@@ -4,7 +4,7 @@ export default async(req, res) => {
     //node function to handle contact form submission
     if (req.body.oh_no_honey){
         //handle as spam
-        ;
+        return res.send('spam')
     } else {
         console.log('Sending mail');
 
@@ -23,6 +23,8 @@ export default async(req, res) => {
             //    secureProtocol: "TLSv1_method"
             //}
         });
+        console.log(process.env.EMAIL);
+        console.log(process.env.PASSWORD);
 
         //verify server is ready
         transporter.verify(function(error, success) {
@@ -38,6 +40,7 @@ export default async(req, res) => {
                 <li>From: ${req.body.email}</li>
                 <li>Name: ${req.body.first_name} ${req.body.last_name}</li>
                 <li>Message: ${req.body.message}</li>`
+        console.log(emailToSend);
 
         //forward email to site owner
         let forwardMail = {
@@ -50,9 +53,9 @@ export default async(req, res) => {
 
         transporter.sendMail(forwardMail, (error) => {
             if (error) {
-                return console.log(error.message);
+                console.log(error.message);
             }
-            console.log('success');
+            return console.log('success');
         });
 
         //send email confirmation to form user

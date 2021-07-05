@@ -43,8 +43,8 @@ const Contact = () => {
             fields
         ).done((res) => {
             console.log(res);
+            handleClickOpen();
         });
-        handleClickOpen();
     } 
     
     //open and close confirmation dialog
