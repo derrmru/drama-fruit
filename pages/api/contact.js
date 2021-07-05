@@ -1,6 +1,6 @@
 //import * as process.env from '/access.json'
 
-export default async(req, res) => {
+export default async (req, res) => {
     //node function to handle contact form submission
     if (req.body.oh_no_honey){
         //handle as spam
@@ -27,7 +27,7 @@ export default async(req, res) => {
         console.log(process.env.PASSWORD);
 
         //verify server is ready
-        transporter.verify(function(error, success) {
+        transporter.verify( async (error, success) => {
             if(error){
                 console.log(error)
             } else {
@@ -51,11 +51,9 @@ export default async(req, res) => {
             html: emailToSend,
         };
 
-        transporter.sendMail(forwardMail, (error) => {
-            if (error) {
-                console.log(error.message);
-            }
-            return console.log('success');
+        transporter.sendMail(forwardMail, async (error, info) => {
+            if (error) await res.send(error)
+            console.log(info)
         });
 
         //send email confirmation to form user
@@ -70,13 +68,13 @@ export default async(req, res) => {
                     <p>Marek`
         };
 
-        transporter.sendMail(confirmMail, (error) => {
+        transporter.sendMail(confirmMail, async (error) => {
             if (error) {
-                return console.log(error.message);
+                console.log(error.message);
             }
             console.log('success');
         });
     }
-    return res.send('sent');
+    await res.send('sent');
 }
 
