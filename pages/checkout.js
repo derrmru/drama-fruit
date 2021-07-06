@@ -151,18 +151,22 @@ export default function Checkout() {
                                                   </div>
                               </div>
                           }
-                          <div className={style.itemHeader}>
+                          <div>
+                            <p style={{margin: '0 0 10px 0'}}>
                             <Link href={'/drama-shop/' + slug}>
                               <a>
                                 Visit Item Page
                               </a>
                             </Link>
+                            </p>
                           </div>
                           <div
                             className={style.removeButton}
                             onClick={() => deleteItem(item)}
                             >
-                              &#10006; Remove Item
+                              <p style={{margin: '0 0 10px 0'}}>
+                                <em>&#10006; Remove Item</em>
+                              </p>
                           </div>
                         </div>
                       </div>
