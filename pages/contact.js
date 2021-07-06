@@ -26,7 +26,6 @@ const Contact = () => {
         temp[name] = value;
         setFields(temp)
     }
-    console.log(fields)
 
     //submit form
     const submit = (e) => {

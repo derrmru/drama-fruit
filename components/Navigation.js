@@ -1,5 +1,6 @@
 import Cart from './Cart'
 import Search from './Search'
+import LogoSVG from './templates/LogoSVG'
 import Link from 'next/link'
 import Image from 'next/image'
 import style from './Navigation.module.css'
@@ -14,13 +15,14 @@ const Navigation = ({ navItems }) => {
                     <a style={{textDecoration: 'none', color: 'black'}}>
                         <span className={style.headerTitle}>
                             <div className={style.bannerLogo}>
-                                <Image
-                                    src="/images/drama_fruit_logo.png"
+                                {/*<Image
+                                    src="/images/drama_fruit_logo.svg"
                                     alt="Drama Fruit Logo"
                                     layout="responsive"
-                                    width={"812"}
-                                    height={"307"}
-                                />
+                                    width="900%"
+                                    height="600%"
+                                />*/}
+                                <LogoSVG />
                             </div>
                         </span>
                     </a>
