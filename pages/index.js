@@ -3,23 +3,9 @@ import Layout from '../components/templates/Layout'
 import Banner from '../components/Home/Banner'
 import ShopCase from '../components/Home/ShopCase'
 import BlogCase from '../components/Home/BlogCase'
-import { useState, useEffect } from 'react'
 import { fetchEntries } from '../lib/contentful'
 
-export default function Home() {
-  //fetch posts from contentful
-  const [items, setItems] = useState()
-
-  useEffect(() => {
-      const getProducts = async () => {
-        const selection = await fetchEntries({
-          content_type: "homePage",
-      })
-        setItems(...selection)
-      }
-      getProducts()
-  }, [])
-
+const Home = ({ items }) => {
   return (
     <div>
       <Head>
@@ -35,3 +21,13 @@ export default function Home() {
     </div>
   )
 }
+
+//get meta and CMS data as initial props
+Home.getInitialProps = async () => {
+  const selection = await fetchEntries({
+    content_type: "homePage",
+  })
+  return {items: selection[0]}
+}
+
+export default Home
