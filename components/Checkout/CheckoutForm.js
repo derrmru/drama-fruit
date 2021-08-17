@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import TextInput from '../form_components/TextInput'
 import EmailInput from '../form_components/EmailInput'
-import AddressInput from '../form_components/AddressInput'
+import AutoComplete from 'places-autocomplete-react'
 import Checkbox from '../form_components/Checkbox'
 import style from '../../styles/Checkout.module.css'
 
@@ -13,6 +13,14 @@ const CheckoutForm = ({
     setAddress,
     setPayNow
 }) => {
+    const handleAddress = (addressObject) => {
+        const concat = addressObject.addressName + ', ' + 
+                        addressObject.street + ', ' + 
+                        addressObject.city + ', ' +
+                        addressObject.country + ', ' +
+                        addressObject.postCode
+        address !== concat && setAddress(concat)
+    }
     return <div className={style.paypalContainer}>
         <h3 style={{margin: '5px 0 20px'}}>Delivery Details</h3>
         <form 
@@ -34,11 +42,15 @@ const CheckoutForm = ({
                 value={fields.telephone}
                 setValue={(name, value) => setValue(name, value)}
                 />
-            <AddressInput 
-                name="address"
-                value={address}
-                setAddress={(value) => setAddress(value)}
+            <hr />
+            <p style={{color: 'var(--drama-pink)'}}>Please provide your delivery address, make sure it's correct!</p>
+            <AutoComplete
+                placesKey="AIzaSyAkuPHNHz8Ki1KV6n6iI1-EFVIC3ZAm0QY"
+                inputId="address"
+                setAddress={(addressObject) => handleAddress(addressObject)}
+                required
                 />
+            <hr />
             <Checkbox 
                 name="privacy"
                 value={fields.privacy}

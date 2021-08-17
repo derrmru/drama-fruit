@@ -19,9 +19,10 @@
     "contentful-management": "^7.22.3",
     "firebase-admin": "^9.8.0",
     "jquery": "^3.6.0",
-    "next": "^10.2.3",
+    "next": "^11.1.0",
     "next-sitemap": "^1.6.99",
     "nodemailer": "^6.6.1",
+    "places-autocomplete-react": "^1.0.10",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "uuid": "^8.3.2"

@@ -109,6 +109,19 @@
     background-color: rgba(255, 255, 255, .9);
 }
 
+.paypalContainer > form > div > label {
+    margin: 5px 0;
+}
+
+.paypalContainer > form > div > label > input {
+    margin: 5px 0 0;
+    padding: 10px 5px;
+}
+
+.paypalContainer > form > div > button {
+    margin: 20px 0;
+}
+
 @media only screen and (max-width: 975px) {
     .checkoutPanel {
         flex-direction: column;
