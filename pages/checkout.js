@@ -41,7 +41,7 @@ export default function Checkout() {
 
   //description variable
   const desc = Object.keys(items).reduce((description, current) => {
-    return description += (current + ' x' + items[current]['number'] + ' - ' + items[current]['size'] + ', ')
+    return description += (current + ' x' + items[current]['number'] + (items[current]['size'] ? ' - ' + items[current]['size'] : '') + ', ')
   }, '')
 
   //id string variable
