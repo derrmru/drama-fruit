@@ -1,8 +1,6 @@
 import Cart from './Cart'
-import Search from './Search'
 import LogoSVG from './templates/LogoSVG'
 import Link from 'next/link'
-import Image from 'next/image'
 import style from './Navigation.module.css'
 
 const Navigation = ({ navItems }) => {

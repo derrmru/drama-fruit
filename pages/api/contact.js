@@ -1,6 +1,7 @@
-import { header } from '../../src/email-images/header'
-import { background } from '../../src/email-images/background'
 import { footer } from '../../src/email-images/footer'
+import { inst } from '../../src/email-images/instagram'
+import { face } from '../../src/email-images/facebook'
+import { etsy } from '../../src/email-images/etsy'
 
 export default async (req, res) => {
     //node function to handle contact form submission
@@ -41,7 +42,7 @@ export default async (req, res) => {
             </ul>`
 
         //forward email to site owner
-        /*let forwardMail = {
+        let forwardMail = {
             from: `${req.body.email}`,
             to: process.env.EMAIL,
             subject: 'Contact form through dramafruit.com',
@@ -52,7 +53,7 @@ export default async (req, res) => {
         transporter.sendMail(forwardMail, async (error, info) => {
             if (error) await console.log(error)
             //res.send(info)
-        });*/
+        });
 
         //send email confirmation to form user
         let confirmMail = {
@@ -61,267 +62,160 @@ export default async (req, res) => {
             subject: 'Thank you for your email - Drama Fruit',
             text: "This is an automated confirmation: Thank you for getting in touch with me, I will reply to your message asap. - Marek",
             html: `
-            <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-            <html data-editor-version="2" class="sg-campaigns" xmlns="http://www.w3.org/1999/xhtml">
-
+            <!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+            <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
             <head>
-            <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-            <!--[if !mso]><!-->
-            <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-            <!--<![endif]-->
-            <!--[if (gte mso 9)|(IE)]>
-                <xml>
-                    <o:OfficeDocumentSettings>
-                    <o:AllowPNG/>
-                    <o:PixelsPerInch>96</o:PixelsPerInch>
-                    </o:OfficeDocumentSettings>
-                </xml>
-                <![endif]-->
-            <!--[if (gte mso 9)|(IE)]>
-            <style type="text/css">
-                body {width: 600px;margin: 0 auto;}
-                table {border-collapse: collapse;}
-                table, td {mso-table-lspace: 0pt;mso-table-rspace: 0pt;}
-                img {-ms-interpolation-mode: bicubic;}
-            </style>
+            <!--[if gte mso 9]>
+            <xml>
+            <o:OfficeDocumentSettings>
+                <o:AllowPNG/>
+                <o:PixelsPerInch>96</o:PixelsPerInch>
+            </o:OfficeDocumentSettings>
+            </xml>
             <![endif]-->
-            <style type="text/css">
-                body,
-                p,
-                div {
-                font-family: arial, helvetica, sans-serif;
-                font-size: 14px;
-                }
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta name="x-apple-disable-message-reformatting">
+            <!--[if !mso]><!--><meta http-equiv="X-UA-Compatible" content="IE=edge"><!--<![endif]-->
+            <title></title>
+            
+                <style type="text/css">
+                table, td { color: #000000; } @media only screen and (min-width: 520px) {
+            .u-row {
+                width: 500px !important;
+            }
+            .u-row .u-col {
+                vertical-align: top;
+            }
 
-                body {
-                color: #000000;
-                padding: 0;
-                margin: 0;
-                width: 100%;
-                height: 100vh;
-                background-image: url(${background});
-                background-attachment: fixed;
-                background-size: cover;
-                background-color: rgba(255, 255, 255, .6);
-                background-blend-mode: lighten;
-                }
+            .u-row .u-col-100 {
+                width: 500px !important;
+            }
 
-                body a {
-                color: #1188E6;
-                text-decoration: none;
-                }
+            }
 
-                p {
-                margin: 0;
-                padding: 0;
-                }
-
-                table.wrapper {
-                width: 100% !important;
-                table-layout: fixed;
-                -webkit-font-smoothing: antialiased;
-                -webkit-text-size-adjust: 100%;
-                -moz-text-size-adjust: 100%;
-                -ms-text-size-adjust: 100%;
-                }
-
-                img.max-width {
+            @media (max-width: 520px) {
+            .u-row-container {
                 max-width: 100% !important;
-                }
+                padding-left: 0px !important;
+                padding-right: 0px !important;
+            }
+            .u-row .u-col {
+                min-width: 320px !important;
+                max-width: 100% !important;
+                display: block !important;
+            }
+            .u-row {
+                width: calc(100% - 40px) !important;
+            }
+            .u-col {
+                width: 100% !important;
+            }
+            .u-col > div {
+                margin: 0 auto;
+            }
+            }
+            body {
+            margin: 0;
+            padding: 0;
+            }
 
-                .column.of-2 {
-                width: 50%;
-                }
+            table,
+            tr,
+            td {
+            vertical-align: top;
+            border-collapse: collapse;
+            }
 
-                .column.of-3 {
-                width: 33.333%;
-                }
+            p {
+            margin: 0;
+            }
 
-                .column.of-4 {
-                width: 25%;
-                }
+            .ie-container table,
+            .mso-container table {
+            table-layout: fixed;
+            }
 
-                ul ul ul ul {
-                list-style-type: disc !important;
-                }
+            * {
+            line-height: inherit;
+            }
 
-                ol ol {
-                list-style-type: lower-roman !important;
-                }
+            a[x-apple-data-detectors='true'] {
+            color: inherit !important;
+            text-decoration: none !important;
+            }
 
-                ol ol ol {
-                list-style-type: lower-latin !important;
-                }
-
-                ol ol ol ol {
-                list-style-type: decimal !important;
-                }
-
-                @media screen and (max-width:480px) {
-
-                .preheader .rightColumnContent,
-                .footer .rightColumnContent {
-                    text-align: left !important;
-                }
-
-                .preheader .rightColumnContent div,
-                .preheader .rightColumnContent span,
-                .footer .rightColumnContent div,
-                .footer .rightColumnContent span {
-                    text-align: left !important;
-                }
-
-                .preheader .rightColumnContent,
-                .preheader .leftColumnContent {
-                    font-size: 80% !important;
-                    padding: 5px 0;
-                }
-
-                table.wrapper-mobile {
-                    width: 100% !important;
-                    table-layout: fixed;
-                }
-
-                img.max-width {
-                    height: auto !important;
-                    max-width: 100% !important;
-                }
-
-                a.bulletproof-button {
-                    display: block !important;
-                    width: auto !important;
-                    font-size: 80%;
-                    padding-left: 0 !important;
-                    padding-right: 0 !important;
-                }
-
-                .columns {
-                    width: 100% !important;
-                }
-
-                .column {
-                    display: block !important;
-                    width: 100% !important;
-                    padding-left: 0 !important;
-                    padding-right: 0 !important;
-                    margin-left: 0 !important;
-                    margin-right: 0 !important;
-                }
-
-                .social-icon-column {
-                    display: inline-block !important;
-                }
-                }
             </style>
-            <!--user entered Head Start-->
-            <!--End Head user entered-->
+            
+            
+
             </head>
 
-            <body>
-            <center class="wrapper" data-link-color="#1188E6"
-                data-body-style="font-size:14px; font-family:arial,helvetica,sans-serif; color:#000000; background-color:#FFFFFF;">
-                <div class="webkit">
-                <table cellpadding="0" cellspacing="0" border="0" width="100%" class="wrapper" bgcolor="#FFFFFF">
-                    <tr>
-                    <td valign="top" bgcolor="#FFFFFF" width="100%">
-                        <table width="100%" role="content-container" class="outer" align="center" cellpadding="0" cellspacing="0"
-                        border="0">
-                        <tr>
-                            <td width="100%">
-                            <table width="100%" cellpadding="0" cellspacing="0" border="0">
-                                <tr>
-                                <td>
-                                    <!--[if mso]>
-                <center>
-                <table><tr><td width="600">
-            <![endif]-->
-                                    <table width="100%" cellpadding="0" cellspacing="0" border="0"
-                                    style="width:100%; max-width:600px;" align="center">
-                                    <tr>
-                                        <td role="modules-container"
-                                        style="padding:0px 0px 0px 0px; color:#000000; text-align:left;" bgcolor="#FFFFFF"
-                                        width="100%" align="left">
-                                        <table class="module preheader preheader-hide" role="module" data-type="preheader"
-                                            border="0" cellpadding="0" cellspacing="0" width="100%"
-                                            style="display: none !important; mso-hide: all; visibility: hidden; opacity: 0; color: transparent; height: 0; width: 0;">
-                                            <tr>
-                                            <td role="module-content">
-                                                <p></p>
-                                            </td>
-                                            </tr>
-                                        </table>
-                                        <table class="wrapper" role="module" data-type="image" border="0" cellpadding="0"
-                                            cellspacing="0" width="100%" style="table-layout: fixed;"
-                                            data-muid="b5b09020-6963-4da6-b68e-894ea15e0293">
-                                            <tbody>
-                                            <tr>
-                                                <td style="font-size:6px; line-height:10px; padding:0px 0px 0px 0px;" valign="top"
-                                                align="center">
-                                                <img class="max-width" border="0"
-                                                    style="display:block; color:#000000; text-decoration:none; font-family:Helvetica, arial, sans-serif; font-size:16px; max-width:100% !important; width:100%; height:auto !important;"
-                                                    width="600" alt="" data-proportionally-constrained="true" data-responsive="true"
-                                                    src="http://cdn.mcauto-images-production.sendgrid.net/aa22940eda2e6f00/0ffe3648-0070-4827-8552-46eb318108a5/1170x181.png">
-                                                </td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                        <table class="module" role="module" data-type="text" border="0" cellpadding="0"
-                                            cellspacing="0" width="100%" style="table-layout: fixed;"
-                                            data-muid="1fbc818c-37e4-4d86-8b8d-a5f850bb68fb" data-mc-module-version="2019-10-22">
-                                            <tbody>
-                                            <tr>
-                                                <td style="padding:18px 18px 18px 18px; line-height:22px; text-align:inherit;"
-                                                height="100%" valign="top" bgcolor="" role="module-content">
-                                                <div>
-                                                    <div style="font-family: inherit; text-align: inherit">I will reply to you as
-                                                    soon as possible!</div>
-                                                    <div style="font-family: inherit; text-align: inherit"><br></div>
-                                                    <div style="font-family: inherit; text-align: inherit">Sincerely</div>
-                                                    <div style="font-family: inherit; text-align: inherit">Marek @dramafruit</div>
-                                                    <div></div>
-                                                </div>
-                                                </td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                        <table class="wrapper" role="module" data-type="image" border="0" cellpadding="0"
-                                            cellspacing="0" width="100%" style="table-layout: fixed;"
-                                            data-muid="60ad7413-0fb6-4900-81c3-4ddff157f54d">
-                                            <tbody>
-                                            <tr>
-                                                <td style="font-size:6px; line-height:10px; padding:0px 0px 0px 0px;" valign="top"
-                                                align="left">
+            <body class="clean-body" style="margin: 0;padding: 0;-webkit-text-size-adjust: 100%;background-color: #e7e7e7;color: #000000">
+            <!--[if IE]><div class="ie-container"><![endif]-->
+            <!--[if mso]><div class="mso-container"><![endif]-->
+            <table style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;min-width: 320px;Margin: 0 auto;background-color: #e7e7e7;width:100%" cellpadding="0" cellspacing="0">
+            <tbody>
+            <tr style="vertical-align: top">
+                <td style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
+                <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" style="background-color: #e7e7e7;"><![endif]-->
+                
 
-                                                <a href="https://www.dramafruit.com"><img class="max-width" border="0"
-                                                    style="display:block; color:#000000; text-decoration:none; font-family:Helvetica, arial, sans-serif; font-size:16px; max-width:40% !important; width:40%; height:auto !important;"
-                                                    width="240" alt="" data-proportionally-constrained="true"
-                                                    data-responsive="true"
-                                                    src="http://cdn.mcauto-images-production.sendgrid.net/aa22940eda2e6f00/ce11275f-44e7-4137-affe-559552f43537/400x300.gif"></a>
-                                                </td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                        </td>
-                                    </tr>
-                                    </table>
-                                    <!--[if mso]>
-                                            </td>
-                                            </tr>
-                                        </table>
-                                        </center>
-                                        <![endif]-->
-                                </td>
-                                </tr>
-                            </table>
-                            </td>
-                        </tr>
-                        </table>
-                    </td>
-                    </tr>
-                </table>
+            <div class="u-row-container" style="padding: 0px;background-image: url('/images/background.jpeg');background-repeat: repeat;background-position: center top;background-color: transparent">
+            <div class="u-row" style="Margin: 0 auto;min-width: 320px;max-width: 500px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: transparent;">
+                <div style="border-collapse: collapse;display: table;width: 100%;background-color: transparent;">
+                <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding: 0px;background-image: url('/images/background.jpeg');background-repeat: repeat;background-position: center top;background-color: transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:500px;"><tr style="background-color: transparent;"><![endif]-->
+                
+            <!--[if (mso)|(IE)]><td align="center" width="500" style="width: 500px;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;" valign="top"><![endif]-->
+            <div class="u-col u-col-100" style="max-width: 320px;min-width: 500px;display: table-cell;vertical-align: top;">
+            <div style="width: 100% !important;">
+            <!--[if (!mso)&(!IE)]><!--><div style="padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;"><!--<![endif]-->
+            
+            <table style="font-family:arial,helvetica,sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
+            <tbody>
+                <tr>
+                <td style="overflow-wrap:break-word;word-break:break-word;padding:2px;font-family:arial,helvetica,sans-serif;" align="left">
+                    
+            <div>
+                <div style="width: 100%; margin: 0; border: 3px dashed #33a985; padding: 0; background-color: rgba(255, 255, 255, .9);">
+            <h1 style="text-align: center;">Thank You For Your Message!</h1>
+            <div style="width: 80%; margin: 20px auto;">
+                <p style="margin: 20px 0;">Dear ${req.body.first_name} ${req.body.last_name},</p>
+                <p style="margin: 20px 0;">I will reply to you as soon as possible. Feel free to connect with me on social media in the meantime!</p>
+                <p>Sincerely</p>
+                <p>Marek @dramafruit</p>
+                <img src=${footer} style="max-width: 250px; margin: 20px 0;"/>
+                <div style="margin: 20px 0;">
+                    <a href="https://www.instagram.com/dramafruit/"><img src=${inst} style="margin-right: 20px;" /></a>
+                    <a href="https://www.facebook.com/DramaFruit"><img src=${face} style="margin-right: 20px;" /></a>
+                    <a href="https://www.etsy.com/shop/DramaFruit"><img src=${etsy} style="margin-right: 20px;" /></a>
                 </div>
-            </center>
+            </div>
+            </div>
+            </div>
+
+                </td>
+                </tr>
+            </tbody>
+            </table>
+
+            <!--[if (!mso)&(!IE)]><!--></div><!--<![endif]-->
+            </div>
+            </div>
+            <!--[if (mso)|(IE)]></td><![endif]-->
+                <!--[if (mso)|(IE)]></tr></table></td></tr></table><![endif]-->
+                </div>
+            </div>
+            </div>
+
+
+                <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
+                </td>
+            </tr>
+            </tbody>
+            </table>
+            <!--[if mso]></div><![endif]-->
+            <!--[if IE]></div><![endif]-->
             </body>
 
             </html>

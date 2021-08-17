@@ -214,7 +214,7 @@ export default function Checkout() {
           }
           </>
           :
-          load ? <Loading /> : 
+          load ? <Loading message="Loading" /> : 
             <CheckoutForm 
               submit={(e) => submit(e)}
               fields={fields}
