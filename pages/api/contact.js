@@ -24,15 +24,6 @@ export default async (req, res) => {
             }
         });
 
-        //verify server is ready
-        /*transporter.verify( async (error, success) => {
-            if(error){
-                console.log(error)
-            } else {
-                console.log("Server is ready to take messages", success);
-            }
-        });*/
-
         //site owner email content (HTML)
         let emailToSend =
             `<ul>

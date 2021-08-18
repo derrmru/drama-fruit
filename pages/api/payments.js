@@ -37,5 +37,7 @@ export default async (req, res) => {
         date_created: new Date()
     });
 
+  
+
   await res.send(payment.getCheckoutUrl())
 }
