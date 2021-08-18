@@ -9,7 +9,7 @@ export default async (req, res) => {
     if (doc.exists) {
         //send confirmation email to customer
         //nodemailer transporter
-        const nodemailer = require('nodemailer');
+        /*const nodemailer = require('nodemailer');
 
         //email customer with confirmation of order and transaction:
         let transporter = nodemailer.createTransport({
@@ -60,7 +60,7 @@ export default async (req, res) => {
         transporter.sendMail(forwardMail, async (error, info) => {
             if (error) await console.log(error)
             //res.send(info)
-        });
+        });*/
 
         res.json(doc.data())
     }
