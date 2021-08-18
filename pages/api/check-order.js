@@ -7,9 +7,10 @@ export default async (req, res) => {
     const docRef = db.collection('orders').doc(req.body.transaction_id);
     const doc = await docRef.get();
     if (doc.exists) {
+        const data = doc.data();
         //send confirmation email to customer
         //nodemailer transporter
-        /*const nodemailer = require('nodemailer');
+        const nodemailer = require('nodemailer');
 
         //email customer with confirmation of order and transaction:
         let transporter = nodemailer.createTransport({
@@ -27,15 +28,15 @@ export default async (req, res) => {
             `<div>
                 <p>An Order has been made</p>
                 <p>
-                    name: ${req.body.name},<br />
-                    email: ${req.body.email},<br />
-                    telephone: ${req.body.telephone},<br />
-                    address: ${req.body.address},<br />
-                    description: ${req.body.description},<br />
-                    total: ${req.body.total},<br />
-                    mollie_id: ${payment.id},<br />
-                    privacy: ${req.body.privacy},<br />
-                    contentful_ids: ${req.body.ids},<br />
+                    name: ${data.name},<br />
+                    email: ${data.email},<br />
+                    telephone: ${data.telephone},<br />
+                    address: ${data.address},<br />
+                    description: ${data.description},<br />
+                    total: ${data.total},<br />
+                    mollie_id: ${data.mollie_id},<br />
+                    privacy: ${data.privacy},<br />
+                    contentful_ids: ${data.ids},<br />
                 </p>
             </div>`
 
@@ -44,15 +45,15 @@ export default async (req, res) => {
             from: process.env.EMAIL,
             to: 'pjsweeney1@live.co.uk',
             subject: 'Order has been placed via dramafruit.com',
-            text: `name: ${req.body.name},
-            email: ${req.body.email},
-            telephone: ${req.body.telephone},
-            address: ${req.body.address},
-            description: ${req.body.description},
-            total: ${req.body.total},
-            mollie_id: ${payment.id},
-            privacy: ${req.body.privacy},
-            contentful_ids: ${req.body.ids},
+            text: `name: ${data.name},
+            email: ${data.email},
+            telephone: ${data.telephone},
+            address: ${data.address},
+            description: ${data.description},
+            total: ${data.total},
+            mollie_id: ${data.mollie_id},
+            privacy: ${data.privacy},
+            contentful_ids: ${data.ids},
         `,
             html: emailToSend,
         };
@@ -60,8 +61,8 @@ export default async (req, res) => {
         transporter.sendMail(forwardMail, async (error, info) => {
             if (error) await console.log(error)
             //res.send(info)
-        });*/
+        });
 
-        res.json(doc.data())
+        res.json(data)
     }
 }
