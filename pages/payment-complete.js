@@ -79,7 +79,7 @@ const PaymentComplete = () => {
                                     <div style={{ textAlign: 'center', margin: '40px 0 40px' }}>Please head back to the <Link href="/drama-shop"><a>Shop</a></Link> and try again.</div>
                                 </div> :
                                     transaction["status"] === 'canceled' ? <div>
-                                        <h2 style={{ textAlign: 'center', margin: '40px 0 40px' }}>Payment Canceled!</h2>
+                                        <h2 style={{ textAlign: 'center', margin: '40px 0 40px' }}>Payment Cancelled!</h2>
                                         <h3 style={{ textAlign: 'center', margin: '40px 0 40px' }}>It looks like you had second thoughts.</h3>
                                         <div style={{ textAlign: 'center', margin: '40px 0 40px' }}>Why not head back to the <Link href="/drama-shop"><a>Shop</a></Link> so I can convince you!</div>
                                     </div> :
@@ -88,8 +88,13 @@ const PaymentComplete = () => {
                                             <h3 style={{ textAlign: 'center', margin: '40px 0 40px' }}>It looks like we can't accept your payment method.</h3>
                                             <div style={{ textAlign: 'center', margin: '40px 0 40px' }}>Why not head back to the <Link href="/drama-shop"><a>Shop</a></Link> and try again with a different card.</div>
                                         </div> :
-                                            <Loading message="awaiting payment confirmation" /> :
-                        <Loading />
+                                            <>
+                                                <Loading message="This is taking a little long" />
+                                                <div style={{ textAlign: 'center', margin: '40px 0 40px' }}>If you have cancelled your order mid-payment, please head back to the <Link href="/drama-shop"><a>Shop</a></Link> and try again.</div>
+                                            </> :
+                        <>
+                            <Loading message="awaiting payment confirmation" />
+                        </>
                     }
                 </div>
             </Layout>

@@ -158,6 +158,10 @@ export default async (req, res) => {
             border-collapse: collapse;
             }
 
+            td, th {
+                padding: 20px 0;
+            }
+
             p {
             margin: 0;
             }
