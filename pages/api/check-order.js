@@ -58,12 +58,10 @@ export default async (req, res) => {
             html: emailToSend,
         };
 
-        transporter.sendMail(forwardMail, (error, info) => {
+        transporter.sendMail(forwardMail, async (error, info) => {
             console.log(info)
             if (error) console.log(error)
-            //res.send(info)
+            res.json(data)
         });
-
-        res.json(data)
     }
 }
