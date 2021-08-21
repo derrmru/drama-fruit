@@ -10,7 +10,7 @@ export default async (req, res) => {
     const payment = await mollieClient.payments.get(req.body.id)
 
     //update status in firebase
-    db.collection('orders').doc(payment.metadata.order_id).set({
+    await db.collection('orders').doc(payment.metadata.order_id).set({
         status: payment.status
     }, { merge: true })
 
