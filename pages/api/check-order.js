@@ -72,19 +72,15 @@ export default async (req, res) => {
          * Cumstomer purchase confirmation email
          */
 
-        //convert each purhcased item into html table row with price
-
-        const purchases = () => {
-            const result = ``;
-            const itemArr = data.description.split(',');
-            itemArr.forEach(item => {
-                result += `<tr>`
-                result += `<td>${item.split(' x')[0].trim()}</td>`
-                result += `<td>${item.split(' x')[1].trim()}</td>`
-                result += `</tr>`
-            })
-            return result
-        }
+        //convert each purhcased item into html table row with number of items purchased
+        const purchaseTable = ``;
+        const itemArr = data.description.split(',');
+        itemArr.forEach(item => {
+            purchaseTable += `<tr>`
+            purchaseTable += `<td>${item.split(' x')[0].trim()}</td>`
+            purchaseTable += `<td>${item.split(' x')[1].trim()}</td>`
+            purchaseTable += `</tr>`
+        })
 
         //send email confirmation to form user
         let confirmMail = {
@@ -225,7 +221,7 @@ export default async (req, res) => {
                             Number of Items
                         </th>
                     </tr>
-                    ${purchases()}
+                    ${purchaseTable}
                     <tr>
                         <td>Total</td>
                         <td>${data.total}</td>
