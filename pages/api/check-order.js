@@ -76,10 +76,12 @@ export default async (req, res) => {
         let purchaseTable = ``;
         const itemArr = data.description.split(',');
         itemArr.forEach(item => {
-            purchaseTable += `<tr>`
-            purchaseTable += `<td>${item.split(' x')[0].trim()}</td>`
-            purchaseTable += `<td>${item.split(' x')[1].trim()}</td>`
-            purchaseTable += `</tr>`
+            if (item.indexOf(' x') >= 0) {
+                purchaseTable += `<tr>`
+                purchaseTable += `<td>${item.split(' x')[0].trim()}</td>`
+                purchaseTable += `<td>${item.split(' x')[1].trim()}</td>`
+                purchaseTable += `</tr>`
+            }
         })
 
         //send email confirmation to form user
