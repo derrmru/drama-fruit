@@ -77,8 +77,8 @@ export default async (req, res) => {
         const itemArr = data.description.split(',');
         itemArr.forEach(item => {
             if (item.indexOf(' x') >= 0) {
-                purchaseTable += `<tr>`
-                purchaseTable += `<td>${item.split(' x')[0].trim()}</td>`
+                purchaseTable += `<tr style="width: 100%;">`
+                purchaseTable += `<td style="width: 70%;">${item.split(' x')[0].trim()}</td>`
                 purchaseTable += `<td>${item.split(' x')[1].trim()}</td>`
                 purchaseTable += `</tr>`
             }
@@ -214,9 +214,9 @@ export default async (req, res) => {
                 <p style="margin: 20px 0;">Dear ${data.name},</p>
                 <p style="margin: 20px 0;">I will be working on your order shortly and will be in touch with a tracking number when it is ready to be shipped.</p>
                 <p style="margin: 20px 0;">Here are the details of your order:</p>
-                <table>
-                    <tr>
-                        <th>
+                <table style="width: 100%;">
+                    <tr style="width: 100%;">
+                        <th style="width: 70%">
                             Item
                         </th>
                         <th>
@@ -224,8 +224,8 @@ export default async (req, res) => {
                         </th>
                     </tr>
                     ${purchaseTable}
-                    <tr>
-                        <td>Total</td>
+                    <tr style="width: 100%;">
+                        <td style="width: 70%; text-align: right; padding-right: 20px;">Total</td>
                         <td>${data.total}</td>
                     </tr>
                 </table>
@@ -233,10 +233,10 @@ export default async (req, res) => {
                 <p>Sincerely</p>
                 <p>Marek @dramafruit</p>
                 <img src=${footer} style="max-width: 250px; margin: 20px 0;"/>
-                <div style="margin: 20px 0;">
-                    <a href="https://www.instagram.com/dramafruit/"><img src=${inst} style="margin-right: 20px;" /></a>
-                    <a href="https://www.facebook.com/DramaFruit"><img src=${face} style="margin-right: 20px;" /></a>
-                    <a href="https://www.etsy.com/shop/DramaFruit"><img src=${etsy} style="margin-right: 20px;" /></a>
+                <div style="margin: 20px 0; width: 100%; box-sizing: border-box; text-align: center;">
+                    <a href="https://www.instagram.com/dramafruit/"><img src=${inst} style="margin: 0 20px;" /></a>
+                    <a href="https://www.facebook.com/DramaFruit"><img src=${face} style="margin: 0 20px;" /></a>
+                    <a href="https://www.etsy.com/shop/DramaFruit"><img src=${etsy} style="margin: 0 20px;" /></a>
                 </div>
             </div>
             </div>
