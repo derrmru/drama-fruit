@@ -79,7 +79,7 @@ export default async (req, res) => {
             if (item.indexOf(' x') >= 0) {
                 purchaseTable += `<tr style="width: 100%;">`
                 purchaseTable += `<td style="width: 60%;">${item.split(' x')[0].trim()}</td>`
-                purchaseTable += `<td>${item.split(' x')[1].trim()}</td>`
+                purchaseTable += `<td style="width: 40%;">${item.split(' x')[1].trim()}</td>`
                 purchaseTable += `</tr>`
             }
         })
