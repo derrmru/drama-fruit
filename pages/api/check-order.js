@@ -219,14 +219,14 @@ export default async (req, res) => {
                         <th style="width: 60%;text-align: left;">
                             Item
                         </th>
-                        <th style="text-align: left;>
+                        <th style="width: 40%; text-align: left;">
                             No. Items
                         </th>
                     </tr>
                     ${purchaseTable}
                     <tr style="width: 100%;">
                         <td style="width: 60%; text-align: right; padding-right: 20px;">Basket Total</td>
-                        <td>€${data.total}</td>
+                        <td style="width: 40%;">€${data.total}</td>
                     </tr>
                 </table>
                 <p style="margin: 20px 0;">If you have any questions regarding your purchases, please do not hesitate to contact me or get in touch via social media.</p>

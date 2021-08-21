@@ -1,8 +1,8 @@
-import { createContext, useEffect } from 'react';
+import { createContext } from 'react';
 
 export const ShoppingContext = createContext({
   items: {},
-  itemsSetter: () => {}
+  itemsSetter: () => { }
 });
 
 export const ShoppingProvider = ShoppingContext.Provider

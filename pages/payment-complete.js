@@ -2,7 +2,8 @@ import Head from 'next/head'
 import Link from 'next/link'
 import Layout from '../components/templates/Layout'
 import Loading from '../components/Loading'
-import { useEffect, useState } from "react"
+import { useEffect, useState, useContext } from "react"
+import { ShoppingContext } from '../src/context/shoppingCart'
 import { updateStock } from '../lib/contentful'
 import $ from 'jquery'
 import style from '../styles/Payment.module.css'
@@ -25,8 +26,11 @@ const PaymentComplete = () => {
                     console.log(data)
                     setTransaction(data)
                 })
-        } 
+        }
     }, [transaction])
+
+    //shopping cart context//shopping cart context
+    const { items, itemsSetter } = useContext(ShoppingContext)
 
     useEffect(() => {//update stock for items that were purchased
         if (Object.keys(transaction).length > 0) {
@@ -39,15 +43,13 @@ const PaymentComplete = () => {
                     const num = item.split('number=')[1];
                     console.log(num)
                     if (transaction["status"] === 'paid') {
-                        updateStock(id, num)
+                        updateStock(id, num)//set contentful to decrease stock
+                        itemsSetter({}) //empty cart on successful purchase completion
+                        window.localStorage.setItem('items', JSON.stringify({})) //empty local storage (cart)
                     }
                 }
             })
         }
-    }, [transaction])
-
-    useEffect(() => {
-        if (Object.keys(transaction).length > 0) window.localStorage.setItem('items', JSON.stringify({}))
     }, [transaction])
 
     return (
