@@ -73,7 +73,7 @@ export default async (req, res) => {
          */
 
         //convert each purhcased item into html table row with number of items purchased
-        const purchaseTable = ``;
+        let purchaseTable = ``;
         const itemArr = data.description.split(',');
         itemArr.forEach(item => {
             purchaseTable += `<tr>`
