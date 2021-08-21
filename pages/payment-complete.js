@@ -61,7 +61,7 @@ const PaymentComplete = () => {
             </Head>
             <Layout>
                 <div className={style.response}>
-                    {(transaction && transaction !== {}) ?
+                    {(transaction && Object.keys(transaction).length > 0) ?
                         transaction["status"] === 'paid' ? <div>
                             <h2 style={{ textAlign: 'center', margin: '40px 0 40px' }}>Payment Complete!</h2>
                             <h3 style={{ textAlign: 'center', margin: '40px 0 40px' }}>Please check your emails for confirmation of your order.</h3>
@@ -90,7 +90,6 @@ const PaymentComplete = () => {
                                         </div> :
                                             <>
                                                 <Loading message="This is taking a little long" />
-                                                <div style={{ textAlign: 'center', margin: '40px 0 40px' }}>If you have cancelled your order mid-payment, please head back to the <Link href="/drama-shop"><a>Shop</a></Link> and try again.</div>
                                             </> :
                         <>
                             <Loading message="awaiting payment confirmation" />
