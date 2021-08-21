@@ -79,8 +79,8 @@ export default async (req, res) => {
             const itemArr = data.description.split(',');
             itemArr.forEach(item => {
                 result += `<tr>`
-                result += `<td>${item.split(' x')[0]}</td>`
-                result += `<td>${item.split(' x')[1]}</td>`
+                result += `<td>${item.split(' x')[0].trim()}</td>`
+                result += `<td>${item.split(' x')[1].trim()}</td>`
                 result += `</tr>`
             })
             return result
@@ -225,7 +225,7 @@ export default async (req, res) => {
                             Number of Items
                         </th>
                     </tr>
-                    ${purchases}
+                    ${purchases()}
                     <tr>
                         <td>Total</td>
                         <td>${data.total}</td>
