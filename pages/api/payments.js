@@ -24,20 +24,20 @@ export default async (req, res) => {
 
   //create order in database under mollie transaction ID
   const docRef = db.collection('orders').doc(req.body.transaction_id);
-    docRef.set({
-        name: req.body.name,
-        email: req.body.email,
-        telephone: req.body.telephone,
-        address: req.body.address,
-        description: req.body.description,
-        total: req.body.total,
-        mollie_id: payment.id,
-        privacy: req.body.privacy,
-        contentful_ids: req.body.ids,
-        date_created: new Date()
-    });
+  docRef.set({
+    name: req.body.name,
+    email: req.body.email,
+    telephone: req.body.telephone,
+    address: req.body.address,
+    description: req.body.description,
+    total: req.body.total,
+    mollie_id: payment.id,
+    privacy: req.body.privacy,
+    contentful_ids: req.body.ids,
+    date_created: new Date()
+  });
 
-  
+
 
   await res.send(payment.getCheckoutUrl())
 }
