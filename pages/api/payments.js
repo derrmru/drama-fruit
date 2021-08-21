@@ -24,7 +24,7 @@ export default async (req, res) => {
 
   //create order in database under mollie transaction ID
   const docRef = db.collection('orders').doc(req.body.transaction_id);
-  docRef.set({
+  await docRef.set({
     name: req.body.name,
     email: req.body.email,
     telephone: req.body.telephone,
