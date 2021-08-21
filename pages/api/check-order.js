@@ -60,7 +60,7 @@ export default async (req, res) => {
 
         transporter.sendMail(forwardMail, (error, info) => {
             console.log(info)
-            if (error) await console.log(error)
+            if (error) console.log(error)
             //res.send(info)
         });
 
