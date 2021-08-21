@@ -48,7 +48,7 @@ export default async (req, res) => {
         //forward email to site owner
         let forwardMail = {
             from: process.env.EMAIL,
-            to: 'pjsweeney1@live.co.uk',
+            to: process.env.EMAIL,
             subject: 'Order has been placed via dramafruit.com',
             text: `name: ${data.name}
             email: ${data.email}
