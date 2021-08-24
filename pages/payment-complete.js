@@ -64,28 +64,28 @@ const PaymentComplete = () => {
                     {(transaction && Object.keys(transaction).length > 0) ?
                         transaction["status"] === 'paid' ? <div>
                             <h2 style={{ textAlign: 'center', margin: '40px 0 40px' }}>Payment Complete!</h2>
-                            <h3 style={{ textAlign: 'center', margin: '40px 0 40px' }}>Please check your emails for confirmation of your order.</h3>
+                            <p style={{ textAlign: 'center', margin: '40px 0 40px' }}>Please check your emails for confirmation of your order.</p>
                             <p style={{ textAlign: 'center', margin: '40px 0 40px' }}>Your Order ID is: <span style={{ fontSize: '28px' }}>{transaction && transaction.mollie_id}</span></p>
                             <p style={{ textAlign: 'center', margin: '40px 0 40px' }}>Feel like buying more?! Head back to the <Link href="/drama-shop"><a>Shop</a></Link></p>
                         </div> :
                             transaction["status"] === 'open' ? <div>
                                 <h2 style={{ textAlign: 'center', margin: '40px 0 40px' }}>Payment Incomplete!</h2>
-                                <h3 style={{ textAlign: 'center', margin: '40px 0 40px' }}>It looks like you started your payment, but it didn't finish.</h3>
+                                <p style={{ textAlign: 'center', margin: '40px 0 40px' }}>It looks like you started your payment, but it didn't finish.</p>
                                 <div style={{ textAlign: 'center', margin: '40px 0 40px' }}>Please head back to the <Link href="/drama-shop"><a>Shop</a></Link> and try again.</div>
                             </div> :
                                 transaction["status"] === 'expired' ? <div>
                                     <h2 style={{ textAlign: 'center', margin: '40px 0 40px' }}>Payment Incomplete!</h2>
-                                    <h3 style={{ textAlign: 'center', margin: '40px 0 40px' }}>It looks like you started your payment, but you didn't finish in time.</h3>
+                                    <p style={{ textAlign: 'center', margin: '40px 0 40px' }}>It looks like you started your payment, but you didn't finish in time.</p>
                                     <div style={{ textAlign: 'center', margin: '40px 0 40px' }}>Please head back to the <Link href="/drama-shop"><a>Shop</a></Link> and try again.</div>
                                 </div> :
                                     transaction["status"] === 'canceled' ? <div>
                                         <h2 style={{ textAlign: 'center', margin: '40px 0 40px' }}>Payment Cancelled!</h2>
-                                        <h3 style={{ textAlign: 'center', margin: '40px 0 40px' }}>It looks like you had second thoughts.</h3>
+                                        <p style={{ textAlign: 'center', margin: '40px 0 40px' }}>It looks like you had second thoughts.</p>
                                         <div style={{ textAlign: 'center', margin: '40px 0 40px' }}>Why not head back to the <Link href="/drama-shop"><a>Shop</a></Link> so I can convince you!</div>
                                     </div> :
                                         transaction["status"] === 'failed' ? <div>
                                             <h2 style={{ textAlign: 'center', margin: '40px 0 40px' }}>Payment Failed!</h2>
-                                            <h3 style={{ textAlign: 'center', margin: '40px 0 40px' }}>It looks like we can't accept your payment method.</h3>
+                                            <p style={{ textAlign: 'center', margin: '40px 0 40px' }}>It looks like we can't accept your payment method.</p>
                                             <div style={{ textAlign: 'center', margin: '40px 0 40px' }}>Why not head back to the <Link href="/drama-shop"><a>Shop</a></Link> and try again with a different card.</div>
                                         </div> :
                                             <>
