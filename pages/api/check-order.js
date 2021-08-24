@@ -218,8 +218,9 @@ export default async (req, res) => {
                 <p style="margin: 20px 0;">Dear ${data.name.indexOf(' ') >= 0 ? data.name.split(' ')[0] : data.name},</p>
                 <p style="margin: 20px 0;">I will be working on your order shortly and will be in touch with a tracking number when it is ready to be shipped.</p>
                 <p style="margin: 20px 0;">Here are the details of your order:</p>
-                <p style="margin: 20px 0;"><strong>Delivery Address: </strong> ${data.address}</p>
-                <table style="width: 100%;">
+                <p style="margin: 20px 0;"><strong>Delivery Address: </strong></p>
+                <p>${data.address.indexOf(', ') >= 0 ? data.address.split(', ').join('<br />') : data.address}</p>
+                <table style="width: 100%; border: 1px dashed #33a985; padding: 20px; box-sizing: border-box;">
                     <tr style="width: 100%;">
                         <th style="width: 60%;text-align: left;">
                             Item
