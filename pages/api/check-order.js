@@ -218,6 +218,7 @@ export default async (req, res) => {
                 <p style="margin: 20px 0;">Dear ${data.name},</p>
                 <p style="margin: 20px 0;">I will be working on your order shortly and will be in touch with a tracking number when it is ready to be shipped.</p>
                 <p style="margin: 20px 0;">Here are the details of your order:</p>
+                <p style="margin: 20px 0;"><strong>Delivery Address: </strong> ${data.address}</p>
                 <table style="width: 100%;">
                     <tr style="width: 100%;">
                         <th style="width: 60%;text-align: left;">
@@ -233,7 +234,7 @@ export default async (req, res) => {
                         <td style="width: 40%; border-top: 1px solid #33a985;">€${data.total}</td>
                     </tr>
                 </table>
-                <p style="margin: 20px 0;">If you have any questions regarding your purchases, please do not hesitate to contact me or get in touch via social media.</p>
+                <p style="margin: 20px 0;">If you have any questions regarding your purchases, please do not hesitate to contact me at play@dramafruit.com.</p>
                 <p>Sincerely</p>
                 <p>Marek @dramafruit</p>
                 <img src=${footer} style="max-width: 250px; margin: 20px 0;"/>
