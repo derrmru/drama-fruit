@@ -215,7 +215,7 @@ export default async (req, res) => {
                 <div style="width: 100%; margin: 0; border: 3px dashed #33a985; padding: 0; background-color: rgba(255, 255, 255, .9);">
             <h1 style="text-align: center;">Thank You For Your Order!</h1>
             <div style="width: 80%; margin: 20px auto;">
-                <p style="margin: 20px 0;">Dear ${data.name},</p>
+                <p style="margin: 20px 0;">Dear ${data.name.indexOf(' ') >= 0 ? data.name.split(' ')[0] : data.name},</p>
                 <p style="margin: 20px 0;">I will be working on your order shortly and will be in touch with a tracking number when it is ready to be shipped.</p>
                 <p style="margin: 20px 0;">Here are the details of your order:</p>
                 <p style="margin: 20px 0;"><strong>Delivery Address: </strong> ${data.address}</p>
