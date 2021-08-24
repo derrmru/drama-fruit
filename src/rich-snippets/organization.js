@@ -1,4 +1,5 @@
-export const org = `{
+export const org = () => {
+    return `{
                 "@context": "http://schema.org",
                 "@type": "Organization",
                 "url": "https://www.dramafruit.com",
@@ -11,3 +12,4 @@ export const org = `{
                         "contactType": "customer service"
                     }],
             }`
+}

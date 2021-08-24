@@ -13,7 +13,7 @@ const Home = ({ items }) => {
         <title>Drama Fruit</title>
         <meta name="description" content={items && items.fields.seoDescription} />
         <link rel="icon" href="/favicon.ico" />
-        <script type="application/ld+json">{org}</script>
+        <script type="application/ld+json">{org()}</script>
       </Head>
       <Layout>
         <Banner items={items} />
