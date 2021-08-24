@@ -3,7 +3,7 @@ export const org = `{
                 "@type": "Organization",
                 "url": "https://www.dramafruit.com",
                 "name": "Drama Fruit",
-                "logo": "drama_fruit_triangle.svg",
+                "logo": "https://www.dramafruit.com/images/drama_fruit_triangle.svg",
                 "contactPoint":
                     [{
                         "@type": "ContactPoint",
