@@ -158,7 +158,8 @@ export default async (req, res) => {
             border-collapse: collapse;
             }
 
-            td, th {
+            td, 
+            th {
                 padding: 20px 0;
             }
 
@@ -220,7 +221,7 @@ export default async (req, res) => {
                 <p style="margin: 20px 0;">Here are the details of your order:</p>
                 <p style="margin: 20px 0;"><strong>Delivery Address: </strong></p>
                 <p>${data.address.indexOf(', ') >= 0 ? data.address.split(', ').join('<br />') : data.address}</p>
-                <table style="width: 100%; border: 1px dashed #33a985; padding: 20px; box-sizing: border-box;">
+                <table style="width: 100%; margin: 20px 0;">
                     <tr style="width: 100%;">
                         <th style="width: 60%;text-align: left;">
                             Item
@@ -239,7 +240,7 @@ export default async (req, res) => {
                 <p>Sincerely</p>
                 <p>Marek @dramafruit</p>
                 <img src=${footer} style="max-width: 250px; margin: 20px 0;"/>
-                <div style="margin: 20px 0; width: 100%; box-sizing: border-box; text-align: center;">
+                <div style="margin: 20px 0; width: 100%; box-sizing: border-box;">
                     <a href="https://www.instagram.com/dramafruit/"><img src=${inst} style="margin: 0 10px;" /></a>
                     <a href="https://www.facebook.com/DramaFruit"><img src=${face} style="margin: 0 10px;" /></a>
                     <a href="https://www.etsy.com/shop/DramaFruit"><img src=${etsy} style="margin: 0 10px;" /></a>
