@@ -4,6 +4,7 @@ import Banner from '../components/Home/Banner'
 import ShopCase from '../components/Home/ShopCase'
 import BlogCase from '../components/Home/BlogCase'
 import { fetchEntries } from '../lib/contentful'
+import { org } from '../src/rich-snippets/organization'
 
 const Home = ({ items }) => {
   return (
@@ -12,6 +13,7 @@ const Home = ({ items }) => {
         <title>Drama Fruit</title>
         <meta name="description" content={items && items.fields.seoDescription} />
         <link rel="icon" href="/favicon.ico" />
+        <script type="application/ld+json">{org}</script>
       </Head>
       <Layout>
         <Banner items={items} />
@@ -27,7 +29,7 @@ Home.getInitialProps = async () => {
   const selection = await fetchEntries({
     content_type: "homePage",
   })
-  return {items: selection[0]}
+  return { items: selection[0] }
 }
 
 export default Home
