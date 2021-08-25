@@ -76,6 +76,7 @@ const DramaShop = () => {
                 <title>Shop - Drama Fruit</title>
                 <meta name="description" content="Browse our shop to buy loud and original pieces of clothing. Pick yourself a Drama Fruit, ripe to wear!" />
                 <link rel="icon" href="/favicon.ico" />
+                <link rel="canonical" href="https://www.dramafruit.com/drama-shop/" />
             </Head>
 
             <Layout>

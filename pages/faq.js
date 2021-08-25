@@ -25,6 +25,7 @@ const FAQ = () => {
                 <title>Frequently Asked Questions - Drama Fruit</title>
                 <meta name="description" content="Get answers to fequently asked questions about the Drama Shop and our original clothing." />
                 <link rel="icon" href="/favicon.ico" />
+                <link rel="canonical" href="https://www.dramafruit.com/faq/" />
             </Head>
             <Layout>
                 <PageTitle title="FAQ's" />

@@ -38,6 +38,7 @@ const News = () => {
             <Head>
                 <title>Past Projects - Drama Fruit</title>
                 <meta name="description" content="Latest news from the Drama Fruit shop. Read about the latest projects and the journey of designing original clothing." />
+                <link rel="canonical" href="https://www.dramafruit.com/past-projects/" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Layout>

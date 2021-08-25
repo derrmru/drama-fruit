@@ -39,13 +39,13 @@ export default function Produce({ productData }) {
         setNumber(number + direction)
         //if item is in basked, update basket as well
         if (items[title]) {
-            let obj = {...items};
+            let obj = { ...items };
             obj[title]['number'] = number + direction
             itemsSetter(obj)
         }
     }
-    
-    useEffect(()=> {
+
+    useEffect(() => {
         if (items[title]) setNumber(items[title]['number'])
     })
 
@@ -54,7 +54,7 @@ export default function Produce({ productData }) {
     const setSize = (size) => {
         setTheSize(size);
         if (items[title]) {
-            let obj = {...items};
+            let obj = { ...items };
             obj[title]['size'] = size
             itemsSetter(obj)
         }
@@ -63,12 +63,14 @@ export default function Produce({ productData }) {
     //select current image
     const [currentImage, setCurrentImage] = useState('');
 
+    console.log('productData: ', productData)
     return (
         <div>
             <Head>
                 <title>{productData.fields.title} - Drama Fruit</title>
                 {productData && <meta name="description" content={productData.fields.seoDescription} />}
                 <link rel="icon" href="/favicon.ico" />
+                <link rel="canonical" href={`https://www.dramafruit.com/drama-shop/${productData.fields.slug}/`} />
             </Head>
             <Layout>
                 <PageTitle title={title} />
@@ -85,22 +87,22 @@ export default function Produce({ productData }) {
                             />
                         </div>
                         <div className={style.altContainer}>
-                        {
-                            productData.fields.productPageImages && productData.fields.productPageImages.map((image, i) => {
-                                return <div 
-                                    key={'altImage' + i}
-                                    className={style.altImages + ' fade-in'}
-                                    onClick={() => setCurrentImage(image.fields.file.url)}
-                                    onMouseOver={() => setCurrentImage(image.fields.file.url)}
+                            {
+                                productData.fields.productPageImages && productData.fields.productPageImages.map((image, i) => {
+                                    return <div
+                                        key={'altImage' + i}
+                                        className={style.altImages + ' fade-in'}
+                                        onClick={() => setCurrentImage(image.fields.file.url)}
+                                        onMouseOver={() => setCurrentImage(image.fields.file.url)}
                                     >
-                                    <img
-                                        className={style.altImage}
-                                        src={image.fields.file.url}
-                                        alt={image.fields.description}
+                                        <img
+                                            className={style.altImage}
+                                            src={image.fields.file.url}
+                                            alt={image.fields.description}
                                         />
-                                </div>
-                            })
-                        }
+                                    </div>
+                                })
+                            }
                         </div>
                     </div>
 
@@ -117,18 +119,18 @@ export default function Produce({ productData }) {
                             productData.fields.stock > 0 ?
                                 <>
                                     {
-                                        productData.fields.stock === 1 ? 
+                                        productData.fields.stock === 1 ?
                                             <>
-                                                <p style={{color: 'var(--drama-pink)', margin: '0 0 20px 0'}}>
+                                                <p style={{ color: 'var(--drama-pink)', margin: '0 0 20px 0' }}>
                                                     This is the last {title} in stock!
                                                 </p>
                                             </> :
                                             productData.fields.stock === 0 ?
-                                            <>
-                                                <p style={{color: 'var(--drama-pink)', margin: '0 0 20px 0'}}>
-                                                    This item is no longer in stock :(
-                                                </p>
-                                            </> :
+                                                <>
+                                                    <p style={{ color: 'var(--drama-pink)', margin: '0 0 20px 0' }}>
+                                                        This item is no longer in stock :(
+                                                    </p>
+                                                </> :
                                                 <>
                                                     <p>Number of items:</p>
                                                     <div className={style.increment}>
@@ -137,8 +139,8 @@ export default function Produce({ productData }) {
                                                             onClick={() => number > 1 && inc(-1)}
                                                         >
                                                             -
-                                                            </div>
-                                                            <div style={{width: '30%'}}>{number}</div>
+                                                        </div>
+                                                        <div style={{ width: '30%' }}>{number}</div>
                                                         <div
                                                             className={style.incrementButton}
                                                             onClick={() => number < productData.fields.stock && inc(1)}
@@ -148,24 +150,24 @@ export default function Produce({ productData }) {
                                                     </div>
                                                 </>
                                     }
-                                    <Sizes 
+                                    <Sizes
                                         sizes={productData.fields.availableSizes}
                                         theSize={theSize}
                                         setTheSize={(size) => setSize(size)}
-                                        />
+                                    />
                                     {
                                         items[title] ?
-                                            <p 
-                                                className="fade-in" 
-                                                style={{color: 'var(--drama-pink', fontSize: '16px', margin: '10px 0'}}
-                                                >
+                                            <p
+                                                className="fade-in"
+                                                style={{ color: 'var(--drama-pink', fontSize: '16px', margin: '10px 0' }}
+                                            >
                                                 {'> Added To Basket'}
                                             </p> :
-                                                <button
-                                                    onClick={() => setCart(productData)}
-                                                >
-                                                    Add To Basket
-                                                </button>
+                                            <button
+                                                onClick={() => setCart(productData)}
+                                            >
+                                                Add To Basket
+                                            </button>
                                     }
                                     <Link href='/checkout'>
                                         <a className={style.checkoutButton + ' fade-in'}>

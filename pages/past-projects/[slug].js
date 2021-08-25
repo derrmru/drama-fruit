@@ -11,6 +11,7 @@ export default function Slug({ post }) {
             <Head>
                 <title>{post.fields.title} - Drama Fruit</title>
                 {post && <meta name="description" content={post.fields.seoDescription} />}
+                <link rel="canonical" href={`https://www.dramafruit.com/past-projects/${post.fields.slug}/`} />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <div className={style.ppContainer + ' fade-in'}>

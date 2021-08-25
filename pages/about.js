@@ -23,6 +23,7 @@ const About = () => {
             <Head>
                 <title>About - Drama Fruit</title>
                 <meta name="description" content={entry.fields && entry.fields.seoDescription} />
+                <link rel="canonical" href="https://www.dramafruit.com/about/" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Layout>

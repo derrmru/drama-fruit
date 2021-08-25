@@ -13,6 +13,7 @@ const Home = ({ items }) => {
         <title>Drama Fruit</title>
         <meta name="description" content={items && items.fields.seoDescription} />
         <link rel="icon" href="/favicon.ico" />
+        <link rel="canonical" href="https://www.dramafruit.com/" />
         <script type="application/ld+json">{org()}</script>
       </Head>
       <Layout>

@@ -70,6 +70,7 @@ const Contact = () => {
                     <title>Contact - Drama Fruit</title>
                     <meta name="description" content="Contact me to find out more about the loud and original clothing available at Drama Fruit or request a bespoke piece." />
                     <link rel="icon" href="/favicon.ico" />
+                    <link rel="canonical" href="https://www.dramafruit.com/contact/" />
                     <meta
                         name="viewport"
                         content="width=device-width, initial-scale=1.0,user-scalable=0"
