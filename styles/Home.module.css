@@ -1,29 +1,29 @@
-.bannerContainer{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 80%;
-    margin: 40px auto;
+.bannerContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 80%;
+  margin: 40px auto;
 }
 
 .bannerText {
-    width: 50%;
-    background-color: rgba(255, 255, 255, .7);
-    border: 3px solid var(--drama-green);
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: center;
+  width: 50%;
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 3px solid var(--drama-green);
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .bannerText > div {
-    width: 90%;
+  width: 90%;
 }
 
 .bannerImage {
-    width: 50%;
-    border: 3px dashed var(--drama-green);
-    padding: 10px;
+  width: 50%;
+  border: 3px dashed var(--drama-green);
+  padding: 10px;
 }
 
 /**
@@ -31,98 +31,106 @@
 */
 
 .mainImage {
-    border-left: none;
+  border-left: none;
 }
 
 .mainText {
-    font-size: 50px;
-    line-height: 100px;
-    align-items: center;
+  font-size: 50px;
+  line-height: 100px;
+  align-items: center;
 }
 
-.blogImage, .shopImage {
-    width: 30%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+.mainText > h1 {
+  font-size: 70px;
 }
 
-.blogText > div > p, .shopText > div > p {
-    font-size: 16px;
+.blogImage,
+.shopImage {
+  width: 30%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.blogText > div > p,
+.shopText > div > p {
+  font-size: 16px;
 }
 
 .shopText {
-    width: 70%;
-    border-left: none;
-    text-align: left;
-    padding: 20px;
-    font-size: 20px;
+  width: 70%;
+  border-left: none;
+  text-align: left;
+  padding: 20px;
+  font-size: 20px;
 }
 
 .shopText > div > h2 {
-    margin: 20px 0 0 0;
-    font-size: 34px;
+  margin: 20px 0 0 0;
+  font-size: 34px;
 }
 
 .blogText {
-    width: 70%;
-    border-right: none;
-    text-align: left;
-    padding: 20px;
-    font-size: 20px;
+  width: 70%;
+  border-right: none;
+  text-align: left;
+  padding: 20px;
+  font-size: 20px;
 }
 
 .blogText > div > h2 {
-    margin: 20px 0 0 0;
-    font-size: 34px;
+  margin: 20px 0 0 0;
+  font-size: 34px;
 }
 
 .theImage {
-    width: 100%;
+  width: 100%;
 }
 
 @media only screen and (max-width: 1170px) {
-    .mainText {
-        font-size: 40px;
-    }
-    .blogText > div > h2, .shopText > div > h2 {
-        margin: 0;
-    }
+  .mainText > h1 {
+    font-size: 40px;
+  }
+  .blogText > div > h2,
+  .shopText > div > h2 {
+    margin: 0;
+  }
 }
 
 @media only screen and (max-width: 960px) {
-    .mainText {
-        font-size: 30px;
-        line-height: 80px;
-    }
+  .mainText > h1 {
+    font-size: 30px;
+    line-height: 80px;
+  }
 }
 
 @media only screen and (max-width: 600px) {
-    .bannerContainer {
-        width: 90%;
-        flex-direction: column;
-    }
-    .mainText > h2 {
-        font-size: 40px;
-        line-height: 60px;
-    }
-    .bannerText, .bannerImage {
-        width: 100%;
-    }
-    .mainImage {
-        border-left: 3px dashed var(--drama-green);
-        border-top: none;
-    }
-    .shopText {
-        border-left: 3px solid var(--drama-pink);
-        border-top: none;
-    }
-    .blogText {
-        border-right: 3px solid var(--drama-yellow);
-        border-top: none;
-    }
-    .blogReverse {
-        flex-direction: column-reverse;
-    }
+  .bannerContainer {
+    width: 90%;
+    flex-direction: column;
+  }
+  .mainText > h1 {
+    font-size: 40px;
+    line-height: 60px;
+  }
+  .bannerText,
+  .bannerImage {
+    width: 100%;
+  }
+  .mainImage {
+    border-left: 3px dashed var(--drama-green);
+    border-top: none;
+  }
+  .shopText {
+    border-left: 3px solid var(--drama-pink);
+    border-top: none;
+  }
+  .blogText {
+    border-right: 3px solid var(--drama-yellow);
+    border-top: none;
+  }
+  .blogReverse {
+    flex-direction: column-reverse;
+  }
 }
