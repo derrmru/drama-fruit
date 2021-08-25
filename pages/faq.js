@@ -18,12 +18,12 @@ const FAQ = () => {
         }
         ent()
     }, [])
-    
+
     return (
         <div>
             <Head>
                 <title>Frequently Asked Questions - Drama Fruit</title>
-                <meta name="description" content="Frequently Asked Questions" />
+                <meta name="description" content="Get answers to fequently asked questions about the Drama Shop and our original clothing." />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Layout>

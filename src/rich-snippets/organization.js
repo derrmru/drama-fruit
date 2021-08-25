@@ -10,6 +10,6 @@ export const org = () => {
                         "@type": "ContactPoint",
                         "email": "play@dramafruit.com",
                         "contactType": "customer service"
-                    }],
+                    }]
             }`
 }

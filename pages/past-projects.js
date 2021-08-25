@@ -13,10 +13,10 @@ const News = () => {
 
     useEffect(() => {
         const getPosts = async () => {
-          const allPosts = await fetchEntries({
-            content_type: "blog",
-        })
-          setPosts([...allPosts])
+            const allPosts = await fetchEntries({
+                content_type: "blog",
+            })
+            setPosts([...allPosts])
         }
         getPosts()
     }, [])
@@ -37,7 +37,7 @@ const News = () => {
         <div>
             <Head>
                 <title>Past Projects - Drama Fruit</title>
-                <meta name="description" content="Latest news from Drama Fruit" />
+                <meta name="description" content="Latest news from the Drama Fruit shop. Read about the latest projects and the journey of designing original clothing." />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Layout>
@@ -47,41 +47,41 @@ const News = () => {
                         posts
                             .slice(inc, inc + postsPerPage)
                             .map((post, i) => {
-                            return <div
-                                key={'blogPost' + i}
-                                className={style.card + ' fade-in'}
+                                return <div
+                                    key={'blogPost' + i}
+                                    className={style.card + ' fade-in'}
                                 >
-                                    <img 
+                                    <img
                                         src={post.fields.mainImage.fields.file.url}
                                         alt={post.fields.mainImage.fields.description || ''}
                                         width="90%"
                                         height="auto"
-                                        />
+                                    />
                                     <h3 className={style.cardTitle}>{post.fields.title}</h3>
                                     <p>{post.fields.extract}</p>
                                     <Link
                                         href={'/past-projects/' + post.fields.slug}
-                                        >
+                                    >
                                         <a className={style.continueReading}>
                                             Continue Reading
                                         </a>
                                     </Link>
-                            </div>
-                        })
+                                </div>
+                            })
                     }
                 </div>
                 {
                     posts.length > postsPerPage && <div
                         className={style.navButtons}
-                        >
+                    >
                         <button
                             onClick={() => increment('down')}
-                            >
+                        >
                             Previous
                         </button>
                         <button
                             onClick={() => increment('up')}
-                            >
+                        >
                             Next
                         </button>
                     </div>

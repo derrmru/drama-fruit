@@ -22,24 +22,24 @@ const About = () => {
         <div>
             <Head>
                 <title>About - Drama Fruit</title>
-                <meta name="description" content={entry.fields && entry.fields.seoDescription}/>
+                <meta name="description" content={entry.fields && entry.fields.seoDescription} />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Layout>
                 <PageTitle title="About Drama Fruit" />
                 <div className={style.profileContainer}>
                     <div className={style.profileImage}>
-                        <img 
-                            src={entry.fields && entry.fields.profileImage.fields.file.url} 
+                        <img
+                            src={entry.fields && entry.fields.profileImage.fields.file.url}
                             width="100%"
-                            />
+                        />
                     </div>
                     <div
                         className={style.profile}
-                        >
-                            {
-                                entry.fields && documentToReactComponents(entry.fields.profile)
-                            }
+                    >
+                        {
+                            entry.fields && documentToReactComponents(entry.fields.profile)
+                        }
                     </div>
                 </div>
             </Layout>
