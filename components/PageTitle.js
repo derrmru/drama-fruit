@@ -1,12 +1,12 @@
 import style from './PageTitle.module.css'
 
 const PageTitle = ({ title }) => {
-    return <h2 
+    return <h1
         className={style.title}
-        style={{ textAlign: 'center'}}
-        >
-            {title}
-        </h2>
+        style={{ textAlign: 'center' }}
+    >
+        {title}
+    </h1>
 }
 
 export default PageTitle

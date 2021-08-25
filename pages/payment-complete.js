@@ -55,7 +55,7 @@ const PaymentComplete = () => {
     return (
         <div>
             <Head>
-                <title>Drama Fruit</title>
+                <title>Payment Complete - Drama Fruit</title>
                 <meta name="description" content="Successful Transaction" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>

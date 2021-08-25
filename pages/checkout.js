@@ -16,7 +16,7 @@ export default function Checkout() {
 
   //delete item from cart
   const deleteItem = (item) => {
-    let obj = {...items};
+    let obj = { ...items };
     delete obj[item]
     itemsSetter(obj)
   }
@@ -52,7 +52,7 @@ export default function Checkout() {
   //handle form inputs
   const [fields, setFields] = useState({});
   const setValue = (name, value) => {
-    let temp = {...fields}
+    let temp = { ...fields }
     temp[name] = value;
     setFields(temp)
   }
@@ -65,7 +65,7 @@ export default function Checkout() {
     e.preventDefault()
     setLoad(true)
     $.post(
-      '/api/payments', 
+      '/api/payments',
       {
         transaction_id: uuidv4(),
         name: fields.full_name,
@@ -88,143 +88,143 @@ export default function Checkout() {
   return (
     <div>
       <Head>
-        <title>Checkout - Drama Fruit</title>
+        <title>Shop Checkout - Drama Fruit</title>
         <meta name="description" content="Complete your drama fruit purchase." />
         <link rel="icon" href="/favicon.ico" />
-        <meta 
-          name="viewport" 
+        <meta
+          name="viewport"
           content="width=device-width, initial-scale=1.0,user-scalable=0"
-          />
+        />
       </Head>
       <Layout>
         <PageTitle title="Checkout" />
         {
           !payNow ? <>
-          {
-            Object.keys(items).length === 0 ? <>
-              <h3 style={{ textAlign: 'center', margin: '40px 0 40px' }}>Your Basket Is Empty</h3>
-              <div style={{ textAlign: 'center', margin: '40px 0 40px' }}><Link href="/drama-shop"><a>Go To Shop</a></Link></div>
-            </> : <>
-              <div className={style.checkoutPanel + ' fade-in'}>
-                <div className={style.itemsPanel}>
-                  {//list basket items
-                    Object.keys(items).map((item, i) => {
-                      const slug = item.toLowerCase().split(' ').join('-')
-                      return <div
-                        key={'basketItem' + i}
-                        className={style.item}
-                      >
-                        <div className={style.itemImage}>
-                          <img
-                            src={'/' + items[item]['image']}
-                            object-fit="cover"
-                            width="100%"
-                            height="100%"
-                          />
-                        </div>
-                        <div className={style.itemText}>
-                          <h3 className={style.itemHeader} style={{ margin: '0' }}>
-                            {item}
-                          </h3>
-                          <p>Price: €{items[item]['price']}</p>
-                          {
-                            items[item]['maxNumber'] === 1 ? 
-                              <p 
-                                style={{color: 'var(--drama-pink)', margin: '0 0 10px 0'}}
+            {
+              Object.keys(items).length === 0 ? <>
+                <h3 style={{ textAlign: 'center', margin: '40px 0 40px' }}>Your Basket Is Empty</h3>
+                <div style={{ textAlign: 'center', margin: '40px 0 40px' }}><Link href="/drama-shop"><a>Go To Shop</a></Link></div>
+              </> : <>
+                <div className={style.checkoutPanel + ' fade-in'}>
+                  <div className={style.itemsPanel}>
+                    {//list basket items
+                      Object.keys(items).map((item, i) => {
+                        const slug = item.toLowerCase().split(' ').join('-')
+                        return <div
+                          key={'basketItem' + i}
+                          className={style.item}
+                        >
+                          <div className={style.itemImage}>
+                            <img
+                              src={'/' + items[item]['image']}
+                              object-fit="cover"
+                              width="100%"
+                              height="100%"
+                            />
+                          </div>
+                          <div className={style.itemText}>
+                            <h3 className={style.itemHeader} style={{ margin: '0' }}>
+                              {item}
+                            </h3>
+                            <p>Price: €{items[item]['price']}</p>
+                            {
+                              items[item]['maxNumber'] === 1 ?
+                                <p
+                                  style={{ color: 'var(--drama-pink)', margin: '0 0 10px 0' }}
                                 >
                                   Last In Stock
-                              </p> :
-                              <div className={style.incrementContain}>
-                                Number of Items:
-                                <div
-                                  className={style.incrementButton}
-                                  onClick={() => items[item]['number'] > 1 && inc(item, -1)}
-                                >
-                                  &#8722;
-                                                  </div>
-                                <div>{items[item]['number']}</div>
-                                <div
-                                  className={style.incrementButton}
-                                  onClick={() => inc(item, 1)}
-                                >
-                                  &#x2b;
-                                                  </div>
-                              </div>
-                          }
-                          <div>
-                            <p style={{margin: '0 0 10px 0'}}>
-                            <Link href={'/drama-shop/' + slug}>
-                              <a>
-                                Visit Item Page
-                              </a>
-                            </Link>
-                            </p>
-                          </div>
-                          <div
-                            className={style.removeButton}
-                            onClick={() => deleteItem(item)}
+                                </p> :
+                                <div className={style.incrementContain}>
+                                  Number of Items:
+                                  <div
+                                    className={style.incrementButton}
+                                    onClick={() => items[item]['number'] > 1 && inc(item, -1)}
+                                  >
+                                    &#8722;
+                                  </div>
+                                  <div>{items[item]['number']}</div>
+                                  <div
+                                    className={style.incrementButton}
+                                    onClick={() => inc(item, 1)}
+                                  >
+                                    &#x2b;
+                                  </div>
+                                </div>
+                            }
+                            <div>
+                              <p style={{ margin: '0 0 10px 0' }}>
+                                <Link href={'/drama-shop/' + slug}>
+                                  <a>
+                                    Visit Item Page
+                                  </a>
+                                </Link>
+                              </p>
+                            </div>
+                            <div
+                              className={style.removeButton}
+                              onClick={() => deleteItem(item)}
                             >
-                              <p style={{margin: '0 0 10px 0'}}>
+                              <p style={{ margin: '0 0 10px 0' }}>
                                 <em>&#10006; Remove Item</em>
                               </p>
+                            </div>
                           </div>
                         </div>
+                      })
+                    }
+                  </div>
+                  <div className={style.paymentPanel}>
+                    <div className={style.stickyPay}>
+                      <hr style={{ margin: '20px 0 20px 0', border: 'none', height: '3px', backgroundColor: 'var(--drama-pink)' }} />
+                      <h3 className={style.basketDetailsHeader} style={{ textAlign: 'center' }}>
+                        Basket Details
+                      </h3>
+                      <hr style={{ margin: '20px 0 20px 0', border: 'none', height: '3px', backgroundColor: 'var(--drama-pink)' }} />
+                      <div>
+                        <div>Items:</div>
+                        <ul>
+                          {//list items above total
+                            Object.keys(items).map((item, j) => {
+                              return <li key={'totalItem' + j} style={{ marginBottom: '20px' }}>
+                                {item} x{items[item]['number']}, {items[item]['size']}: <span style={{ color: 'var(--drama-yellow)' }}>€{(Number(items[item]['price']) * Number(items[item]['number']))}</span>
+                              </li>
+                            })
+                          }
+                        </ul>
                       </div>
-                    })
-                  }
-                </div>
-                <div className={style.paymentPanel}>
-                  <div className={style.stickyPay}>
-                    <hr style={{margin: '20px 0 20px 0', border: 'none', height: '3px', backgroundColor: 'var(--drama-pink)'}} />
-                    <h3 className={style.basketDetailsHeader} style={{ textAlign: 'center' }}>
-                      Basket Details
-                    </h3>
-                    <hr style={{margin: '20px 0 20px 0', border: 'none', height: '3px', backgroundColor: 'var(--drama-pink)'}} />
-                    <div>
-                      <div>Items:</div>
-                      <ul>
-                        {//list items above total
-                          Object.keys(items).map((item, j) => {
-                            return <li key={'totalItem' + j} style={{marginBottom: '20px'}}>
-                              {item} x{items[item]['number']}, {items[item]['size']}: <span style={{color: 'var(--drama-yellow)'}}>€{(Number(items[item]['price']) * Number(items[item]['number']))}</span>
-                            </li>
-                          })
-                        }
-                      </ul>
-                    </div>
-                    <div className={style.basketTotal}>
-                      <ul>
-                        <li>
-                          Basket Total: €{total}
-                        </li>
-                      </ul>
-                    </div>
-                    <hr style={{margin: '40px 0 40px 0', border: 'none', height: '3px', backgroundColor: 'var(--drama-pink)'}} />
-                    <button
-                      className={style.payNowButton}
-                      onClick={() => setPayNow(true)}
+                      <div className={style.basketTotal}>
+                        <ul>
+                          <li>
+                            Basket Total: €{total}
+                          </li>
+                        </ul>
+                      </div>
+                      <hr style={{ margin: '40px 0 40px 0', border: 'none', height: '3px', backgroundColor: 'var(--drama-pink)' }} />
+                      <button
+                        className={style.payNowButton}
+                        onClick={() => setPayNow(true)}
                       >
-                      Proceed
-                    </button>
-                    <hr style={{margin: '40px 0 40px 0', border: 'none', height: '3px', backgroundColor: 'var(--drama-pink)'}} />
+                        Proceed
+                      </button>
+                      <hr style={{ margin: '40px 0 40px 0', border: 'none', height: '3px', backgroundColor: 'var(--drama-pink)' }} />
+                    </div>
                   </div>
                 </div>
-              </div>
-            </>
-          }
+              </>
+            }
           </>
-          :
-          load ? <Loading message="Loading" /> : 
-            <CheckoutForm 
-              submit={(e) => submit(e)}
-              fields={fields}
-              setValue={(name, value) => setValue(name, value)}
-              address={address}
-              setAddress={(value) => setAddress(value)}
-              setPayNow={() => setPayNow(false)}
+            :
+            load ? <Loading message="Loading" /> :
+              <CheckoutForm
+                submit={(e) => submit(e)}
+                fields={fields}
+                setValue={(name, value) => setValue(name, value)}
+                address={address}
+                setAddress={(value) => setAddress(value)}
+                setPayNow={() => setPayNow(false)}
               />
         }
-        
+
       </Layout>
     </div>
   )

@@ -19,7 +19,7 @@ const TandCs = () => {
         }
         getPolicy()
     }, [])
-    
+
     //open accordian paragraph
     const [openClose, setOpenClose] = useState('');
 
@@ -33,31 +33,31 @@ const TandCs = () => {
 
             <PageTitle title="Terms & Conditions" />
             <div className={style.termsBody}>
-            {
-                terms && terms
-                .sort((a, b) => a.fields.position - b.fields.position)
-                .map((article, i) => {
-                const content = article.fields.articleBody.content;
-                return <div key={'acc-section' + i} style={{width: '100%'}}>
-                    <button 
-                        className={style.accordOC}
-                        onClick={() => (openClose === '' || openClose !== ('p' + i)) ? setOpenClose(('p' + i)) : setOpenClose('')}
-                        >
-                            <div>{article.fields.articleTitle}</div> <div>{openClose === ('p' + i) ? '-' : '+'}</div>
-                    </button>
-                    {openClose === ('p' + i) &&
-                        <div className={style.openedText + " fade-in"}>
-                            {content.map((paragraph, j) => {
-                                return <div key={'paragraph' + j}>
-                                    {documentToReactComponents(paragraph)}
-                                </div>
-                            })}
-                        </div>
-                    }
-                </div>
-            })
-        }
-            {/*
+                {
+                    terms && terms
+                        .sort((a, b) => a.fields.position - b.fields.position)
+                        .map((article, i) => {
+                            const content = article.fields.articleBody.content;
+                            return <div key={'acc-section' + i} style={{ width: '100%' }}>
+                                <button
+                                    className={style.accordOC}
+                                    onClick={() => (openClose === '' || openClose !== ('p' + i)) ? setOpenClose(('p' + i)) : setOpenClose('')}
+                                >
+                                    <div>{article.fields.articleTitle}</div> <div>{openClose === ('p' + i) ? '-' : '+'}</div>
+                                </button>
+                                {openClose === ('p' + i) &&
+                                    <div className={style.openedText + " fade-in"}>
+                                        {content.map((paragraph, j) => {
+                                            return <div key={'paragraph' + j}>
+                                                {documentToReactComponents(paragraph)}
+                                            </div>
+                                        })}
+                                    </div>
+                                }
+                            </div>
+                        })
+                }
+                {/*
                 policy && Object.keys(policy).map((section, i) => {
                     return <div key={'acc-section' + i} style={{width: '100%'}}>
                         <button 

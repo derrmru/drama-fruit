@@ -10,7 +10,7 @@ const Home = ({ items }) => {
   return (
     <div>
       <Head>
-        <title>Drama Fruit</title>
+        <title>Drama Fruit - The Home of Original Clothing</title>
         <meta name="description" content={items && items.fields.seoDescription} />
         <link rel="icon" href="/favicon.ico" />
         <link rel="canonical" href="https://www.dramafruit.com/" />
