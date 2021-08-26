@@ -7,12 +7,12 @@ import Link from 'next/link'
 import Layout from '../../components/templates/Layout'
 import PageTitle from '../../components/PageTitle'
 import Sizes from '../../components/Shop/Sizes'
+import Product from '../../src/rich-snippets/Product'
 import style from '../../styles/Product.module.css'
 
 export default function Produce({ productData }) {
     //cart context
     const { items, itemsSetter } = useContext(ShoppingContext)
-    console.log(items)
 
     //Update shopping cart context
     function setCart(item) {
@@ -63,7 +63,6 @@ export default function Produce({ productData }) {
     //select current image
     const [currentImage, setCurrentImage] = useState('');
 
-    console.log('productData: ', productData)
     return (
         <div>
             <Head>
@@ -71,6 +70,7 @@ export default function Produce({ productData }) {
                 {productData && <meta name="description" content={productData.fields.seoDescription} />}
                 <link rel="icon" href="/favicon.ico" />
                 <link rel="canonical" href={`https://www.dramafruit.com/drama-shop/${productData.fields.slug}/`} />
+                <script type="application/ld+json">{productData && Product(productData)}</script>
             </Head>
             <Layout>
                 <PageTitle title={title} />
