@@ -58,9 +58,18 @@
   font-size: 16px;
 }
 
+.blogImage {
+  border-color: var(--drama-yellow);
+}
+
+.shopImage {
+  border-color: var(--drama-pink);
+}
+
 .shopText {
   width: 70%;
   border-left: none;
+  border-color: var(--drama-pink);
   text-align: left;
   padding: 20px;
   font-size: 20px;
@@ -77,6 +86,7 @@
   text-align: left;
   padding: 20px;
   font-size: 20px;
+  border-color: var(--drama-yellow);
 }
 
 .blogText > div > h2 {
