@@ -14,24 +14,25 @@ export default async (req, res) => {
     const doc = await docRef.get();
     if (doc.exists) {
         const data = doc.data();
-        //send confirmation email to customer
-        //nodemailer transporter
-        const nodemailer = require('nodemailer');
+        //if email not already sent, send confirmation email to customer
+        if (!data.email_sent) {
+            //nodemailer transporter
+            const nodemailer = require('nodemailer');
 
-        //email customer with confirmation of order and transaction:
-        let transporter = nodemailer.createTransport({
-            host: 'mail.hover.com',
-            //secureConnection: true,
-            port: 465,
-            auth: {
-                user: process.env.EMAIL,
-                pass: process.env.PASSWORD,
-            }
-        });
+            //email customer with confirmation of order and transaction:
+            let transporter = nodemailer.createTransport({
+                host: 'mail.hover.com',
+                //secureConnection: true,
+                port: 465,
+                auth: {
+                    user: process.env.EMAIL,
+                    pass: process.env.PASSWORD,
+                }
+            });
 
-        //site owner email content (HTML)
-        let emailToSend =
-            `<div>
+            //site owner email content (HTML)
+            let emailToSend =
+                `<div>
                 <p>An Order has been made</p>
                 <p>
                     name: ${data.name}<br />
@@ -45,12 +46,12 @@ export default async (req, res) => {
                 </p>
             </div>`
 
-        //forward email to site owner
-        let forwardMail = {
-            from: process.env.EMAIL,
-            to: process.env.EMAIL,
-            subject: 'Order has been placed via dramafruit.com',
-            text: `name: ${data.name}
+            //forward email to site owner
+            let forwardMail = {
+                from: process.env.EMAIL,
+                to: process.env.EMAIL,
+                subject: 'Order has been placed via dramafruit.com',
+                text: `name: ${data.name}
             email: ${data.email}
             telephone: ${data.telephone}
             address: ${data.address}
@@ -59,40 +60,40 @@ export default async (req, res) => {
             mollie_id: ${data.mollie_id}
             privacy: ${data.privacy}
         `,
-            html: emailToSend,
-        };
+                html: emailToSend,
+            };
 
-        transporter.sendMail(forwardMail, async (error, info) => {
-            console.log(info)
-            if (error) console.log(error)
-            //res.json(data)
-        });
+            transporter.sendMail(forwardMail, async (error, info) => {
+                console.log(info)
+                if (error) console.log(error)
+                //res.json(data)
+            });
 
-        /**
-         * Cumstomer purchase confirmation email
-         */
+            /**
+             * Cumstomer purchase confirmation email
+             */
 
-        //convert each purhcased item into html table row with number of items purchased
-        let purchaseTable = ``;
-        const itemArr = data.description.split(',');
-        itemArr.forEach(item => {
-            if (item.indexOf(' x') >= 0) {
-                purchaseTable += `<tr style="width: 100%;">`
-                purchaseTable += `<td style="width: 60%;">${item.split(' x')[0].trim()}</td>`
-                purchaseTable += `<td style="width: 40%;">${item.split(' x')[1].trim()}</td>`
-                purchaseTable += `</tr>`
-            }
-        })
+            //convert each purhcased item into html table row with number of items purchased
+            let purchaseTable = ``;
+            const itemArr = data.description.split(',');
+            itemArr.forEach(item => {
+                if (item.indexOf(' x') >= 0) {
+                    purchaseTable += `<tr style="width: 100%;">`
+                    purchaseTable += `<td style="width: 60%;">${item.split(' x')[0].trim()}</td>`
+                    purchaseTable += `<td style="width: 40%;">${item.split(' x')[1].trim()}</td>`
+                    purchaseTable += `</tr>`
+                }
+            })
 
-        //send email confirmation to form user
-        let confirmMail = {
-            from: process.env.EMAIL,
-            to: `${data.email}`,
-            subject: 'Purchase Confirmation - Drama Fruit',
-            text: `
+            //send email confirmation to form user
+            let confirmMail = {
+                from: process.env.EMAIL,
+                to: `${data.email}`,
+                subject: 'Purchase Confirmation - Drama Fruit',
+                text: `
             
             `,
-            html: `
+                html: `
             <!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
             <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
             <head>
@@ -275,14 +276,21 @@ export default async (req, res) => {
 
             </html>
           `
-        };
+            };
 
-        transporter.sendMail(confirmMail, async (error, info) => {
-            console.log(info)
-            if (error) {
-                console.log(error)
-            }
-            await res.json(data)
-        });
+            transporter.sendMail(confirmMail, async (error, info) => {
+                console.log(info)
+                if (error) {
+                    console.log(error)
+                }
+                if (info) {
+                    //update email sent status in firebase
+                    await doc.set({
+                        email_sent: true
+                    }, { merge: true })
+                }
+                await res.json(data)
+            });
+        }
     }
 }
