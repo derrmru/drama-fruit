@@ -10,7 +10,7 @@ import db from '../../lib/db'
 export default async (req, res) => {
     console.log(req.body)
     //check status of transaction in firebase
-    const docRef = db.collection('orders').doc(req.body.transaction_id);
+    const docRef = await db.collection('orders').doc(req.body.transaction_id);
     const doc = await docRef.get();
     if (doc.exists) {
         const data = doc.data();
@@ -285,7 +285,7 @@ export default async (req, res) => {
                 }
                 if (info) {
                     //update email sent status in firebase
-                    await doc.set({
+                    await db.collection('orders').doc(req.body.transaction_id).set({
                         email_sent: true
                     }, { merge: true })
                 }
