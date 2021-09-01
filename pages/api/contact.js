@@ -217,7 +217,7 @@ export default async (req, res) => {
             if (error) {
                 res.send(error.message);
             }
-            res.send('success');
+            await res.send('success');
         });
     }
 }

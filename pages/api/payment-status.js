@@ -6,6 +6,7 @@ const mollieClient = createMollieClient({ apiKey: process.env.MOLLIE_KEY });
 import db from '../../lib/db'
 
 export default async (req, res) => {
+    console.log(req.body)
     //after transaction is complete we receive payment ID and must query the status
     const payment = await mollieClient.payments.get(req.body.id)
 
@@ -15,5 +16,5 @@ export default async (req, res) => {
     }, { merge: true })
 
     //respond to Mollie with 200 or it keeps calling
-    res.status(200).send('complete')
+    await res.status(200).send('complete')
 }

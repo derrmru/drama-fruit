@@ -279,8 +279,10 @@ export default async (req, res) => {
 
         transporter.sendMail(confirmMail, async (error, info) => {
             console.log(info)
-            if (error) console.log(error)
-            res.json(data)
+            if (error) {
+                console.log(error)
+            }
+            await res.json(data)
         });
     }
 }
