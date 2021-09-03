@@ -12,7 +12,7 @@ const Product = (productData) => {
         },
         "offers": {
             "@type": "Offer",
-            "url": "https://dramafruit.com/drama-shop/${productData.fields.slug}/",
+            "url": "https://www.dramafruit.com/drama-shop/${productData.fields.slug}/",
             "priceCurrency": "EUR",
             "price": "${productData.fields.productPrice}",
             "seller": {
