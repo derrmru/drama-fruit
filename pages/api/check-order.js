@@ -15,7 +15,7 @@ export default async (req, res) => {
     if (doc.exists) {
         const data = doc.data();
         //if email not already sent, send confirmation email to customer
-        if (!data.email_sent) {
+        if (!data.email_sent && data.status === 'paid') {
             //nodemailer transporter
             const nodemailer = require('nodemailer');
 
@@ -292,5 +292,6 @@ export default async (req, res) => {
                 await res.json(data)
             });
         }
+        await res.json(data)
     }
 }
