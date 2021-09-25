@@ -53,14 +53,14 @@ export default async (req, res) => {
                 to: process.env.EMAIL,
                 subject: 'Order has been placed via dramafruit.com',
                 text: `name: ${data.name}
-            email: ${data.email}
-            telephone: ${data.telephone}
-            address: ${data.address}
-            description: ${data.description}
-            total: ${data.total}
-            mollie_id: ${data.mollie_id}
-            privacy: ${data.privacy}
-        `,
+                        email: ${data.email}
+                        telephone: ${data.telephone}
+                        address: ${data.address}
+                        description: ${data.description}
+                        total: ${data.total}
+                        mollie_id: ${data.mollie_id}
+                        privacy: ${data.privacy}
+                    `,
                 html: emailToSend,
             };
 
@@ -293,6 +293,6 @@ export default async (req, res) => {
                 await res.json(data)
             });
         }
-        await res.json(data)
+        //await res.json(data)
     }
 }
