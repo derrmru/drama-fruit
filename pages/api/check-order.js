@@ -292,6 +292,9 @@ export default async (req, res) => {
                 }
                 await res.json(data)
             });
+        } else {
+            const data = doc.data();
+            await res.json(data)
         }
         //await res.json(data)
     }
