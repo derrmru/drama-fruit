@@ -14,6 +14,7 @@ export default async (req, res) => {
     const doc = await docRef.get();
     if (doc.exists) {
         const data = doc.data();
+        console.log(data)
         //if email not already sent, send confirmation email to customer
         if (!data.email_sent && data.status === 'paid') {
             //nodemailer transporter
