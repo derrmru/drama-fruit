@@ -16,17 +16,20 @@ const PaymentComplete = () => {
     useEffect(() => {
         tId = window.location.href.split('transaction=')[1].split('id=')[0];
 
-        //get order status from transaction id using api/check-order
-        if (Object.keys(transaction).length === 0) {
-            $.post(
-                '/api/check-order',
-                {
-                    transaction_id: tId
-                }).done((data) => {
-                    console.log(data)
-                    setTransaction(data)
-                })
-        }
+        const timer = setTimeout(() => {
+            //get order status from transaction id using api/check-order
+            if (Object.keys(transaction).length === 0) {
+                $.post(
+                    '/api/check-order',
+                    {
+                        transaction_id: tId
+                    }).done((data) => {
+                        console.log(data)
+                        !data.status ? setTransaction({}) : setTransaction(data)
+                    })
+            }
+        }, 2000)
+        return () => clearTimeout(timer);
     }, [transaction])
 
     //shopping cart context//shopping cart context
