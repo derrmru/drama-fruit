@@ -141,6 +141,16 @@ const Contact = () => {
                 <div className={style.social}>
                     <SocialMedia />
                 </div>
+                <div className={style.declarations}>
+                    <div className={style.leftSide}>
+                        <p><strong>Address:</strong> Drama Fruit, Westerstraat 48, 1521ZE Wormerveer, Netherlands</p>
+                        <p><strong>E-mail address:</strong> play@dramafruit.com</p>
+                    </div>
+                    <div className={style.rightSide}>
+                        <p><strong>Chamber of Commerce number:</strong> 82848661</p>
+                        <p><strong>VAT identification number:</strong> NL003738951B75</p>
+                    </div>
+                </div>
             </Layout>
         </div>
     )

@@ -1,22 +1,56 @@
 .form {
-    width: 60%;
-    margin: 40px auto;
-    padding: 20px;
-    box-sizing: border-box;
-    border: 3px dashed var(--drama-green);
-    background-color: rgba(255, 255, 255, .8);
+  width: 60%;
+  margin: 40px auto;
+  padding: 20px;
+  box-sizing: border-box;
+  border: 3px dashed var(--drama-green);
+  background-color: rgba(255, 255, 255, 0.8);
 }
 
 .social {
-    width: 60%;
-    margin: 20px auto 40px auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+  width: 60%;
+  margin: 20px auto 40px auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.declarations {
+  width: 60%;
+  margin: 40px auto;
+  display: flex;
+}
+
+.declarations > div > p {
+  color: var(--drama-pink);
+}
+
+.declarations > div {
+  width: 50%;
+}
+
+.rightSide {
+  text-align: right;
+}
+
+@media only screen and (max-width: 1025px) {
+  .declarations {
+    flex-direction: column;
+  }
+  .declarations > div {
+    width: 100%;
+  }
+  .rightSide {
+    text-align: left;
+  }
 }
 
 @media only screen and (max-width: 600px) {
-    .form, .social {
-        width: 90%;
-    }
-}   
+  .form,
+  .social {
+    width: 90%;
+  }
+  .declarations {
+    width: 90%;
+  }
+}
