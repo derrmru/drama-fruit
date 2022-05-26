@@ -49,17 +49,15 @@ const DramaShop = ({ products }) => {
         if (select !== "Select") return product.fields.productCategory === select
         return true
     })
+    const disableIncUp = !(page < filteredProducts.length - productsPerPage)
     const incUp = () => {
-        if (page < filteredProducts.length - productsPerPage) {
-            setPage(page + productsPerPage)
-            window.scrollTo({ top: 100, behavior: 'smooth' });
-        }
+        setPage(page + productsPerPage)
+        window.scrollTo({ top: 100, behavior: 'smooth' })
     }
+    const disableIncDown = !(page >= productsPerPage)
     const incDown = () => {
-        if (page >= productsPerPage) {
-            window.scrollTo({ top: 100, behavior: 'smooth' });
-            setPage(page - productsPerPage)
-        }
+        window.scrollTo({ top: 100, behavior: 'smooth' });
+        setPage(page - productsPerPage)
     }
 
     return (
@@ -91,9 +89,10 @@ const DramaShop = ({ products }) => {
                     setCart={(item) => setCart(item)}
                 />
                 <NavButtons
-                    products={products}
-                    select={select}
+                    products={filteredProducts}
                     productsPerPage={productsPerPage}
+                    disableIncUp={disableIncUp}
+                    disableIncDown={disableIncDown}
                     incUp={() => incUp()}
                     incDown={() => incDown()}
                 />

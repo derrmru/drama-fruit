@@ -1,108 +1,114 @@
 .imageContainer {
-    width: 80%;
-    margin: auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    flex-wrap: wrap;
+  width: 80%;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
 }
 
 .homeImages {
-    width: calc(100% / 3 - 2%);
-    box-sizing: border-box;
-    border: 1px dashed var(--drama-green);
-    background-color: rgba(255, 255, 255, 0.85);
-    margin: 20px 1%;
-    padding: 20px 0;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: center;
+  width: calc(100% / 3 - 2%);
+  box-sizing: border-box;
+  border: 1px dashed var(--drama-green);
+  background-color: rgba(255, 255, 255, 0.85);
+  margin: 20px 1%;
+  padding: 20px 0;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .cardHr {
-    text-align: center;
-    width: 90%;
-    margin: 20px auto 10px auto;
-    height: 1px;
+  text-align: center;
+  width: 90%;
+  margin: 20px auto 10px auto;
+  height: 1px;
 }
 
 .imageSubtitle {
-    width: 90%;
-    text-align: left;
-    margin: 5px 0 5px;
-    padding-left: 5px;
+  width: 90%;
+  text-align: left;
+  margin: 5px 0 5px;
+  padding-left: 5px;
 }
 
 .atcContainer {
-    width: 89%;
-    text-align: left;
-    margin: 5px 0 0 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  width: 89%;
+  text-align: left;
+  margin: 5px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .addToCart {
-    width: 100%;
-    font-size: 14px;
-    background-color: var(--drama-pink);
-    color: var(--drama-yellow);
-    margin-top: 5px;
-    padding: 8px 20px;
-    text-align: center;
+  width: 100%;
+  font-size: 14px;
+  background-color: var(--drama-pink);
+  color: var(--drama-yellow);
+  margin-top: 5px;
+  padding: 8px 20px;
+  text-align: center;
 }
 
 .findOutButton {
-    width: 100%;
-    margin: 20px 0 0 0;
-    color: var(--drama-yellow);
-    box-sizing: border-box;
-    font-size: 14px;
-    text-align: center;
-    transition: .4s;
+  width: 100%;
+  margin: 20px 0 0 0;
+  color: var(--drama-yellow);
+  box-sizing: border-box;
+  font-size: 14px;
+  text-align: center;
+  transition: 0.4s;
 }
 
 .checkoutButton {
-    width: 100%;
-    margin: 20px 0 0 0;
-    color: var(--drama-green);
-    box-sizing: border-box;
-    font-size: 14px;
-    text-align: center;
-    transition: .4s;
+  width: 100%;
+  margin: 20px 0 0 0;
+  color: var(--drama-green);
+  box-sizing: border-box;
+  font-size: 14px;
+  text-align: center;
+  transition: 0.4s;
 }
 
-@media (hover:hover) {
-    .checkoutButton:hover {
-        color: var(--drama-yellow);
-    }
-    .findOutButton:hover {
-        color: var(--drama-pink);
-    }
+@media (hover: hover) {
+  .checkoutButton:hover {
+    color: var(--drama-yellow);
+  }
+  .findOutButton:hover {
+    color: var(--drama-pink);
+  }
 }
 
 .pageButtons {
-    width: 80%;
-    margin: 0 auto 40px auto;
-    padding: 0;
-    display: flex;
-    flex-direction: row;
+  width: 80%;
+  margin: 0 auto 40px auto;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
 }
 
 .pageButtons > button {
-    width: 48%;
-    margin: 10px 1%;
-    padding: 10px 20px;
-    box-sizing: border-box;
+  width: 48%;
+  margin: 10px 1%;
+  padding: 10px 20px;
+  box-sizing: border-box;
+}
+
+.pageButtons > button:disabled {
+  background-color: grey;
+  color: white;
+  cursor: not-allowed;
 }
 
 @media only screen and (max-width: 600px) {
-    .imageContainer {
-        flex-direction: column;
-        align-items: center;
-    }
-    .homeImages {
-        width: 98%;
-    }
-}   
+  .imageContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+  .homeImages {
+    width: 98%;
+  }
+}

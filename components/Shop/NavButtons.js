@@ -2,27 +2,29 @@ import styles from '../../styles/Shop.module.css'
 
 const NavButtons = ({
     products,
-    select,
     productsPerPage,
+    disableIncUp,
+    disableIncDown,
     incUp,
     incDown
 }) => {
     return <>
         {
-            products.filter(product => {
-                if (select !== 'Select') return product.fields.productCategory === select
-                return true
-            }).length > productsPerPage && <div className={styles.pageButtons}>
+            products.length > productsPerPage && <div className={styles.pageButtons}>
                 <button
+                    className={styles.navButtons}
+                    disabled={disableIncDown}
                     onClick={() => incDown()}
                 >
                     Previous
-                        </button>
+                </button>
                 <button
+                    className={styles.navButtons}
+                    disabled={disableIncUp}
                     onClick={() => incUp()}
                 >
                     Next
-                        </button>
+                </button>
             </div>
         }
     </>
