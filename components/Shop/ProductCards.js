@@ -4,7 +4,6 @@ import styles from '../../styles/Shop.module.css'
 
 const ProductCards = ({
     products,
-    select,
     page,
     productsPerPage,
     items,
@@ -15,6 +14,7 @@ const ProductCards = ({
             products
                 .sort((a, b) => new Date(b.fields.datePublished) - new Date(a.fields.datePublished))
                 .slice(page, page + productsPerPage).map((item) => {
+                    const { img, base64 } = item.placeholder
                     return <div
                         key={item.sys.id}
                         className={styles.homeImages + ' fade-in'}
@@ -23,11 +23,9 @@ const ProductCards = ({
                             <Link href={'/drama-shop/' + item.fields.slug}>
                                 <a>
                                     <Image
-                                        src={`https:${item.fields.productImage.fields.file.url}`}
-                                        alt={item.fields.imageAltText || ''}
-                                        layout='responsive'
-                                        width={100}
-                                        height={100}
+                                        {...img}
+                                        blurDataURL={base64}
+                                        placeholder='blur'
                                     />
                                 </a>
                             </Link>

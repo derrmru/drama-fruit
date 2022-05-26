@@ -7,7 +7,7 @@ import NavButtons from '../components/Shop/NavButtons'
 import Filter from '../components/Filter'
 import { useState, useContext, useEffect } from 'react'
 import { ShoppingContext } from '../src/context/shoppingCart'
-// import { getPlaiceholder } from 'plaiceholder'
+import { getPlaiceholder } from 'plaiceholder'
 import styles from '../styles/Shop.module.css'
 
 const DramaShop = ({ products }) => {
@@ -62,8 +62,6 @@ const DramaShop = ({ products }) => {
         }
     }
 
-    console.log('\\\\products', products)
-
     return (
         <div className={styles.container}>
             <Head>
@@ -87,7 +85,6 @@ const DramaShop = ({ products }) => {
                 />
                 <ProductCards
                     products={filteredProducts}
-                    select={select}
                     page={page}
                     productsPerPage={productsPerPage}
                     items={items}
@@ -106,17 +103,21 @@ const DramaShop = ({ products }) => {
     )
 }
 
+const getProductsWithPlaceholders = async (products) => {
+    return await Promise.all(products.map(async (product) => {
+        const img = await getPlaiceholder(`https:${product.fields.productImage.fields.file.url}`, { size: 4 })
+        return { ...product, placeholder: img }
+    }))
+}
+
 export async function getStaticProps() {
     //fetch posts from contentful
     const fetchedProducts = await fetchEntries({
         content_type: "products",
     })
-    // const newProducts = await Promise.all(fetchedProducts.map((product) => {
-    //     const img = getPlaiceholder(`https:${product.fields.productImage.fields.file.url}`)
-    //     return { ...product, placeholder: img }
-    // }))
+    const products = await getProductsWithPlaceholders(fetchedProducts)
     return {
-        props: { products: fetchedProducts }
+        props: { products }
     }
 }
 

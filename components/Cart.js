@@ -1,5 +1,6 @@
 import { useState, useContext, useEffect } from 'react'
 import { ShoppingContext } from '../src/context/shoppingCart'
+import Image from 'next/image'
 import Link from 'next/link'
 import style from './Cart.module.css'
 
@@ -13,7 +14,7 @@ const Cart = () => {
 
     //delete item from cart
     const deleteItem = (item) => {
-        let obj = {...items};
+        let obj = { ...items };
         delete obj[item]
         itemsSetter(obj)
     }
@@ -21,7 +22,7 @@ const Cart = () => {
     //increment or decrement pages
     const inc = (item, direction) => {
         //new value
-        let obj = {...items};
+        let obj = { ...items };
         const newValue = Number(obj[item]['number']) + direction
         //if new value is above 0 and less than max then increment
         if (newValue >= 0 && newValue <= items[item]['maxNumber']) {
@@ -57,26 +58,26 @@ const Cart = () => {
             </svg>
             {
                 show && <div className={style.basket + ' fade-in'}>
-                    <div 
+                    <div
                         className={style.exitCross}
                         onClick={() => cartLength > 0 && setShow(!show)}
-                        >
-                            &#10006;
+                    >
+                        &#10006;
                     </div>
                     <div className={style.basketItem}>
                         <h3>BASKET</h3>
                         <hr />
                         {
-                            Object.keys(items).map((item, i) => {
+                            Object.keys(items).map((item) => {
                                 return <div
-                                    key={'cartItem' + i}
+                                    key={items[item].id}
                                     className={style.item}
-                                    >
-                                    <div style={{width: '30%'}}>
-                                        <img
-                                            src={'/' + items[item]['image']}
-                                            width="100%"
-                                            height="auto"
+                                >
+                                    <div style={{ width: '30%' }}>
+                                        <Image
+                                            src={'https:' + items[item]['image']}
+                                            width={100}
+                                            height={100}
                                         />
                                     </div>
                                     <div className={style.basketItemText}>
@@ -84,51 +85,51 @@ const Cart = () => {
                                         <div>€{items[item]['price']}</div>
                                         <hr />
                                         {
-                                            items[item]['maxNumber'] === 1 ? 
-                                                <div 
-                                                    style={{fontSize: '12px', margin: '12px 0', color: 'var(--drama-pink)'}}
-                                                    >
-                                                        Last In Stock
+                                            items[item]['maxNumber'] === 1 ?
+                                                <div
+                                                    style={{ fontSize: '12px', margin: '12px 0', color: 'var(--drama-pink)' }}
+                                                >
+                                                    Last In Stock
                                                 </div> :
-                                                    <div className={style.incrementContain}> 
-                                                        <div 
-                                                            className={style.incrementButton}
-                                                            onClick={() => items[item]['number'] > 1 && inc(item, -1)}
-                                                            >
-                                                                -
-                                                        </div>
-                                                        <div>{items[item]['number']}</div>
-                                                        <div 
-                                                            className={style.incrementButton}
-                                                            onClick={() => inc(item, 1)}
-                                                            >
-                                                                +
-                                                        </div>
+                                                <div className={style.incrementContain}>
+                                                    <div
+                                                        className={style.incrementButton}
+                                                        onClick={() => items[item]['number'] > 1 && inc(item, -1)}
+                                                    >
+                                                        -
                                                     </div>
+                                                    <div>{items[item]['number']}</div>
+                                                    <div
+                                                        className={style.incrementButton}
+                                                        onClick={() => inc(item, 1)}
+                                                    >
+                                                        +
+                                                    </div>
+                                                </div>
                                         }
                                     </div>
-                                    <div 
+                                    <div
                                         className={style.itemCross}
                                         onClick={() => deleteItem(item)}
-                                        >
-                                            &#10006;
+                                    >
+                                        &#10006;
                                     </div>
                                 </div>
                             })
                         }
                         <hr />
-                        <div 
+                        <div
                             className={style.basketTotal}
-                            >
+                        >
                             <h4>TOTAL: €{Object.keys(items).reduce((total, item) => total += (Number(items[item]['price']) * Number(items[item]['number'])), 0)}</h4>
                         </div>
                         <hr />
                         <div className={style.checkContain}>
-                        <Link href="/checkout" width="100%">
-                            <a className={style.checkout} style={{width: '100%'}}>
-                                CHECKOUT
-                            </a>
-                        </Link>
+                            <Link href="/checkout" width="100%">
+                                <a className={style.checkout} style={{ width: '100%' }}>
+                                    CHECKOUT
+                                </a>
+                            </Link>
                         </div>
                     </div>
                 </div>

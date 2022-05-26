@@ -47,9 +47,9 @@ const News = () => {
                     {
                         posts
                             .slice(inc, inc + postsPerPage)
-                            .map((post, i) => {
+                            .map((post) => {
                                 return <div
-                                    key={'blogPost' + i}
+                                    key={post.sys.id}
                                     className={style.card + ' fade-in'}
                                 >
                                     <img

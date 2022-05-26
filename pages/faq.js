@@ -19,8 +19,6 @@ const FAQ = () => {
         ent()
     }, [])
 
-    console.log('entries, ', entries)
-
     return (
         <div>
             <Head>

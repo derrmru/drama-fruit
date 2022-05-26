@@ -5,7 +5,6 @@ import style from '../../styles/FAQ.module.css'
 
 const FAQs = ({ entries }) => {
     const [open, setOpen] = useState('')
-    console.log(open)
 
     const richTextOptions = {
         renderNode: {
@@ -29,18 +28,6 @@ const FAQs = ({ entries }) => {
                 }
 
             },
-            [BLOCKS.EMBEDDED_ENTRY]: (node) => {
-                const fields = node.data.target.fields;
-                switch (node.data.target.sys.contentType.sys.id) {
-                    case 'blockquote':
-                        return <div>
-                            <BlockQuote quoteText={fields.quoteText['en-US']} quoter={fields.quoter['en-US']} />
-                        </div>
-                    default:
-                        return <div>??????????????? {title} </div>
-
-                }
-            },
         }
     }
 
@@ -49,8 +36,8 @@ const FAQs = ({ entries }) => {
             {
                 entries && entries
                     .sort((a, b) => a.fields.position - b.fields.position)
-                    .map((entry, i) => {
-                        return <div key={'question' + i}>
+                    .map((entry) => {
+                        return <div key={entry.sys.id}>
                             <div
                                 className={style.question}
                                 onClick={() => open !== (entry.fields.question) ? setOpen(entry.fields.question) : setOpen('')}
