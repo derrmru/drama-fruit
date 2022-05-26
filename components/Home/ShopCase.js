@@ -16,6 +16,7 @@ const ShopCase = ({
                     layout='responsive'
                     width={100}
                     height={100}
+                    sizes='50vw'
                 />
             </div>
             <div className={style.bannerText + ' ' + style.shopText}>
