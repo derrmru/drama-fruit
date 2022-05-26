@@ -15,6 +15,7 @@
     "@contentful/rich-text-react-renderer": "^15.12.1",
     "@material-ui/core": "^4.11.4",
     "@mollie/api-client": "^3.5.1",
+    "@plaiceholder/next": "^2.3.0",
     "contentful": "^8.3.5",
     "contentful-management": "^7.22.3",
     "firebase-admin": "^9.8.0",
@@ -23,8 +24,10 @@
     "next-sitemap": "^1.6.99",
     "nodemailer": "^6.6.1",
     "places-autocomplete-react": "^1.0.10",
+    "plaiceholder": "^2.3.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "sharp": "^0.30.5",
     "uuid": "^8.3.2"
   },
   "devDependencies": {

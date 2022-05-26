@@ -7,9 +7,11 @@ import NavButtons from '../components/Shop/NavButtons'
 import Filter from '../components/Filter'
 import { useState, useContext, useEffect } from 'react'
 import { ShoppingContext } from '../src/context/shoppingCart'
+// import { getPlaiceholder } from 'plaiceholder'
 import styles from '../styles/Shop.module.css'
 
-const DramaShop = () => {
+const DramaShop = ({ products }) => {
+
     //shopping cart context
     const { items, itemsSetter } = useContext(ShoppingContext)
 
@@ -30,20 +32,6 @@ const DramaShop = () => {
         itemsSetter(obj)
     }
 
-    //fetch posts from contentful
-    const [products, setProducts] = useState([])
-
-    useEffect(() => {
-        const getProducts = async () => {
-            const allProducts = await fetchEntries({
-                content_type: "products",
-            })
-            setProducts([...allProducts])
-        }
-        getProducts()
-    }, [])
-
-    //product pagination
     const [page, setPage] = useState(0);
     const productsPerPage = 6;
     const incUp = () => {
@@ -110,6 +98,20 @@ const DramaShop = () => {
 
         </div>
     )
+}
+
+export async function getStaticProps() {
+    //fetch posts from contentful
+    const fetchedProducts = await fetchEntries({
+        content_type: "products",
+    })
+    // const newProducts = await Promise.all(fetchedProducts.map((product) => {
+    //     const img = getPlaiceholder(`https:${product.fields.productImage.fields.file.url}`)
+    //     return { ...product, placeholder: img }
+    // }))
+    return {
+        props: { products: fetchedProducts }, // will be passed to the page component as props
+    }
 }
 
 export default DramaShop
