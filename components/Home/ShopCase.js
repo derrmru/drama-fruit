@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import style from '../../styles/Home.module.css'
 
@@ -8,10 +9,13 @@ const ShopCase = ({
     return (
         <div className={style.bannerContainer + ' fade-in ' + style.shopContainer}>
             <div className={style.bannerImage + ' ' + style.shopImage}>
-                <img
+                <Image
                     className={style.theImage}
-                    src={items && items.fields.shopImage.fields.file.url}
-                    alt={items && items.fields.shopAltDescription}
+                    src={`https:${items?.fields.shopImage.fields.file.url}`}
+                    alt={items?.fields.shopAltDescription}
+                    layout='responsive'
+                    width={100}
+                    height={100}
                 />
             </div>
             <div className={style.bannerText + ' ' + style.shopText}>

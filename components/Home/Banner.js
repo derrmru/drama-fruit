@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import style from '../../styles/Home.module.css'
 
 const Banner = ({
@@ -9,10 +10,13 @@ const Banner = ({
                 <h1>For Everyone<br />Unafraid<br />To Stand Out</h1>
             </div>
             <div className={style.bannerImage + ' ' + style.mainImage}>
-                <img
+                <Image
                     className={style.theImage}
-                    src={items && items.fields.bannerImage.fields.file.url}
-                    alt={items && items.fields.altDescription}
+                    src={`https:${items?.fields.bannerImage.fields.file.url}`}
+                    alt={items?.fields.altDescription}
+                    layout='responsive'
+                    width={100}
+                    height={100}
                 />
             </div>
         </div>

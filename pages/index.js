@@ -30,11 +30,15 @@ const Home = ({ items }) => {
 }
 
 //get meta and CMS data as initial props
-Home.getInitialProps = async () => {
+export const getStaticProps = async () => {
   const selection = await fetchEntries({
     content_type: "homePage",
   })
-  return { items: selection[0] }
+  return {
+    props: {
+      items: selection[0]
+    }
+  }
 }
 
 export default Home
