@@ -13,10 +13,6 @@ const ProductCards = ({
     return <div className={styles.imageContainer}>
         {
             products
-                .filter(product => {
-                    if (select !== "Select") return product.fields.productCategory === select
-                    return true
-                })
                 .sort((a, b) => new Date(b.fields.datePublished) - new Date(a.fields.datePublished))
                 .slice(page, page + productsPerPage).map((item) => {
                     return <div

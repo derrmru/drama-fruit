@@ -32,10 +32,25 @@ const DramaShop = ({ products }) => {
         itemsSetter(obj)
     }
 
+    //Select Categories
+    const [productCategories, setProductCategories] = useState([]);
+    const [select, setSelect] = useState('Select');
+    useEffect(() => {
+        if (products) setProductCategories(Object.keys(products).reduce((total, product) => {
+            const pc = products[product].fields.productCategory
+            if (pc && total.indexOf(pc) < 0) total.push(pc)
+            return total
+        }, []))
+    }, [products])
+
     const [page, setPage] = useState(0);
     const productsPerPage = 6;
+    const filteredProducts = products.filter(product => {
+        if (select !== "Select") return product.fields.productCategory === select
+        return true
+    })
     const incUp = () => {
-        if (page < products.length - productsPerPage) {
+        if (page < filteredProducts.length - productsPerPage) {
             setPage(page + productsPerPage)
             window.scrollTo({ top: 100, behavior: 'smooth' });
         }
@@ -47,16 +62,7 @@ const DramaShop = ({ products }) => {
         }
     }
 
-    //Select Categories
-    const [productCategories, setProductCategories] = useState([]);
-    const [select, setSelect] = useState('Select');
-    useEffect(() => {
-        if (products) setProductCategories(Object.keys(products).reduce((total, product) => {
-            const pc = products[product].fields.productCategory
-            if (pc && total.indexOf(pc) < 0) total.push(pc)
-            return total
-        }, []))
-    }, [products])
+    console.log('\\\\products', products)
 
     return (
         <div className={styles.container}>
@@ -80,7 +86,7 @@ const DramaShop = ({ products }) => {
                     setPage={() => setPage(0)}
                 />
                 <ProductCards
-                    products={products}
+                    products={filteredProducts}
                     select={select}
                     page={page}
                     productsPerPage={productsPerPage}
@@ -110,7 +116,7 @@ export async function getStaticProps() {
     //     return { ...product, placeholder: img }
     // }))
     return {
-        props: { products: fetchedProducts }, // will be passed to the page component as props
+        props: { products: fetchedProducts }
     }
 }
 
