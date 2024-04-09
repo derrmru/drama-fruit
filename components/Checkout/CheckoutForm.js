@@ -45,7 +45,7 @@ const CheckoutForm = ({
             <hr />
             <p style={{ color: 'var(--drama-pink)' }}>Please provide your delivery address, make sure it's correct!</p>
             <AutoComplete
-                placesKey="AIzaSyAkuPHNHz8Ki1KV6n6iI1-EFVIC3ZAm0QY"
+                placesKey={process.env.PLACES_API_KEY}
                 inputId="address"
                 setAddress={(addressObject) => handleAddress(addressObject)}
                 required
